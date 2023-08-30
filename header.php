@@ -11,7 +11,7 @@
 	<?php wp_body_open() ?>
 
 	<div id="headerCursor"> </div>
-	<header>
+	<header class="bg_purple">
 		<div class="container">
 			<div class="menu">
 

@@ -1,0 +1,15 @@
+@use '../../root/' as *;
+
+#homeSliderSwiper {
+  height: calc(100vh - var(--header-height));
+
+  .swiper-slide {
+    &.slide-0 {
+      background-color: red;
+    }
+
+    &.slide-1 {
+      background-color: blue;
+    }
+  }
+}
