@@ -70,8 +70,147 @@
   font-style: normal;
   font-display: swap;
 }
-main {
-  background-color: #fff;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+button[type=submit] {
+  border: none;
+  outline: none;
+  background-color: none;
+  display: flex;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+body {
+  background-color: hsl(240, 36%, 96%);
+  font-size: 1rem;
+}
+body ::placeholder, body {
+  font-family: Peyda;
+}
+
+.form_control input {
+  outline: none;
+  background: none;
+  border: none;
+}
+
+i {
+  background-color: rgba(26, 25, 134, 0.1);
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+header .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding-block: 2.5rem;
+}
+header .container > * {
+  flex: 1;
+}
+header .container .menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  position: relative;
+}
+#headerCursor {
+  --left: 0;
+  --top: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 100rem;
+  background-color: hsl(240, 36%, 96%);
+  mix-blend-mode: difference;
+  transition: inset 0.1s;
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+  left: var(--left);
+  top: var(--top);
+}
+
+header .container .menu .header_menu_container {
+  color: hsl(240, 67%, 17%);
+  padding-inline-end: 0.5rem;
+}
+header .container .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0;
+}
+header .container .search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0;
+}
+header .container .search .form_control {
+  border-radius: 1000px;
+  border: none;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  outline: hsl(241, 69%, 31%);
+  border-right: 1px solid hsla(240, 67%, 17%, 0.4);
+  border-bottom: 1px solid hsla(240, 67%, 17%, 0.4);
+  background-color: hsl(240, 100%, 100%);
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+header .container .search .form_control input {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+header .container .search .form_control input::placeholder, header .container .search .form_control input {
+  color: hsl(241, 30%, 64%);
+}
+header.purple_bg {
+  background-color: hsl(241, 69%, 31%);
+}
+header.purple_bg .menu {
+  color: hsl(240, 36%, 96%);
+}
+header.purple_bg .logo img {
+  filter: brightness(7);
 }
 
 /*# sourceMappingURL=compiled.css.map */

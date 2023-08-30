@@ -3,6 +3,6 @@
   src: url(../fonts/peyda/woff/PeydaWebFaNum-Medium.woff);
 }
 
-*:not(i, .ab-icon) {
+*:not(i, .ab-icon, .dashicons-admin-generic) {
   font-family: Peyda !important;
 }

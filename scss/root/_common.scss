@@ -1,0 +1,30 @@
+@use './variables' as *;
+@use './functions' as *;
+
+.container {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+body {
+  background-color: $c_white_1;
+  font-size: PxToRem(16);
+
+  ::placeholder,
+  & {
+    font-family: Peyda;
+  }
+}
+
+.form_control input {
+  outline: none;
+  background: none;
+  border: none;
+}
+
+i {
+  background-color: rgba($c_blue_1, 0.1);
+  display: inline-block;
+  height: PxToRem(24);
+  width: PxToRem(24);
+}

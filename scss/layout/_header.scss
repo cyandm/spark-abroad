@@ -1,0 +1,81 @@
+@use '../root/index' as *;
+
+header {
+  .container {
+    @include d_flex($equal_children: true, $a_i: center);
+    padding-block: PxToRem(40);
+
+    .menu {
+      @include d_flex($gap: PxToRem(28));
+      position: relative;
+
+      @at-root #headerCursor {
+        $size: PxToRem(28);
+        --left: 0;
+        --top: 0;
+
+        width: $size;
+        height: $size;
+        border-radius: 100rem;
+        background-color: $c_white_1;
+        mix-blend-mode: difference;
+        transition: inset 0.1s;
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        left: var(--left);
+        top: var(--top);
+      }
+
+      .header_menu_container {
+        color: $c_blue_2;
+        padding-inline-end: PxToRem(8);
+      }
+    }
+
+    .logo {
+      @include d_flex($j_c: center);
+    }
+
+    .search {
+      @include d_flex($j_c: flex-end);
+
+      .form_control {
+        $border: 1px solid $c_blue_4;
+        border-radius: 1000px;
+        border: none;
+        padding-block: PxToRem(8);
+        padding-inline: PxToRem(16);
+        outline: $c_blue_1;
+        border-right: $border;
+        border-bottom: $border;
+        background-color: $c_white_2;
+
+        @include d_flex($a_i: center, $gap: PxToRem(4));
+        input {
+          outline: none;
+          border: none;
+          background: transparent;
+          &::placeholder,
+          & {
+            color: $c_gray;
+          }
+        }
+      }
+    }
+  }
+
+  &.purple_bg {
+    background-color: $c_blue_1;
+
+    .menu {
+      color: $c_white_1;
+    }
+
+    .logo {
+      img {
+        filter: brightness(7);
+      }
+    }
+  }
+}

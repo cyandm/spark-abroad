@@ -1,0 +1,42 @@
+@mixin d_flex(
+  $dir: row,
+  $j_c: start,
+  $a_i: start,
+  $wrap: wrap,
+  $equal_children: false,
+  $gap: 0
+) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $j_c;
+  align-items: $a_i;
+  flex-wrap: $wrap;
+  gap: $gap;
+
+  @if ($equal_children) {
+    > * {
+      flex: 1;
+    }
+  }
+}
+
+@mixin psudo(
+  $el: after,
+  $content: '',
+  $inset: 0 0 auto auto,
+  $square: PxToRem(4),
+  $display: block,
+  $position: absolute
+) {
+  position: relative;
+
+  &::#{$el} {
+    content: $content;
+    position: $position;
+    inset: $inset;
+    width: $square;
+    height: $square;
+    display: $display;
+    @content;
+  }
+}
