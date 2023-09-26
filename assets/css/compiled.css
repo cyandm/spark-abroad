@@ -102,13 +102,13 @@ button[type=submit] {
 }
 @media (width < 1440px) {
   .container {
-    padding-inline: 1rem;
+    padding-inline: calc(1 + rem);
   }
 }
 
 body {
   background-color: hsl(240, 36%, 96%);
-  font-size: 1rem;
+  font-size: calc(1 + rem);
 }
 body ::placeholder, body {
   font-family: Peyda;
@@ -123,8 +123,22 @@ body ::placeholder, body {
 i {
   background-color: rgba(26, 25, 134, 0.1);
   display: inline-block;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: calc(1.5 + rem);
+  width: calc(1.5 + rem);
+}
+
+.primary-btn {
+  display: inline-flex;
+  padding: 0.75rem 2rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  border-radius: 2.5rem;
+  border: 1px solid hsl(241, 69%, 31%);
+  background: hsl(241, 69%, 31%);
+  color: hsl(0, 0%, 100%);
+}
+.primary-btn:hover {
+  background-color: hsl(240, 100%, 99.8%);
 }
 
 header .container {
@@ -134,7 +148,7 @@ header .container {
   align-items: center;
   flex-wrap: wrap;
   gap: 0;
-  padding-block: 2.5rem;
+  padding-block: calc(2.5 + rem);
 }
 header .container > * {
   flex: 1;
@@ -145,14 +159,14 @@ header .container .menu {
   justify-content: start;
   align-items: start;
   flex-wrap: wrap;
-  gap: 1.75rem;
+  gap: calc(1.75 + rem);
   position: relative;
 }
 #headerCursor {
   --left: 0;
   --top: 0;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: calc(1.75 + rem);
+  height: calc(1.75 + rem);
   border-radius: 100rem;
   background-color: hsl(240, 36%, 96%);
   mix-blend-mode: difference;
@@ -166,7 +180,7 @@ header .container .menu {
 
 header .container .menu .header_menu_container {
   color: hsl(240, 67%, 17%);
-  padding-inline-end: 0.5rem;
+  padding-inline-end: calc(0.5 + rem);
 }
 header .container .logo {
   display: flex;
@@ -187,8 +201,8 @@ header .container .search {
 header .container .search .form_control {
   border-radius: 1000px;
   border: none;
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
+  padding-block: calc(0.5 + rem);
+  padding-inline: calc(1 + rem);
   outline: hsl(241, 69%, 31%);
   border-right: 1px solid hsla(240, 67%, 17%, 0.4);
   border-bottom: 1px solid hsla(240, 67%, 17%, 0.4);
@@ -198,7 +212,7 @@ header .container .search .form_control {
   justify-content: start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.25rem;
+  gap: calc(0.25 + rem);
 }
 header .container .search .form_control input {
   outline: none;
@@ -230,6 +244,24 @@ header.bg_purple .logo img {
 
 body:has(main.home) {
   overflow: hidden;
+}
+
+main.page-notfound {
+  margin-top: 2rem;
+  margin-bottom: 7.48rem;
+}
+main.page-notfound .not-found-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main.page-notfound .not-found-content img {
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+main.page-notfound .not-found-content .text-not-found {
+  margin-bottom: 0.5rem;
 }
 
 /**

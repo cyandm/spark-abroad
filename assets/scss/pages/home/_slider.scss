@@ -1,4 +1,4 @@
-@use '../../root/' as *;
+@use "../../utils/" as *;
 
 #homeSliderSwiper {
   height: calc(100vh - var(--header-height));
