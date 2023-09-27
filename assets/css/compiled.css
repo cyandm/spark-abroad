@@ -249,11 +249,11 @@ header.bg_purple .logo img {
   justify-content: center;
   align-items: start;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: calc(1 + rem);
 }
 #homeSliderSwiper .swiper-slide.slide-0 .container h1 {
   color: hsl(240, 36%, 96%);
-  font-size: 4rem;
+  font-size: calc(4 + rem);
   font-weight: 400;
 }
 #homeSliderSwiper .swiper-slide.slide-0 .container h1 span {
@@ -272,7 +272,7 @@ header.bg_purple .logo img {
   background-size: contain;
 }
 #homeSliderSwiper .swiper-slide.slide-0 .container p {
-  font-size: 1.25rem;
+  font-size: calc(1.25 + rem);
   color: hsl(241, 30%, 64%);
 }
 #homeSliderSwiper .swiper-slide.slide-0 .container button {
@@ -282,8 +282,8 @@ header.bg_purple .logo img {
   border: 1px solid hsl(240, 36%, 96%);
   color: hsl(240, 36%, 96%);
   border-radius: 100rem;
-  padding: 1.5rem 0.75rem;
-  font-size: 1.25rem;
+  padding: calc(1.5 + rem) calc(0.75 + rem);
+  font-size: calc(1.25 + rem);
   overflow: hidden;
   transition: color 0.3s 0.3s ease-in-out;
   position: relative;
