@@ -1,6 +1,7 @@
 import { homeSliderSwiper } from '../modules/swiper';
 import { headerEl } from '../modules/header';
 
+/*----------------------------------------------------- */
 const headerBgChanger = () => {
   const activeIndex = homeSliderSwiper.realIndex;
   const activeSlide = homeSliderSwiper.slides[activeIndex];
@@ -10,3 +11,11 @@ const headerBgChanger = () => {
 };
 
 homeSliderSwiper.on('slideChange', headerBgChanger);
+
+/*----------------------------------------------------- */
+const goToSlideOneButton = document.getElementById('goToSlideOne');
+const goToSlideOne = () => {
+  homeSliderSwiper.slideNext();
+};
+
+goToSlideOneButton.addEventListener('click', goToSlideOne);
