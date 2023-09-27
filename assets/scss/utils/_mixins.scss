@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin d_flex(
   $dir: row,
   $j_c: start,
@@ -41,16 +43,55 @@
   }
 }
 
-@mixin font(
-  $font-family: "Peyda",
-  $font-size: 1rem,
-  $font-style: normal,
-  $font-weight: 400,
-  $line-height: 2.125rem
-) {
-  font-family: $font-family;
-  font-size: $font-size;
-  font-style: $font-style;
-  font-weight: $font-weight;
-  line-height: $line-height;
+@mixin base_font() {
+  color: $c_white_1;
+  font-family: $font;
+  font-size: 8.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@mixin font_style($type) {
+  @include base_font();
+  @if ($type == "t1") {
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 6.625rem;
+  }
+  @if ($type == "t2") {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 6.625rem;
+  }
+  @if ($type == "h1") {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.75rem;
+  }
+  @if ($type == "h2") {
+    font-size: 1.25rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+  }
+  @if ($type == "h3") {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: auto;
+  }
+  @if ($type == "body1") {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 178.3%;
+  }
+  @if ($type == "body_2") {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2.025rem;
+  }
+  @if ($type == "caption") {
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: auto;
+  }
 }
