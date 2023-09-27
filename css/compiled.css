@@ -87,10 +87,11 @@ a {
   color: unset;
 }
 
-button[type=submit] {
+button {
+  font-family: inherit;
   border: none;
   outline: none;
-  background-color: none;
+  background: transparent;
   display: flex;
   pointer-events: all;
   cursor: pointer;
@@ -222,10 +223,74 @@ header.bg_purple .logo img {
   height: calc(100vh - var(--header-height));
 }
 #homeSliderSwiper .swiper-slide.slide-0 {
-  background-color: red;
+  background-color: hsl(241, 69%, 31%);
+}
+#homeSliderSwiper .swiper-slide.slide-0 .container {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#homeSliderSwiper .swiper-slide.slide-0 .container h1 {
+  color: hsl(240, 36%, 96%);
+  font-size: 4rem;
+  font-weight: 400;
+}
+#homeSliderSwiper .swiper-slide.slide-0 .container h1 span {
+  font-weight: bold;
+  position: relative;
+}
+#homeSliderSwiper .swiper-slide.slide-0 .container h1 span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: PxToRem(4);
+  height: PxToRem(4);
+  display: block;
+  background-image: url("../imgs/h1_sticker.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#homeSliderSwiper .swiper-slide.slide-0 .container p {
+  font-size: 1.25rem;
+  color: hsl(241, 30%, 64%);
+}
+#homeSliderSwiper .swiper-slide.slide-0 .container button {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  scale: -1;
+  border: 1px solid hsl(240, 36%, 96%);
+  color: hsl(240, 36%, 96%);
+  border-radius: 100rem;
+  padding: 1.5rem 0.75rem;
+  font-size: 1.25rem;
+  overflow: hidden;
+  transition: color 0.3s 0.3s ease-in-out;
+  position: relative;
+}
+#homeSliderSwiper .swiper-slide.slide-0 .container button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: PxToRem(4);
+  height: PxToRem(4);
+  display: block;
+  background-color: hsl(240, 36%, 96%);
+  transition: translate 0.3s ease-in-out;
+  translate: 0 100%;
+  z-index: -1;
+}
+#homeSliderSwiper .swiper-slide.slide-0 .container button:hover {
+  color: hsl(241, 69%, 31%);
+}
+#homeSliderSwiper .swiper-slide.slide-0 .container button:hover::before {
+  translate: 0;
 }
 #homeSliderSwiper .swiper-slide.slide-1 {
-  background-color: blue;
+  background-color: hsl(240, 36%, 96%);
 }
 
 body:has(main.home) {

@@ -1,7 +1,7 @@
+const headerEl = document.querySelector('header');
 const headerCursor = document.getElementById('headerCursor');
 const headerMenu = document.getElementById('headerMenu');
 const headerMenuBound = headerMenu.getBoundingClientRect();
-export const headerEl = document.querySelector('header');
 
 const headerCursorMoveHandler = (e) => {
   headerCursor.style.setProperty('--left', e.clientX - 14 + 'px');
@@ -33,3 +33,5 @@ window.addEventListener('load', () => {
 window.addEventListener('resize', () => {
   setHeaderHeight();
 });
+
+export { headerEl };

@@ -21,10 +21,10 @@
   var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 
   // js/modules/header.js
+  var headerEl = document.querySelector("header");
   var headerCursor = document.getElementById("headerCursor");
   var headerMenu = document.getElementById("headerMenu");
   var headerMenuBound = headerMenu.getBoundingClientRect();
-  var headerEl = document.querySelector("header");
   var headerCursorMoveHandler = (e) => {
     headerCursor.style.setProperty("--left", e.clientX - 14 + "px");
     headerCursor.style.setProperty("--top", e.clientY - 14 + "px");
@@ -9106,6 +9106,7 @@
   var homeSliderSwiper = new Swiper("#homeSliderSwiper", {
     direction: "vertical",
     mousewheel: true,
+    speed: 1e3,
     keyboard: {
       enabled: true
     }
@@ -9119,4 +9120,9 @@
     headerEl.classList.toggle("bg_purple", haveBgPurple);
   };
   homeSliderSwiper.on("slideChange", headerBgChanger);
+  var goToSlideOneButton = document.getElementById("goToSlideOne");
+  var goToSlideOne = () => {
+    homeSliderSwiper.slideNext();
+  };
+  goToSlideOneButton.addEventListener("click", goToSlideOne);
 })();

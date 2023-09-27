@@ -1,15 +1,67 @@
-@use '../../root/' as *;
+@use '../../root' as *;
 
 #homeSliderSwiper {
   height: calc(100vh - var(--header-height));
 
   .swiper-slide {
     &.slide-0 {
-      background-color: red;
+      background-color: $c_blue_1;
+
+      .container {
+        height: 80%;
+        @include d_flex(column, $j_c: center, $gap: PxToRem(16));
+
+        h1 {
+          color: $c_white_1;
+          font-size: PxToRem(64);
+          font-weight: 400;
+
+          span {
+            font-weight: bold;
+            @include psudo(after, $inset: 0) {
+              background-image: url('../imgs/h1_sticker.png');
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+          }
+        }
+
+        p {
+          font-size: PxToRem(20);
+          color: $c_gray;
+        }
+
+        button {
+          writing-mode: vertical-lr;
+          text-orientation: mixed;
+          scale: -1;
+          border: 1px solid $c_white_1;
+          color: $c_white_1;
+          border-radius: 100rem;
+          padding: PxToRem(24) PxToRem(12);
+          font-size: PxToRem(20);
+          overflow: hidden;
+          transition: color 0.3s 0.3s ease-in-out;
+
+          @include psudo(before, $inset: 0) {
+            background-color: $c_white_1;
+            transition: translate 0.3s ease-in-out;
+            translate: 0 100%;
+            z-index: -1;
+          }
+
+          &:hover {
+            color: $c_blue_1;
+            &::before {
+              translate: 0;
+            }
+          }
+        }
+      }
     }
 
     &.slide-1 {
-      background-color: blue;
+      background-color: $c_white_1;
     }
   }
 }

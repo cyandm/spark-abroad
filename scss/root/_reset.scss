@@ -12,10 +12,11 @@ a {
   text-decoration: none;
   color: unset;
 }
-button[type='submit'] {
+button {
+  font-family: inherit;
   border: none;
   outline: none;
-  background-color: none;
+  background: transparent;
   display: flex;
   pointer-events: all;
   cursor: pointer;

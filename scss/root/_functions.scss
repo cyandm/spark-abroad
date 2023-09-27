@@ -1,5 +1,7 @@
+@use 'sass:math';
+
 @function PxToRem($px) {
   @if ($px % 4 == 0) {
-    @return $px / 16 + rem;
+    @return math.div($px, 16) + rem;
   }
 }

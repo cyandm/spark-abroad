@@ -4,7 +4,11 @@ if ( ! class_exists( 'cyn-theme-init' ) ) {
 	class cyn_theme_init {
 
 
-		function __construct() {
+		private $deploy, $ver;
+		function __construct( $deploy = false, $ver = '0.0.0' ) {
+			$this->deploy = $deploy;
+			$this->ver = $ver;
+
 			add_action( 'init', [ $this, 'cyn_theme_init' ] );
 			add_action( 'wp_enqueue_scripts', [ $this, 'cyn_enqueue_files' ] );
 			add_action( 'admin_enqueue_scripts', [ $this, 'cyn_admin_files' ] );
@@ -17,13 +21,19 @@ if ( ! class_exists( 'cyn-theme-init' ) ) {
 
 		public function cyn_enqueue_files() {
 
-			wp_enqueue_style( 'cyn-compiled', get_stylesheet_directory_uri() . '/css/compiled.css' ); //When @build must change to final.css
 			wp_enqueue_style( 'cyn-style', get_stylesheet_directory_uri() );
+
+			if ( $this->deploy ) {
+				wp_enqueue_style( 'cyn-compiled', get_stylesheet_directory_uri() . '/css/final.css', [], $this->ver );
+				wp_enqueue_script( 'cyn-global', get_stylesheet_directory_uri() . '/js/dist/scripts.bundle.min.js', [], $this->ver, true );
+
+			} else {
+				wp_enqueue_style( 'cyn-compiled', get_stylesheet_directory_uri() . '/css/compiled.css' );
+				wp_enqueue_script( 'cyn-global', get_stylesheet_directory_uri() . '/js/dist/scripts.bundle.js', [], false, true );
+			}
+
 			wp_dequeue_style( 'wp-block-library' );
 
-
-
-			wp_enqueue_script( 'cyn-global', get_stylesheet_directory_uri() . '/js/dist/scripts.bundle.js', [], false, true ); //When @build must change to scripts.bundle.min.js 
 			wp_dequeue_script( 'global-styles' );
 		}
 
