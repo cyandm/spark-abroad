@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./functions" as *;
 
 @mixin d_flex(
   $dir: row,
@@ -46,7 +47,7 @@
 @mixin base_font() {
   color: $c_white_1;
   font-family: $font;
-  font-size: 8.875rem;
+  font-size: PxToRem(20);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -55,42 +56,42 @@
 @mixin font_style($type) {
   @include base_font();
   @if ($type == "t1") {
-    font-size: 4rem;
+    font-size: PxToRem(64);
     font-weight: bold;
-    line-height: 6.625rem;
+    line-height: PxToRem(106);
   }
   @if ($type == "t2") {
-    font-size: 3.5rem;
+    font-size: PxToRem(56);
     font-weight: bold;
-    line-height: 6.625rem;
+    line-height: PxToRem(106);
   }
   @if ($type == "h1") {
-    font-size: 2rem;
+    font-size: PxToRem(32);
     font-weight: 500;
-    line-height: 2.75rem;
+    line-height: PxToRem(44);
   }
   @if ($type == "h2") {
-    font-size: 1.25rem;
-    line-height: 2.25rem;
+    font-size: PxToRem(20);
+    line-height: PxToRem(36);
     font-weight: bold;
   }
   @if ($type == "h3") {
-    font-size: 1rem;
+    font-size: PxToRem(16);
     font-weight: 500;
     line-height: auto;
   }
   @if ($type == "body1") {
-    font-size: 1.25rem;
+    font-size: PxToRem(20);
     font-weight: 400;
-    line-height: 178.3%;
+    line-height: PxToRem(36);
   }
   @if ($type == "body_2") {
-    font-size: 1rem;
+    font-size: PxToRem(16);
     font-weight: 400;
-    line-height: 2.025rem;
+    line-height: PxToRem(32);
   }
   @if ($type == "caption") {
-    font-size: 0.75rem;
+    font-size: PxToRem(12);
     font-weight: 500;
     line-height: auto;
   }

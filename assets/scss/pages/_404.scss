@@ -10,12 +10,18 @@ main.page-notfound {
     img {
       width: 100%;
       margin-bottom: 1.25rem;
+      @media (width > 860px) {
+        width: 60%;
+      }
     }
     .text-not-found {
       margin-bottom: 0.5rem;
     }
     .primary-btn {
       width: 70%;
+      @media (width > 860px) {
+        width: 20%;
+      }
     }
   }
 }

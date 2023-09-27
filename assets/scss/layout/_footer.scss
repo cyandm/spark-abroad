@@ -1,1 +1,61 @@
 @use "../utils/index" as *;
+
+footer {
+  @include d_flex($dir: column, $gap: PxToRem(24));
+  .container-logo-menu-footer {
+    border-bottom: 1px solid $c_gray;
+    padding-bottom: PxToRem(24);
+    @include d_flex(column, start, start, nowrap, false, 0);
+    width: 100%;
+    @media (width > 860px) {
+      @include d_flex(row-reverse, space-between, center, nowrap, false, 0);
+    }
+    .logo-and-name {
+      @include d_flex(column, start, start, nowrap, false, 0);
+      width: 100%;
+      a {
+        align-self: center;
+      }
+      h2 {
+        @include font_style("h2");
+        color: $c_gray;
+        align-self: center;
+        margin-bottom: PxToRem(16);
+      }
+      @media (width > 860px) {
+        @include d_flex(row-reverse, center, center, nowrap, false, PxToRem(8));
+        width: unset;
+        h2 {
+          margin-bottom: unset;
+        }
+      }
+    }
+    .footer-menu {
+      ul {
+        @include d_flex(column, start, start, nowrap, false, PxToRem(24));
+        li {
+          @include font_style("h3");
+          color: $c_gray;
+          &:hover {
+            color: $c_blue_1;
+          }
+        }
+        @media (width > 860px) {
+          @include d_flex(row, start, start, nowrap, false, PxToRem(44));
+        }
+      }
+    }
+  }
+  .socialmedia-and-slogan {
+    @include d_flex(row, space-between, center, nowrap, false, 0);
+    margin-bottom: PxToRem(44);
+    width: 100%;
+    .socialmedia-footer {
+      @include d_flex(row, space-between, center, nowrap, false, PxToRem(8));
+    }
+    .slogan {
+      @include font_style(h3);
+      color: $c_gray;
+    }
+  }
+}
