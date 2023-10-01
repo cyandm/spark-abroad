@@ -1,0 +1,17 @@
+@use "../utils" as *;
+@use "../utils/variables" as *;
+
+.dropdown-menu {
+  border-radius: PxToRem(20);
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: PxToRem(4) PxToRem(12);
+  @include font_style(body_2);
+  color: $c_blue_2;
+  option {
+    color: $c_blue_2;
+  }
+}

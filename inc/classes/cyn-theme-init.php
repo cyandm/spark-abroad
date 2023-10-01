@@ -1,6 +1,6 @@
 <?php
 
-if (!class_exists('cyn-theme-init')) {
+if (!class_exists('cyn_theme_init')) {
 	class cyn_theme_init
 	{
 

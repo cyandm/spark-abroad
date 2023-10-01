@@ -70,6 +70,14 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "spark-icon";
+  src: url("../fonts/icons/spark-icon.eot?och0r3");
+  src: url("../fonts/icons/spark-icon.eot?och0r3#iefix") format("embedded-opentype"), url("../fonts/icons/spark-icon.ttf?och0r3") format("truetype"), url("../fonts/icons/spark-icon.woff?och0r3") format("woff"), url("../fonts/icons/spark-icon.svg?och0r3#spark-icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
 *,
 *::after,
 *::before {
@@ -128,6 +136,10 @@ i {
   width: 1.5rem;
 }
 
+select {
+  font-family: Peyda;
+}
+
 .primary-btn {
   display: flex;
   flex-direction: row;
@@ -171,6 +183,305 @@ i {
 }
 .primary-btn:hover::before {
   translate: 0;
+}
+
+.dropdown-menu {
+  border-radius: 1.25rem;
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 67%, 17%);
+}
+.dropdown-menu option {
+  color: hsl(240, 67%, 17%);
+}
+
+.card-post {
+  margin-bottom: 1rem;
+}
+.card-post .image-card-post a img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+.card-post .container-title-expert-author-date-button .title-post-card a {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: hsl(240, 67%, 17%);
+}
+.card-post .container-title-expert-author-date-button .expert-post-card {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  margin-bottom: 0.75rem;
+  color: hsl(0, 0%, 33%);
+}
+.card-post .container-title-expert-author-date-button .container-author-date-avatar {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+.card-post .container-title-expert-author-date-button .container-author-date-avatar .avatar-athor img {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+}
+.card-post .container-title-expert-author-date-button .container-author-date-avatar div {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: auto;
+  color: hsl(0, 0%, 33%);
+}
+
+.count-of-comment-text-and-button-comment-single-post {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments {
+  width: 100%;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .single-comment-number h6 {
+  color: hsl(240, 67%, 17%);
+  text-align: right;
+  font-family: Peyda;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 0.38rem;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond {
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+@media (width <= 768px) {
+  .count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond {
+    margin-bottom: 0.75rem;
+  }
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond h3 {
+  color: hsl(240, 67%, 17%);
+  text-align: right;
+  font-family: Peyda;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+  margin-bottom: 0.88rem;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1.25rem;
+}
+@media (width <= 768px) {
+  .count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form {
+    gap: 0.94rem;
+  }
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form:last-child {
+  justify-content: end;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .input-group {
+  display: flex;
+  color: var(--primary, #b3b6b3);
+  padding: 0.875rem 0.875rem 0.875rem 1.5rem;
+  align-items: start;
+  gap: 0.25rem;
+  border-radius: 0.625rem;
+  background: hsl(240, 67%, 17%);
+  justify-content: right;
+  width: 100%;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .input-group i:before {
+  color: hsl(240, 67%, 17%);
+  font-size: 1.5rem;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .input-group textarea {
+  width: 100%;
+  height: 7.9375rem;
+  border: none;
+  font-family: Peyda;
+  color: var(--primary, #b3b6b3);
+  font-family: Peyda;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  background-color: hsl(240, 67%, 17%);
+  resize: vertical;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .input-group textarea:focus-visible {
+  outline: none;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .input-group2 {
+  display: flex;
+  color: hsl(240, 67%, 17%);
+  padding: 0.875rem 0.875rem 0.875rem 1.5rem;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.625rem;
+  background: hsl(240, 67%, 17%);
+  justify-content: right;
+  width: 100%;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .input-group2 i:before {
+  color: hsl(240, 67%, 17%);
+  font-size: 1.5rem;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .input-group2 input {
+  border: none;
+  color: hsl(0, 0%, 33%);
+  font-family: Peyda;
+  font-size: 0.875rem;
+  background: hsl(240, 67%, 17%);
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .input-group2 input:focus-visible {
+  outline: none;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .form-submit {
+  display: flex;
+  font-weight: 200;
+  padding: 0.75rem 2.75rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  background: linear-gradient(130deg, #f25c05 0%, #f21305 100%);
+}
+@media (width <= 768px) {
+  .count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .form-submit {
+    width: 100%;
+  }
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .form-submit input {
+  border: none;
+  background: none;
+  color: hsl(0, 0%, 33%);
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-respond form .form-submit .btn-primary {
+  color: hsl(240, 67%, 17%);
+  font-family: Peyda;
+  font-weight: 200;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list {
+  display: flex;
+  gap: 1.25rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+@media (width <= 768px) {
+  .count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list {
+    gap: 0.75rem;
+  }
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list .comment {
+  border-radius: 0.875rem;
+  background: hsl(240, 67%, 17%);
+  padding: 1.5rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list .comment .comment-author {
+  order: 1;
+  flex-basis: auto;
+  gap: 0.62rem;
+  align-items: start;
+  display: flex;
+  color: hsl(240, 67%, 17%);
+  font-family: Peyda;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list .comment .comment-author img {
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 50%;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list .comment .reply {
+  order: 2;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list .comment .reply a {
+  visibility: hidden;
+  position: relative;
+  display: flex;
+  font-size: 0;
+  align-items: start;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list .comment .reply a:after {
+  visibility: visible;
+  content: "\e90c";
+  font-family: "barad-icon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  font-size: 1.5rem;
+  color: hsl(240, 67%, 17%);
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list .comment .commentmetadata {
+  order: 3;
+  flex-basis: 100%;
+  padding-right: 3rem;
+  margin-top: -0.8rem;
+  font-family: Peyda;
+  font-size: 0.75rem;
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list .comment .commentmetadata a {
+  color: hsl(0, 0%, 33%);
+}
+.count-of-comment-text-and-button-comment-single-post .blog-comments .comment-list .comment p {
+  order: 4;
+  flex-basis: 100%;
+  color: hsl(240, 67%, 17%);
+  font-family: Peyda;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
 }
 
 header .container {
@@ -506,6 +817,99 @@ main.page-notfound .not-found-content .primary-btn {
   }
 }
 
+main.single-post .category-and-new-blogs {
+  display: flex;
+  flex-direction: column;
+}
+main.single-post .category-and-new-blogs .category-single-blog {
+  margin-block: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  background-color: hsl(240, 100%, 100%);
+  border-radius: 1.25rem;
+  position: relative;
+}
+main.single-post .category-and-new-blogs .category-single-blog::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(355deg, hsla(240, 67%, 17%, 0.4), transparent);
+  z-index: -2;
+}
+main.single-post .category-and-new-blogs .single-post-content .image-post img {
+  width: 100%;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+main.single-post .category-and-new-blogs .single-post-content h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(240, 67%, 17%);
+}
+main.single-post .category-and-new-blogs .single-post-content .container-author-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
+}
+main.single-post .category-and-new-blogs .single-post-content .container-author-date img {
+  border-radius: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+main.single-post .category-and-new-blogs .single-post-content .container-author-date div {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: auto;
+  color: hsl(0, 0%, 33%);
+}
+main.single-post .category-and-new-blogs .single-post-content .main-content-post {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(0, 0%, 33%);
+  text-align: justify;
+}
+main.single-post .category-and-new-blogs .new-blogs {
+  margin-top: 2.75rem;
+  margin-bottom: 7.5rem;
+}
+main.single-post .category-and-new-blogs .new-blogs h1 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 67%, 17%);
+  margin-bottom: 0.75rem;
+}
 /**
  * Swiper 10.2.0
  * Most modern mobile touch slider and framework with hardware accelerated transitions

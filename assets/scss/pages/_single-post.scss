@@ -1,9 +1,65 @@
 @use "../utils/" as *;
 main.single-post {
   .category-and-new-blogs {
+    display: flex;
+    flex-direction: column;
     .category-single-blog {
+      margin-block: PxToRem(24);
+      padding: PxToRem(4) PxToRem(12);
+      background-color: $c_white_2;
+      border-radius: PxToRem(20);
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: $gradient-blue;
+        z-index: -2;
+      }
+    }
+    .single-post-content {
+      .image-post {
+        img {
+          width: 100%;
+          border-radius: PxToRem(24);
+          object-fit: cover;
+          margin-bottom: PxToRem(16);
+        }
+      }
+      h2 {
+        @include font_style(h2);
+        color: $c_blue_2;
+      }
+      .container-author-date {
+        @include d_flex(row, start, center, nowrap, false, PxToRem(8));
+        margin-block: PxToRem(12);
+        img {
+          border-radius: 50%;
+          width: PxToRem(44);
+          height: PxToRem(44);
+        }
+        div {
+          @include font_style(caption);
+          color: $c_gary_3;
+        }
+      }
+      .main-content-post {
+        @include font_style(body_2);
+        color: $c_gary_3;
+        text-align: justify;
+      }
     }
     .new-blogs {
+      margin-top: PxToRem(44);
+      margin-bottom: PxToRem(120);
+      h1 {
+        @include font_style(h1);
+        color: $c_blue_2;
+        margin-bottom: PxToRem(12);
+      }
+      .container-card-post {
+      }
     }
   }
 }

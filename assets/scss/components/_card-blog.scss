@@ -1,0 +1,41 @@
+@use "../utils" as *;
+.card-post {
+  margin-bottom: PxToRem(16);
+  .image-card-post {
+    a {
+      img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: PxToRem(24);
+      }
+    }
+  }
+  .container-title-expert-author-date-button {
+    .title-post-card {
+      a {
+        @include font_style(h2);
+        margin-bottom: PxToRem(16);
+        color: $c_blue_2;
+      }
+    }
+    .expert-post-card {
+      @include font_style(body_2);
+      margin-bottom: PxToRem(12);
+      color: $c_gary_3;
+    }
+    .container-author-date-avatar {
+      @include d_flex(row, start, center, nowrap, false, PxToRem(8));
+      .avatar-athor {
+        img {
+          width: PxToRem(44);
+          height: PxToRem(44);
+          border-radius: 50%;
+        }
+      }
+      div {
+        @include font_style(caption);
+        color: $c_gary_3;
+      }
+    }
+  }
+}
