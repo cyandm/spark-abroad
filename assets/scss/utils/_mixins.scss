@@ -96,3 +96,15 @@
     line-height: auto;
   }
 }
+@mixin textOverFlow(
+  $overflow: hidden,
+  $display: -webkit-box,
+  $-webkit-line-clamp: 3,
+  $-webkit-box-orient: vertical
+) {
+  overflow: $overflow;
+  display: $display;
+  -webkit-line-clamp: $-webkit-line-clamp;
+  -webkit-box-orient: $-webkit-box-orient;
+  @content;
+}

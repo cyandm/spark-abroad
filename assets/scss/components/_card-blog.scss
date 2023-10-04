@@ -22,6 +22,8 @@
       @include font_style(body_2);
       margin-bottom: PxToRem(12);
       color: $c_gary_3;
+      text-align: justify;
+      @include textOverFlow($-webkit-line-clamp: 2);
     }
     .container-author-date-avatar {
       @include d_flex(row, start, center, nowrap, false, PxToRem(8));

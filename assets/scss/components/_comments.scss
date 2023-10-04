@@ -5,18 +5,17 @@
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
+  @media (width>900px) {
+    margin-bottom: PxToRem(120);
+  }
   .blog-comments {
     width: 100%;
     .single-comment-number {
       h6 {
+        @include font_style(body_2);
         color: $c_blue_2;
-        text-align: right;
-        font-family: Peyda;
-        font-size: 1rem;
-        font-style: normal;
+        margin-bottom: PxToRem(4);
         font-weight: 500;
-        line-height: normal;
-        margin-bottom: 0.38rem;
       }
     }
     .comment-respond {
@@ -27,15 +26,9 @@
       }
 
       h3 {
-        color: $c_blue_2;
-        text-align: right;
-        font-family: Peyda;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        width: 100%;
-        margin-bottom: 0.88rem;
+        @include font_style(body_2);
+        color: $c_gray;
+        margin-bottom: PxToRem(12);
       }
       form {
         display: flex;
@@ -52,33 +45,34 @@
 
         .input-group {
           i {
+            background: inherit;
             &:before {
-              color: $c_blue_2;
+              color: $c_gray;
               font-size: 1.5rem;
             }
           }
           display: flex;
-          color: var(--primary, #b3b6b3);
+          color: $c_gray;
           padding: 0.875rem 0.875rem 0.875rem 1.5rem;
           align-items: start;
           gap: 0.25rem;
-          border-radius: 0.625rem;
-          background: $c_blue_2;
+          border-radius: PxToRem(20);
+          background: $c_white_2;
           justify-content: right;
           width: 100%;
-
+          order: 3;
           textarea {
             width: 100%;
             height: 7.9375rem;
             border: none;
             font-family: Peyda;
-            color: var(--primary, #b3b6b3);
+            color: $c_gray;
             font-family: Peyda;
             font-size: 0.875rem;
             font-style: normal;
             font-weight: 400;
             line-height: 1.5rem;
-            background-color: $c_blue_2;
+            background-color: $c_white_2;
             resize: vertical;
 
             &:focus-visible {
@@ -88,58 +82,92 @@
         }
 
         .input-group2 {
+          @extend .border;
           i {
+            background: inherit;
             &:before {
-              color: $c_blue_2;
+              color: $c_gray;
               font-size: 1.5rem;
             }
           }
           display: flex;
-          color: $c_blue_2;
+          color: $c_gray;
           padding: 0.875rem 0.875rem 0.875rem 1.5rem;
           align-items: center;
           gap: 0.25rem;
-          border-radius: 0.625rem;
-          background: $c_blue_2;
+          border-radius: PxToRem(20);
+          background: $c_white_2;
           justify-content: right;
           width: 100%;
-
+          order: 0;
           input {
             border: none;
-            color: $c_gary_3;
+            color: $c_gray;
 
             font-family: Peyda;
             font-size: 0.875rem;
-            background: $c_blue_2;
+            background: $c_white_2;
 
             &:focus-visible {
               outline: none;
             }
           }
         }
+        .input-group3 {
+          @extend .border;
+          i {
+            background: inherit;
+            &:before {
+              color: $c_gray;
+              font-size: 1.5rem;
+            }
+          }
+          display: flex;
+          color: $c_gray;
+          padding: 0.875rem 0.875rem 0.875rem 1.5rem;
+          align-items: center;
+          gap: 0.25rem;
+          border-radius: PxToRem(20);
+          background: $c_white_2;
+          justify-content: right;
+          width: 100%;
+          order: 1;
+          input {
+            border: none;
+            color: $c_gray;
 
+            font-family: Peyda;
+            font-size: 0.875rem;
+            background: $c_white_2;
+
+            &:focus-visible {
+              outline: none;
+            }
+          }
+        }
         .form-submit {
           display: flex;
           font-weight: 200;
           padding: 0.75rem 2.75rem;
           justify-content: center;
           align-items: center;
-          border-radius: 1rem;
-          background: linear-gradient(130deg, #f25c05 0%, #f21305 100%);
-
+          border-radius: PxToRem(40);
+          background: $c_blue_1;
+          order: 3;
           @media (width <= 768px) {
             width: 100%;
           }
-
+          i {
+            color: $c_white_2;
+          }
           input {
             border: none;
             background: none;
             color: $c_gary_3;
           }
           .btn-primary {
-            color: $c_blue_2;
-            font-family: Peyda;
-            font-weight: 200;
+            @include font_style(body_2);
+            color: $c_white_2;
           }
         }
       }
@@ -155,7 +183,7 @@
       }
       .comment {
         border-radius: 0.875rem;
-        background: $c_blue_2;
+        background: $c_white_2;
         // display: flex;
         padding: 1.5rem;
         align-items: flex-start;
@@ -170,7 +198,7 @@
           gap: 0.62rem;
           align-items: start;
           display: flex;
-          color: $c_blue_2;
+          color: $c_white_2;
           font-family: Peyda;
           font-size: 1rem;
           font-style: normal;
@@ -181,6 +209,11 @@
             width: 2.125rem;
             height: 2.125rem;
             border-radius: 50%;
+          }
+          cite {
+            a {
+              color: $c_blue_2;
+            }
           }
         }
         .reply {
@@ -195,13 +228,21 @@
 
             &:after {
               visibility: visible;
-              content: "\e90c";
-              font-family: "barad-icon" !important;
+              content: "\e910";
+              font-family: "spark-icon" !important;
               font-style: normal;
               font-weight: normal;
               font-variant: normal;
               text-transform: none;
               font-size: 1.5rem;
+              color: $c_blue_2;
+            }
+          }
+        }
+        .comment-author-admin {
+          background: $c_gray_2;
+          div {
+            span {
               color: $c_blue_2;
             }
           }
@@ -215,7 +256,8 @@
           font-family: Peyda;
           font-size: 0.75rem;
           a {
-            color: $c_gary_3;
+            color: $c_gray;
+            margin-top: PxToRem(8);
           }
         }
 

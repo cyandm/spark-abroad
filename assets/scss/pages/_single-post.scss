@@ -1,6 +1,111 @@
 @use "../utils/" as *;
 main.single-post {
   .category-and-new-blogs {
+    @media (width>900px) {
+      flex-direction: row;
+      gap: PxToRem(16);
+      .category-blogs-and-new-blogs {
+        width: 30%;
+        min-width: 30%;
+        .category-blogs {
+          margin-bottom: PxToRem(44);
+          .line-next-of-title-section {
+            position: relative;
+            display: flex;
+            gap: PxToRem(8);
+            padding-bottom: PxToRem(16);
+            h3 {
+              @include font_style(h3);
+              color: $c_blue_2;
+            }
+            p {
+              flex: 1;
+              position: relative;
+              @include psudo(before, "", $position: absolute) {
+                top: 50%;
+                left: 0;
+                background: $c_gray_2;
+                width: 100%;
+                height: 1px;
+              }
+            }
+          }
+          div {
+            ul {
+              @include d_flex(
+                column,
+                center,
+                stretch,
+                nowrap,
+                false,
+                PxToRem(12)
+              );
+
+              li {
+                position: relative;
+                @include font_style(h3);
+                @include d_flex(
+                  column,
+                  center,
+                  start,
+                  nowrap,
+                  false,
+                  PxToRem(12)
+                );
+                color: $c_blue_2;
+                padding-inline: PxToRem(24);
+                @include psudo(before, "", $position: absolute) {
+                  left: 0;
+                  background: none;
+                  height: PxToRem(20);
+                  width: PxToRem(20);
+                  border-radius: 50%;
+                  border: 1px solid $c_blue_2;
+                }
+                &.isInCategory {
+                  position: relative;
+                  @include psudo(after, "", $position: absolute) {
+                    left: 0;
+                    background: $c_blue_2;
+                    height: PxToRem(12);
+                    width: PxToRem(12);
+                    border-radius: 50%;
+                    align-self: center;
+                    translate: PxToRem(-4) PxToRem(4);
+                  }
+                }
+              }
+            }
+          }
+        }
+        .new-blogs-desktop {
+          .line-next-of-title-section {
+            position: relative;
+            display: flex;
+            gap: PxToRem(8);
+            h3 {
+              @include font_style(h3);
+              color: $c_blue_2;
+            }
+            p {
+              flex: 1;
+              position: relative;
+              @include psudo(before, "", $position: absolute) {
+                top: 50%;
+                left: 0;
+                background: $c_gray_2;
+                width: 100%;
+                height: 1px;
+              }
+            }
+          }
+          .new-blogs {
+            margin-top: PxToRem(24);
+          }
+        }
+      }
+    }
+    padding-top: PxToRem(16);
     display: flex;
     flex-direction: column;
     .category-single-blog {
@@ -19,6 +124,7 @@ main.single-post {
       }
     }
     .single-post-content {
+      flex: 1;
       .image-post {
         img {
           width: 100%;
@@ -48,6 +154,7 @@ main.single-post {
         @include font_style(body_2);
         color: $c_gary_3;
         text-align: justify;
+        margin-bottom: PxToRem(44);
       }
     }
     .new-blogs {
@@ -58,8 +165,16 @@ main.single-post {
         color: $c_blue_2;
         margin-bottom: PxToRem(12);
       }
-      .container-card-post {
-      }
     }
+  }
+}
+.on-mobile-show {
+  @media (width>900px) {
+    display: none;
+  }
+}
+.on-desktop-show {
+  @media (width<=900px) {
+    display: none;
   }
 }

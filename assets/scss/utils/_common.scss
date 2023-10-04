@@ -18,6 +18,9 @@ body {
   & {
     font-family: Peyda;
   }
+  ::placeholder {
+    color: $c_gray;
+  }
 }
 
 .form_control input {
@@ -34,4 +37,25 @@ i {
 }
 select {
   font-family: Peyda;
+}
+.border {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: $gradient-blue;
+    z-index: -2;
+  }
+}
+
+input {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: $c_gray;
+    box-shadow: inset 0 0 20px 20px $c_white_2;
+  }
 }

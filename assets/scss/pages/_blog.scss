@@ -1,0 +1,81 @@
+@use "../utils/" as *;
+main.blog-page {
+  margin-bottom: PxToRem(120);
+  .category-blog {
+    padding-top: PxToRem(16);
+    display: flex;
+    flex-direction: column;
+    margin-block: PxToRem(24);
+    padding: PxToRem(4) PxToRem(12);
+    background-color: $c_white_2;
+    border-radius: PxToRem(20);
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: $gradient-blue;
+      z-index: -2;
+    }
+  }
+  .container-all-blogs {
+    .all-blogs-title {
+      @media (width>900px) {
+        display: none;
+      }
+      @include font_style(h1);
+      color: $c_blue_2;
+      margin-bottom: PxToRem(12);
+    }
+    .container-blog-card-group {
+      .pagination-for-blog {
+        @include d_flex(row, start, center, nowrap, false, PxToRem(8));
+        direction: ltr;
+
+        a {
+          &:hover {
+            border: 1px solid $c_blue_2;
+          }
+          i {
+            @include d_flex(row, center, center, nowrap, false, 0);
+            background: $c_white_2;
+          }
+        }
+        .page-numbers {
+          @include font_style(body_2);
+          color: $c_blue_2;
+          @include d_flex(row, center, center, nowrap, false, PxToRem(8));
+          width: PxToRem(36);
+          height: PxToRem(36);
+          border-radius: 50%;
+          background: $c_white_2;
+          box-shadow: 0 PxToRem(4) PxToRem(8) 0 rgba(0, 0, 0, 0.12);
+          transition: all 0.9s ease-in-out;
+          border: 1px solid transparent;
+        }
+        .current {
+          background: $c_blue_2;
+          color: $c_white_2;
+        }
+        .prev {
+          border: 1px solid $c_blue_2;
+          border-radius: 50%;
+          rotate: 90deg;
+          @include d_flex(row, center, center, nowrap, false, 0);
+        }
+        .next {
+          border: 1px solid $c_blue_2;
+          border-radius: 50%;
+          rotate: -90deg;
+          @include d_flex(row, center, center, nowrap, false, 0);
+        }
+      }
+    }
+  }
+}
+.on-mobile-show {
+  @media (width>900px) {
+    display: none;
+  }
+}

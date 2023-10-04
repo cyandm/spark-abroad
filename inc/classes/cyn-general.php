@@ -26,10 +26,9 @@ if (!class_exists('cyn_general')) {
 
         public function custom_remove_comment_labels($fields)
         {
-            $fields['comment'] = '<div class="input-group"><i class="icon-user-confirm"></i><textarea id="comment" name="comment" class="form-control" placeholder=" نظرتو بفرست" required></textarea></div>';
-
-            $fields['author'] = '<div class="input-group2 "><i class="icon-user"></i><input id="author" name="author" class="form-control" placeholder="نام شما" required></div>';
             $fields['email'] = '<div class="input-group2"><i class="icon-email"></i><input id="email" name="email" class="form-control" placeholder="ایمیل شما" required></div>';
+            $fields['author'] = '<div class="input-group3"><i class="icon-user"></i><input id="author" name="author" class="form-control" placeholder="نام شما" required></div>';
+            $fields['comment'] = '<div class="input-group"><i class="icon-cmessage"></i><textarea id="comment" name="comment" class="form-control" placeholder=" نظرتو بفرست" required></textarea></div>';
             return $fields;
         }
 
