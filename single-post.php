@@ -59,7 +59,7 @@ $post_id = get_queried_object_id();
                             <?php
                             while ($new_blogs->have_posts()) {
                                 $new_blogs->the_post();
-                                get_template_part('/templates/card/card', 'blog', ['post_id' => $blog_id]);
+                                get_template_part('/templates/card/card', 'blog');
                             }
                             ?>
                         </div>

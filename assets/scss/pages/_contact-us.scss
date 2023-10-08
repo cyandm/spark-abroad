@@ -1,0 +1,61 @@
+@use "../utils/" as *;
+main.contact-us {
+  h1 {
+    @include font_style(h1);
+    color: $c_blue_2;
+  }
+  p {
+    @include font_style(body_2);
+    color: $c_gray;
+  }
+  form {
+    label {
+      @include font_style(body_2);
+      color: $c_blue_2;
+    }
+    div {
+      @include d_flex(row, start, center, nowrap, false, PxToRem(4));
+      background-color: $c_white_2;
+      border-radius: PxToRem(20);
+      padding: PxToRem(12) PxToRem(12) PxToRem(12) 0;
+      border: 1px solid $gradient-blue;
+      margin-bottom: PxToRem(20);
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: $gradient-blue;
+        z-index: -2;
+      }
+      i {
+        @include d_flex(row, center, center, nowrap, false, PxToRem(4));
+        color: $c_gray;
+        background-color: $c_white_2;
+      }
+      input,
+      textarea {
+        outline: none;
+        border: none;
+      }
+      &.primary-btn {
+        background-color: $c_blue_1;
+        @include d_flex(row, center, center, nowrap, false, PxToRem(4));
+        i {
+          @include d_flex(row, center, center, nowrap, false, 0);
+          background-color: unset;
+          color: $c_white_2;
+          font-size: PxToRem(20);
+          transition: all 0.8s ease-in-out;
+        }
+        &:hover {
+          background-color: $c_white_2;
+          i {
+            color: $c_blue_1;
+          }
+        }
+      }
+    }
+  }
+}

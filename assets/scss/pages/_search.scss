@@ -1,0 +1,35 @@
+@use "../utils/" as *;
+main.search-page {
+  margin-top: PxToRem(24);
+  margin-bottom: PxToRem(120);
+  .search-res {
+    h1 {
+      @include font_style(h1);
+      color: $c_blue_2;
+      @media (width<700px) {
+        @include font_style(h2);
+        color: $c_blue_2;
+      }
+    }
+    p {
+      @include font_style(body_2);
+      color: $c_gray;
+      margin-bottom: PxToRem(24);
+    }
+    .result-row {
+      @include d_flex(row, space-between, start, wrap, false, PxToRem(16));
+      .card-post {
+        width: 30%;
+        min-width: PxToRem(340);
+        flex: 1;
+      }
+    }
+    .search-not-found {
+      @include d_flex(column, start, start, nowrap, false, PxToRem(16));
+      img {
+        width: 90%;
+        align-self: center;
+      }
+    }
+  }
+}

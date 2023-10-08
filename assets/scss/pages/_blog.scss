@@ -1,6 +1,8 @@
 @use "../utils/" as *;
 main.blog-page {
   margin-bottom: PxToRem(120);
+  margin-top: PxToRem(24);
+
   .category-blog {
     padding-top: PxToRem(16);
     display: flex;
@@ -10,6 +12,7 @@ main.blog-page {
     background-color: $c_white_2;
     border-radius: PxToRem(20);
     position: relative;
+    margin-inline: PxToRem(16);
     &::after {
       content: "";
       position: absolute;
@@ -17,6 +20,100 @@ main.blog-page {
       border-radius: inherit;
       background: $gradient-blue;
       z-index: -2;
+    }
+  }
+  .category-blog-desktop {
+    @include d_flex(row, center, start, nowrap, false, PxToRem(48));
+    color: $c_gray;
+    background-color: $c_white_2;
+    padding: PxToRem(12) 0;
+    box-shadow: 0 PxToRem(4) PxToRem(16) 0 $c_shadow_1;
+    margin-bottom: PxToRem(24);
+    li {
+      @include font_style(h3);
+      color: $c_gray;
+      &.current-link {
+        color: $c_blue_2;
+      }
+    }
+  }
+  .blog-choosed-desktop {
+    padding-top: PxToRem(16);
+    @include d_flex(row, space-between, stretch, nowrap, false, PxToRem(16));
+    .container-choosed-blog-right {
+      @include d_flex(column, space-between, stretch, nowrap, false, 0);
+      flex: 1;
+    }
+    .container-choosed-blog-left {
+      @include d_flex(column, space-between, stretch, nowrap, false, 0);
+      flex: 1;
+      .card-post {
+        @include d_flex(row, space-between, stretch, nowrap, false, PxToRem(8));
+        .image-card-post {
+          flex: 1;
+        }
+        .container-title-expert-author-date-button {
+          flex: 2;
+        }
+      }
+    }
+  }
+  .knowable {
+    background-color: $c_gray_4;
+    margin-bottom: PxToRem(44);
+    padding: PxToRem(24) PxToRem(16);
+    @include d_flex(column, center, start, nowrap, false, PxToRem(16));
+    .title_knowable {
+      @include font_style(h1);
+      color: $c_blue_1;
+    }
+    .container-cards {
+      display: flex;
+      gap: PxToRem(16);
+      overflow-x: scroll;
+      overflow-y: hidden;
+      &::-webkit-scrollbar {
+        width: 0rem;
+      }
+      width: 100%;
+      .card-knowable {
+        @include d_flex(
+          column,
+          space-between,
+          start,
+          nowrap,
+          false,
+          PxToRem(8)
+        );
+        padding: PxToRem(24) PxToRem(16);
+        border-radius: PxToRem(24);
+        min-width: PxToRem(340);
+        @media (width>900px) {
+          min-width: PxToRem(500);
+        }
+        .knowable_title_card {
+          @include font_style(h2);
+          color: $c_white_2;
+        }
+        .knowable_text_card {
+          @include font_style(body_2);
+          color: $c_white_1;
+          margin-bottom: PxToRem(20);
+          text-align: justify;
+        }
+        a {
+          .knowable_link_card {
+            @include font_style(h3);
+            color: $c_yellow_1;
+          }
+        }
+        &:nth-child(odd) {
+          background-color: $c_blue_1;
+        }
+        &:nth-child(even) {
+          background-color: $c_purple_1;
+        }
+      }
     }
   }
   .container-all-blogs {
@@ -29,6 +126,24 @@ main.blog-page {
       margin-bottom: PxToRem(12);
     }
     .container-blog-card-group {
+      .posts-content {
+        @media (width>800px) {
+          @include d_flex(
+            row,
+            space-between,
+            stretch,
+            wrap,
+            false,
+            PxToRem(16)
+          );
+          .card-post {
+            min-width: PxToRem(376);
+
+            flex: 1;
+          }
+        }
+      }
+
       .pagination-for-blog {
         @include d_flex(row, start, center, nowrap, false, PxToRem(8));
         direction: ltr;
@@ -76,6 +191,11 @@ main.blog-page {
 }
 .on-mobile-show {
   @media (width>900px) {
-    display: none;
+    display: none !important;
+  }
+}
+.on-desktop-show {
+  @media (width<=900px) {
+    display: none !important;
   }
 }
