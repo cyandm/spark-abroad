@@ -24,3 +24,21 @@
     }
   }
 }
+.secondary-btn {
+  a {
+    @include d_flex(row, center, center, nowrap, false, PxToRem(4));
+    padding: PxToRem(8) PxToRem(24);
+
+    background-color: $c_white_2;
+    border-radius: PxToRem(40);
+    color: $c_blue_1;
+    i {
+      @include font_style(body);
+      color: $c_blue_1;
+      background-color: unset;
+    }
+    p {
+      color: $c_blue_1;
+    }
+  }
+}

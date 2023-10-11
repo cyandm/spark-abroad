@@ -1,0 +1,97 @@
+@use "../utils/" as *;
+main.about-us-page {
+  @include d_flex(column);
+
+  .divider {
+    height: PxToRem(68);
+    background-color: $c_white_1;
+    width: 100%;
+    box-shadow: 0 0 PxToRem(16) 0 $c_shadow_1;
+  }
+  .section-aboutus-odd,
+  .section-aboutus-even {
+    @include d_flex(column, start, center, nowrap, false, PxToRem(16));
+    width: 100%;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .container-title-text {
+      margin-bottom: PxToRem(44);
+      @include d_flex(column, start, start, nowrap, false, PxToRem(16));
+      h2 {
+        @include font_style(h1);
+        color: $c_blue_1;
+      }
+      p {
+        @include font_style(body_2);
+        color: $c_blue_2;
+        text-align: justify;
+      }
+    }
+    > h2 {
+      @include font_style(h1);
+      color: $c_blue_1;
+      margin-inline: PxToRem(4);
+    }
+  }
+  .last_words {
+    @include font_style(h1);
+    color: $c_blue_1;
+    align-self: flex-start;
+    margin-inline: unset;
+    @media (min-width: 900px) {
+      margin-inline: auto;
+      @include font_style(t2);
+      color: $c_blue_1;
+    }
+  }
+  .section-aboutus-odd {
+    @media (min-width: 900px) {
+      flex-direction: row-reverse;
+      align-items: center;
+      img {
+        max-width: unset;
+      }
+    }
+  }
+  .section-aboutus-even {
+    @media (min-width: 900px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  .call-to-action {
+    position: relative;
+    @include d_flex(column, start, start, nowrap, false, PxToRem(4));
+    margin-bottom: PxToRem(120);
+    padding: PxToRem(40) PxToRem(0);
+    width: 100%;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("../imgs/banner.png");
+      z-index: -1;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    > div {
+      margin-bottom: PxToRem(16);
+      width: 100%;
+      h2 {
+        @include font_style(h1);
+        color: $c_white_1;
+      }
+      > p {
+        @include font_style(body_2);
+        color: $c_white_1;
+      }
+      div.secondary-btn {
+        margin-top: PxToRem(16);
+        max-width: max-content;
+      }
+    }
+  }
+}

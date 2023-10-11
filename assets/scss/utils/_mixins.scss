@@ -58,12 +58,12 @@
   @if ($type == "t1") {
     font-size: PxToRem(64);
     font-weight: bold;
-    line-height: PxToRem(106);
+    line-height: PxToRem(108);
   }
   @if ($type == "t2") {
     font-size: PxToRem(56);
     font-weight: bold;
-    line-height: PxToRem(106);
+    line-height: PxToRem(104);
   }
   @if ($type == "h1") {
     font-size: PxToRem(32);

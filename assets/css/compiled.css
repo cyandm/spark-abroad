@@ -312,6 +312,32 @@ textarea {
   translate: 0;
 }
 
+.secondary-btn a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  padding: 0.5rem 1.5rem;
+  background-color: hsl(240, 100%, 100%);
+  border-radius: 2.5rem;
+  color: hsl(241, 69%, 31%);
+}
+.secondary-btn a i {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: hsl(241, 69%, 31%);
+  background-color: unset;
+}
+.secondary-btn a p {
+  color: hsl(241, 69%, 31%);
+}
+
 .dropdown-menu {
   border-radius: 1.25rem;
   isolation: isolate;
@@ -791,6 +817,12 @@ footer {
   flex-wrap: wrap;
   gap: 1.5rem;
 }
+footer.is-purple {
+  background-color: #1a1885;
+}
+footer div.container {
+  width: 100%;
+}
 footer .container-logo-menu-footer {
   border-bottom: 1px solid hsl(241, 30%, 64%);
   padding-bottom: 1.5rem;
@@ -894,6 +926,7 @@ footer .socialmedia-and-slogan {
   gap: 0;
   margin-bottom: 2.75rem;
   width: 100%;
+  margin-top: 0.75rem;
 }
 footer .socialmedia-and-slogan .socialmedia-footer {
   display: flex;
@@ -1657,6 +1690,15 @@ main.search-page .search-res .search-not-found img {
   align-self: center;
 }
 
+main.contact-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100;
+}
 main.contact-us h1 {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
@@ -1668,6 +1710,9 @@ main.contact-us h1 {
   font-weight: 500;
   line-height: 2.75rem;
   color: hsl(240, 67%, 17%);
+  padding-inline: 1rem;
+  text-align: justify;
+  width: 100;
 }
 main.contact-us p {
   color: hsl(240, 36%, 96%);
@@ -1680,8 +1725,22 @@ main.contact-us p {
   font-weight: 400;
   line-height: 2rem;
   color: hsl(241, 30%, 64%);
+  padding-inline: 1rem;
+  width: 100;
 }
-main.contact-us form label {
+main.contact-us .container-form-image {
+  width: 100%;
+  position: relative;
+}
+main.contact-us .container-form-image form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+main.contact-us .container-form-image form label {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
   font-size: 1.25rem;
@@ -1693,21 +1752,22 @@ main.contact-us form label {
   line-height: 2rem;
   color: hsl(240, 67%, 17%);
 }
-main.contact-us form div {
+main.contact-us .container-form-image form div {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: center;
+  align-items: start;
   flex-wrap: nowrap;
   gap: 0.25rem;
   background-color: hsl(240, 100%, 100%);
   border-radius: 1.25rem;
-  padding: 0.75rem 0.75rem 0.75rem 0;
+  padding: 0.25rem 0.75rem 0.25rem 0;
   border: 1px solid linear-gradient(355deg, hsla(240, 67%, 17%, 0.4), transparent);
   margin-bottom: 1.25rem;
   position: relative;
+  width: 100%;
 }
-main.contact-us form div::after {
+main.contact-us .container-form-image form div::after {
   content: "";
   position: absolute;
   inset: -1px;
@@ -1715,23 +1775,31 @@ main.contact-us form div::after {
   background: linear-gradient(355deg, hsla(240, 67%, 17%, 0.4), transparent);
   z-index: -2;
 }
-main.contact-us form div i {
+main.contact-us .container-form-image form div i {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-wrap: nowrap;
   gap: 0.25rem;
   color: hsl(241, 30%, 64%);
   background-color: hsl(240, 100%, 100%);
 }
-main.contact-us form div input,
-main.contact-us form div textarea {
+main.contact-us .container-form-image form div input,
+main.contact-us .container-form-image form div textarea {
   outline: none;
   border: none;
+  background-color: unset;
 }
-main.contact-us form div.primary-btn {
+main.contact-us .container-form-image form div input {
+  width: 80%;
+}
+main.contact-us .container-form-image form div textarea {
+  width: 90%;
+}
+main.contact-us .container-form-image form div.primary-btn {
   background-color: hsl(241, 69%, 31%);
+  padding: 0.75rem 1.5rem 0.75rem 2.25rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1739,7 +1807,7 @@ main.contact-us form div.primary-btn {
   flex-wrap: nowrap;
   gap: 0.25rem;
 }
-main.contact-us form div.primary-btn i {
+main.contact-us .container-form-image form div.primary-btn i {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1751,11 +1819,229 @@ main.contact-us form div.primary-btn i {
   font-size: 1.25rem;
   transition: all 0.8s ease-in-out;
 }
-main.contact-us form div.primary-btn:hover {
+main.contact-us .container-form-image form div.primary-btn:hover {
   background-color: hsl(240, 100%, 100%);
 }
-main.contact-us form div.primary-btn:hover i {
+main.contact-us .container-form-image form div.primary-btn:hover i {
   color: hsl(241, 69%, 31%);
+}
+main.contact-us .container-form-image .image-contact-us {
+  width: 100%;
+  margin-bottom: -0.8rem;
+}
+@media (width > 700px) {
+  main.contact-us .container-form-image .image-contact-us {
+    text-align: left;
+  }
+}
+main.contact-us .container-form-image .image-contact-us img {
+  width: 100%;
+}
+@media (width > 700px) {
+  main.contact-us .container-form-image .image-contact-us img {
+    width: 40%;
+  }
+}
+@media (min-width: 700px) {
+  main.contact-us .container-form-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+  main.contact-us .container-form-image form {
+    flex: 1;
+    margin-bottom: 12.5rem;
+  }
+  main.contact-us .container-form-image .image-contact-us {
+    flex: 2;
+  }
+  main.contact-us .container-form-image .image-contact-us img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+main.about-us-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0;
+}
+main.about-us-page .divider {
+  height: 4.25rem;
+  background-color: hsl(240, 36%, 96%);
+  width: 100%;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.08);
+}
+main.about-us-page .section-aboutus-odd,
+main.about-us-page .section-aboutus-even {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+}
+main.about-us-page .section-aboutus-odd img,
+main.about-us-page .section-aboutus-even img {
+  max-width: 100%;
+  height: auto;
+}
+main.about-us-page .section-aboutus-odd .container-title-text,
+main.about-us-page .section-aboutus-even .container-title-text {
+  margin-bottom: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+main.about-us-page .section-aboutus-odd .container-title-text h2,
+main.about-us-page .section-aboutus-even .container-title-text h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(241, 69%, 31%);
+}
+main.about-us-page .section-aboutus-odd .container-title-text p,
+main.about-us-page .section-aboutus-even .container-title-text p {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 67%, 17%);
+  text-align: justify;
+}
+main.about-us-page .section-aboutus-odd > h2,
+main.about-us-page .section-aboutus-even > h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(241, 69%, 31%);
+  margin-inline: 0.25rem;
+}
+main.about-us-page .last_words {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(241, 69%, 31%);
+  align-self: flex-start;
+  margin-inline: unset;
+}
+@media (min-width: 900px) {
+  main.about-us-page .last_words {
+    margin-inline: auto;
+    color: hsl(240, 36%, 96%);
+    font-family: "Peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 6.5rem;
+    color: hsl(241, 69%, 31%);
+  }
+}
+@media (min-width: 900px) {
+  main.about-us-page .section-aboutus-odd {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  main.about-us-page .section-aboutus-odd img {
+    max-width: unset;
+  }
+}
+@media (min-width: 900px) {
+  main.about-us-page .section-aboutus-even {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+main.about-us-page .call-to-action {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  margin-bottom: 7.5rem;
+  padding: 2.5rem 0rem;
+  width: 100%;
+}
+main.about-us-page .call-to-action::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../imgs/banner.png");
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+main.about-us-page .call-to-action > div {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+main.about-us-page .call-to-action > div h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 36%, 96%);
+}
+main.about-us-page .call-to-action > div > p {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 36%, 96%);
+}
+main.about-us-page .call-to-action > div div.secondary-btn {
+  margin-top: 1rem;
+  max-width: max-content;
 }
 
 /**

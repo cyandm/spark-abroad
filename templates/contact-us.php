@@ -7,24 +7,29 @@
 <main class="contact-us">
     <h1>اگه جواب سوالتو پیدا نکردی یا میخوای بیشتر بدونی </h1>
     <p>تماس با ما</p>
-    <form>
-        <label>نام و نام خانوادگی</label>
-        <div class="container-border">
-            <i class="icon-user"></i>
-            <input type="text" placeholder="نام خود را وارد کنید" />
+    <div class="container-form-image">
+        <form class="container contact-us-form">
+            <label>نام و نام خانوادگی</label>
+            <div class="container-border">
+                <i class="icon-user"></i>
+                <input type="text" placeholder="نام خود را وارد کنید" />
+            </div>
+            <label>ایمیل</label>
+            <div class="container-border">
+                <i class="icon-email"></i>
+                <input type="email" placeholder="ایمیل خود را وارد کنید" />
+            </div>
+            <label>توضیحات</label>
+            <div class="container-border">
+                <i class="icon-cmessage"></i>
+                <textarea rows="5" class="text-area-contact-us" placeholder="توضیحات"></textarea>
+            </div>
+            <div class="primary-btn"><i class="icon-send2"></i><a href="#">ارسال</a></div>
+        </form>
+        <div class="image-contact-us">
+            <img src="<?php echo get_stylesheet_directory_uri() . "/assets/imgs/img-contact-us.svg" ?>" alt="image contact us" />
         </div>
-        <label>ایمیل</label>
-        <div class="container-border">
-            <i class="icon-email"></i>
-            <input type="email" placeholder="ایمیل خود را وارد کنید" />
-        </div>
-        <label>توضیحات</label>
-        <div class="container-border">
-            <i class="icon-cmessage"></i>
-            <textarea rows="5" class="text-area-contact-us" placeholder="توضیحات"></textarea>
-        </div>
-        <div class="primary-btn"><i class="icon-send2"></i><a href="#">ارسال</a></div>
-    </form>
+    </div>
 </main>
 
-<?php get_footer() ?>
+<?php get_footer(null, ['isPurple' => true]) ?>
