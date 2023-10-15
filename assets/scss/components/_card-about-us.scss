@@ -1,0 +1,59 @@
+@use "../utils" as *;
+.jobseeker-card {
+  @include d_flex(column, center, center, nowrap, false, 0);
+  position: relative;
+  min-width: PxToRem(48);
+  .image_jobseeker {
+    border-radius: PxToRem(24);
+    overflow: hidden;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .play-btn {
+    @include d_flex(row, center, center, nowrap, false, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: PxToRem(52);
+    height: PxToRem(52);
+    backdrop-filter: blur(37px);
+    border-radius: 50%;
+    padding: PxToRem(8);
+    i {
+      @include d_flex(row, center, center, nowrap, false, 0);
+      padding: PxToRem(8);
+      border-radius: 50%;
+
+      background-color: unset;
+      color: $c_white_1;
+      font-size: PxToRem(32);
+    }
+  }
+
+  .jobseeker-information {
+    position: absolute;
+    bottom: 10%;
+    background-color: $c_white_1;
+    box-shadow: 0px 4px 8px 0px $c_shadow_1;
+    border-radius: PxToRem(20);
+    width: 90%;
+    padding: PxToRem(16);
+    @include d_flex(column, flex-end, flex-end, nowrap, false, 0);
+
+    .jobseeker-name-company {
+      width: 100%;
+      @include d_flex(row, space-between, center, nowrap, false, 0);
+      .jobseeker-name,
+      .jobseeker-company {
+        @include font_style(body_2);
+        color: $c_blue_1;
+      }
+    }
+    .jobseeker-job {
+      @include font_style("caption");
+      color: $c_gray;
+    }
+  }
+}

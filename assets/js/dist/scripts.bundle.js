@@ -9159,17 +9159,34 @@
     }
   });
 
-  // assets/js/pages/home.js
-  var headerBgChanger = () => {
-    const activeIndex = homeSliderSwiper.realIndex;
-    const activeSlide = homeSliderSwiper.slides[activeIndex];
-    const haveBgPurple = activeSlide.classList.contains("bg_purple");
-    headerEl.classList.toggle("bg_purple", haveBgPurple);
-  };
-  homeSliderSwiper.on("slideChange", headerBgChanger);
-  var goToSlideOneButton = document.getElementById("goToSlideOne");
-  var goToSlideOne = () => {
-    homeSliderSwiper.slideNext();
-  };
-  goToSlideOneButton.addEventListener("click", goToSlideOne);
+  // assets/js/pages/contact-us.js
+  var header = document.querySelector("header>div");
+  var form = document.querySelector(".contact-us-form");
+  var contactUs = document.querySelector("main.contact-us");
+  var title = document.querySelector("main.contact-us>h1");
+  var descriptionPage = document.querySelector("main.contact-us>p");
+  if (contactUs) {
+    const setMarginRight = () => {
+      form.style.marginRight = header.offsetLeft + "px";
+      title.style.marginRight = header.offsetLeft + "px";
+      descriptionPage.style.marginRight = header.offsetLeft + "px";
+    };
+    setMarginRight();
+    window.addEventListener("resize", () => setMarginRight());
+  }
+
+  // assets/js/pages/about-us.js
+  var swiperAboutUs = new Swiper(".swiper-about-us", {
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    }
+  });
+  var popupAboutUs = document.querySelector(".popup-about-us");
+  var playBtnGroup = document.querySelectorAll(".play-btn");
+  playBtnGroup.forEach((playBtn) => {
+    playBtn.addEventListener("click", () => {
+      popupAboutUs.classList.add("show");
+    });
+  });
 })();

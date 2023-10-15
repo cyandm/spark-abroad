@@ -8,6 +8,7 @@ if (!class_exists('cyn_register')) {
         {
             add_action('init', [$this, 'register_jobseeker_post_type']);
             add_action('init', [$this, 'cyn_add_jobseeker_cat_taxonomy']);
+            add_action('init', [$this, 'register_service_post_type']);
         }
 
 
@@ -32,7 +33,7 @@ if (!class_exists('cyn_register')) {
                 'has_archive' => true,
                 'hierarchical' => false,
                 'menu_position' => 20,
-                'supports' => array('author', 'thumbnail'),
+                'supports' => array('author', 'thumbnail', 'title'),
                 'taxonomies' => array('jobseeker-cat'),
                 'show_in_rest' => true
             ];
@@ -56,6 +57,34 @@ if (!class_exists('cyn_register')) {
             ];
 
             register_taxonomy('jobseeker-cat', ['jobseeker'], $args);
+        }
+
+        public function register_service_post_type()
+        {
+            $service_labels = [
+                'name' => 'خدمات',
+                'singular_name' => 'خدمت'
+            ];
+
+            $service_args = [
+                'labels' => $service_labels,
+                'description' => 'service custom post type.',
+                'public' => true,
+                'publicly_queryable' => true,
+                'show_ui' => true,
+                'show_in_menu' => true,
+                'query_var' => true,
+                'rewrite' => array('slug' => 'service'),
+                'capability_type' => 'post',
+                'has_archive' => true,
+                'hierarchical' => false,
+                'menu_position' => 20,
+                'supports' => array('author', 'thumbnail', 'title'),
+                'taxonomies' => array('service-cat'),
+                'show_in_rest' => true
+            ];
+
+            register_post_type('service', $service_args);
         }
     }
 }

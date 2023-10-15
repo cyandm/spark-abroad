@@ -187,6 +187,10 @@ textarea {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow-down:before {
+  content: "\e914";
+}
+
 .icon-pause:before {
   content: "\e900";
 }
@@ -716,6 +720,102 @@ textarea {
   font-style: normal;
   font-weight: 400;
   line-height: 1.5rem;
+}
+
+.jobseeker-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: relative;
+  min-width: 3rem;
+}
+.jobseeker-card .image_jobseeker {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  width: 100%;
+  object-fit: cover;
+}
+.jobseeker-card .play-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 3.25rem;
+  height: 3.25rem;
+  backdrop-filter: blur(37px);
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+.jobseeker-card .play-btn i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: unset;
+  color: hsl(240, 36%, 96%);
+  font-size: 2rem;
+}
+.jobseeker-card .jobseeker-information {
+  position: absolute;
+  bottom: 10%;
+  background-color: hsl(240, 36%, 96%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 1.25rem;
+  width: 90%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.jobseeker-card .jobseeker-information .jobseeker-name-company {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.jobseeker-card .jobseeker-information .jobseeker-name-company .jobseeker-name,
+.jobseeker-card .jobseeker-information .jobseeker-name-company .jobseeker-company {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 69%, 31%);
+}
+.jobseeker-card .jobseeker-information .jobseeker-job {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: auto;
+  color: hsl(241, 30%, 64%);
 }
 
 header .container {
@@ -1710,9 +1810,13 @@ main.contact-us h1 {
   font-weight: 500;
   line-height: 2.75rem;
   color: hsl(240, 67%, 17%);
-  padding-inline: 1rem;
   text-align: justify;
   width: 100;
+}
+@media (max-width: 1440px) {
+  main.contact-us h1 {
+    padding-inline: 1rem;
+  }
 }
 main.contact-us p {
   color: hsl(240, 36%, 96%);
@@ -1725,8 +1829,12 @@ main.contact-us p {
   font-weight: 400;
   line-height: 2rem;
   color: hsl(241, 30%, 64%);
-  padding-inline: 1rem;
   width: 100;
+}
+@media (max-width: 1440px) {
+  main.contact-us p {
+    padding-inline: 1rem;
+  }
 }
 main.contact-us .container-form-image {
   width: 100%;
@@ -1864,6 +1972,11 @@ main.contact-us .container-form-image .image-contact-us img {
     left: 0;
   }
 }
+@media (max-width: 1000px) {
+  main.contact-us .container-form-image form {
+    flex-basis: 40%;
+  }
+}
 
 main.about-us-page {
   display: flex;
@@ -1872,6 +1985,14 @@ main.about-us-page {
   align-items: start;
   flex-wrap: wrap;
   gap: 0;
+}
+main.about-us-page .popup-about-us {
+  opacity: 0;
+  pointer-events: none;
+}
+main.about-us-page .popup-about-us.show {
+  opacity: 1;
+  pointer-events: all;
 }
 main.about-us-page .divider {
   height: 4.25rem;
@@ -1945,6 +2066,69 @@ main.about-us-page .section-aboutus-even > h2 {
   color: hsl(241, 69%, 31%);
   margin-inline: 0.25rem;
 }
+main.about-us-page .jobseeker-container {
+  margin-inline: unset;
+  padding-inline: 1rem;
+  margin-bottom: 0.75rem;
+}
+@media (min-width: 900px) {
+  main.about-us-page .jobseeker-container {
+    margin-inline: auto;
+    color: hsl(240, 36%, 96%);
+    font-family: "Peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 6.5rem;
+    color: hsl(241, 69%, 31%);
+  }
+}
+main.about-us-page .jobseeker-container .successful-jobseeker {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(241, 69%, 31%);
+  align-self: flex-start;
+  margin-inline: unset;
+  width: 100%;
+}
+@media (min-width: 900px) {
+  main.about-us-page .jobseeker-container .successful-jobseeker {
+    margin-inline: auto;
+    color: hsl(240, 36%, 96%);
+    font-family: "Peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 6.5rem;
+    color: hsl(241, 69%, 31%);
+  }
+}
+main.about-us-page .jobseeker-content {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+main.about-us-page .jobseeker-content::-webkit-scrollbar {
+  width: 0rem;
+}
 main.about-us-page .last_words {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
@@ -1998,6 +2182,7 @@ main.about-us-page .call-to-action {
   flex-wrap: nowrap;
   gap: 0.25rem;
   margin-bottom: 7.5rem;
+  margin-top: 2.75rem;
   padding: 2.5rem 0rem;
   width: 100%;
 }
@@ -2042,6 +2227,136 @@ main.about-us-page .call-to-action > div > p {
 main.about-us-page .call-to-action > div div.secondary-btn {
   margin-top: 1rem;
   max-width: max-content;
+}
+
+main.single-service-page .section-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+main.single-service-page .section-1 .container-image-section1 {
+  position: relative;
+  overflow: hidden;
+}
+main.single-service-page .section-1 .container-image-section1 .bg-image-section1 {
+  position: absolute;
+  background: linear-gradient(180deg, #1a1885 0%, #6a52c8 100%);
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  width: 100%;
+  bottom: -50%;
+}
+main.single-service-page .section-1 .container-image-section1 img {
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  height: auto;
+}
+main.single-service-page .section-1 .texts-section1 h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 67%, 17%);
+}
+main.single-service-page .section-1 .texts-section1 h2 strong {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(357, 83%, 42%);
+}
+main.single-service-page .section-1 .texts-section1 .subtitle-section1 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(241, 69%, 31%);
+}
+main.single-service-page .section-1 .texts-section1 .description-section1 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 67%, 17%);
+}
+main.single-service-page .call-to-action {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  margin-bottom: 7.5rem;
+  margin-top: 2.75rem;
+  padding: 2.5rem 1rem;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  main.single-service-page .call-to-action {
+    width: 80%;
+    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+  }
+}
+main.single-service-page .call-to-action::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../imgs/banner-service.png");
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+main.single-service-page .call-to-action h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(240, 36%, 96%);
+}
+main.single-service-page .call-to-action > p {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 36%, 96%);
 }
 
 /**

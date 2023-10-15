@@ -17,11 +17,16 @@ $c_gray_4: #dadae8;
 $c_yellow_1: hsla(41, 100%, 49%, 1);
 
 $c_purple_1: hsla(248, 84%, 63%, 1);
+
+$c_red_1: hsla(357, 83%, 42%, 1);
 //gradient color
 $gradient-blue: linear-gradient(355deg, hsla(240, 67%, 17%, 0.4), transparent);
 
 //shadow color
 $c_shadow_1: rgba(0, 0, 0, 0.08);
+
+//$background-filter
+$background-filter: rgba(0, 0, 0, 80%);
 
 //font
 $font: "Peyda";

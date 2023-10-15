@@ -7,11 +7,32 @@ $section_3 = get_field('about_us_group')["section_3"];
 $section_4 = get_field('about_us_group')["section_4"];
 
 $telephone = get_option('cyn_phone_number_one');
+
+$jobseeker_in_about_us = new WP_Query(
+    [
+        'post_type' => 'jobseeker',
+        'posts_per_page' => 8
+    ]
+);
 ?>
 
 <?php get_header() ?>
 <main class="about-us-page">
-
+    <div class="popup-about-us">
+        <div class="swiper swiper-about-us">
+            <div class="swiper-wrapper">
+                <?php
+                while ($jobseeker_in_about_us->have_posts()) {
+                    $jobseeker_in_about_us->the_post();
+                    get_template_part('/templates/popup/popup');
+                }
+                ?>
+            </div>
+            <div class="container-pagination">
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
     <?php if (!empty($section_1['title_section_1']) || !empty($section_1['text_section_1']) || !empty($section_1['image_section_1'])) : ?>
         <div class="container section-aboutus-odd">
             <?php if (!is_null($section_1['image_section_1']) && !empty($section_1['image_section_1'])) : ?>
@@ -72,8 +93,21 @@ $telephone = get_option('cyn_phone_number_one');
         </div>
     <?php endif; ?>
 
-    <div class="divider on-desktop-show"></div>
 
+    <?php if ($jobseeker_in_about_us->have_posts()) : ?>
+        <div class="divider on-desktop-show"></div>
+        <div class="jobseeker-container">
+            <h2 class="successful-jobseeker">کارجویان موفق ما</h2>
+        </div>
+        <div class="">
+            <div class="jobseeker-content">
+                <?php while ($jobseeker_in_about_us->have_posts()) {
+                    $jobseeker_in_about_us->the_post();
+                    get_template_part('/templates/card/card', 'about-us', ['post_id' => get_the_ID()]);
+                } ?>
+            </div>
+        </div>
+    <?php endif; ?>
     <?php if (!is_null($section_4['last_words_section_4']) && !empty($section_4['last_words_section_4'])) : ?>
         <h2 class="container last_words"><?php echo $section_4['last_words_section_4'] ?></h2>
     <?php endif; ?>
@@ -95,6 +129,8 @@ $telephone = get_option('cyn_phone_number_one');
             <?php endif; ?>
         </div>
     <?php endif; ?>
+
+
     <div class="call-to-action">
         <div class="container">
             <h2>دیگه منتظر چی هستی؟</h2>

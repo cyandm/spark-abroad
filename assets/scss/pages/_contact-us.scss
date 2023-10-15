@@ -5,15 +5,19 @@ main.contact-us {
   h1 {
     @include font_style(h1);
     color: $c_blue_2;
-    padding-inline: PxToRem(16);
     text-align: justify;
     width: 100;
+    @media (max-width: 1440px) {
+      padding-inline: PxToRem(16);
+    }
   }
   p {
     @include font_style(body_2);
     color: $c_gray;
-    padding-inline: PxToRem(16);
     width: 100;
+    @media (max-width: 1440px) {
+      padding-inline: PxToRem(16);
+    }
   }
 
   .container-form-image {
@@ -108,6 +112,11 @@ main.contact-us {
           left: 0;
         }
         flex: 2;
+      }
+    }
+    @media (max-width: 1000px) {
+      form {
+        flex-basis: 40%;
       }
     }
   }

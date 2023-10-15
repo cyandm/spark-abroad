@@ -17,7 +17,9 @@
 [class*=" icon-"] {
   @extend %SparkIconFonts;
 }
-
+.icon-arrow-down:before {
+  content: "\e914";
+}
 .icon-pause:before {
   content: "\e900";
 }

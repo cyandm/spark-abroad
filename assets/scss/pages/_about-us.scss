@@ -1,7 +1,14 @@
 @use "../utils/" as *;
 main.about-us-page {
   @include d_flex(column);
-
+  .popup-about-us {
+    opacity: 0;
+    pointer-events: none;
+    &.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
   .divider {
     height: PxToRem(68);
     background-color: $c_white_1;
@@ -35,6 +42,37 @@ main.about-us-page {
       margin-inline: PxToRem(4);
     }
   }
+  .jobseeker-container {
+    margin-inline: unset;
+    padding-inline: PxToRem(16);
+    @media (min-width: 900px) {
+      margin-inline: auto;
+      @include font_style(t2);
+      color: $c_blue_1;
+    }
+    .successful-jobseeker {
+      @include font_style(h1);
+      color: $c_blue_1;
+      align-self: flex-start;
+      margin-inline: unset;
+      width: 100%;
+      @media (min-width: 900px) {
+        margin-inline: auto;
+        @include font_style(t2);
+        color: $c_blue_1;
+      }
+    }
+    margin-bottom: PxToRem(12);
+  }
+  .jobseeker-content {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    &::-webkit-scrollbar {
+      width: 0rem;
+    }
+    @include d_flex(row, center, stretch, wrap, false, PxToRem(16));
+  }
+
   .last_words {
     @include font_style(h1);
     color: $c_blue_1;
@@ -65,6 +103,7 @@ main.about-us-page {
     position: relative;
     @include d_flex(column, start, start, nowrap, false, PxToRem(4));
     margin-bottom: PxToRem(120);
+    margin-top: PxToRem(44);
     padding: PxToRem(40) PxToRem(0);
     width: 100%;
     &::after {

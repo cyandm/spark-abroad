@@ -1,4 +1,6 @@
-import './modules/header';
-import './modules/swiper';
+import "./modules/header";
+import "./modules/swiper";
 
-import './pages/home';
+import "./pages/home";
+import "./pages/contact-us";
+import "./pages/about-us";
