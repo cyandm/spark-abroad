@@ -2,7 +2,6 @@
 $telephone = get_option('cyn_phone_number_one');
 $post_id = get_the_ID();
 
-//********************section 1*/
 $title_section_1 = get_field('section_1', $post_id)['title_section_1'];
 $sub_title_section_1 = get_field('section_1', $post_id)['sub_title_section_1'];
 $image_section_1 = get_field('section_1', $post_id)['image_section_1'];
@@ -10,8 +9,22 @@ $description_section_1 = get_field('section_1', $post_id)['description_section_1
 $link_section_1 = get_field('section_1', $post_id)['link_section_1'];
 $text_link_video_section_1 = get_field('section_1', $post_id)['text_link_video_section_1'];
 
+$title_section_2 = get_field('section_2', $post_id)['title_section_2'];
+$sub_title_section_2 = get_field('section_2', $post_id)['sub_title_section_2'];
+$image_section_2 = get_field('section_2', $post_id)['image_section_2'];
+$description_section_2 = get_field('section_2', $post_id)['description_section_2'];
 
+$title_section_3 = get_field('section_3', $post_id)['title_section_3'];
+$sub_title_section_3 = get_field('section_3', $post_id)['sub_title_section_3'];
+$description_section_3 = get_field('section_3', $post_id)['description_section_3'];
+$slider_section_3 = get_field('section_3', $post_id)['slider_section_3'];
 
+$title_section_4 = get_field('section_4', $post_id)['title_section_4'];
+$sub_title_section_4 = get_field('section_4', $post_id)['sub_title_section_4'];
+$image_section_4 = get_field('section_4', $post_id)['image_section_4'];
+$description_section_4 = get_field('section_4', $post_id)['description_section_4'];
+
+$counter = 1;
 
 
 ?>
@@ -20,24 +33,78 @@ $text_link_video_section_1 = get_field('section_1', $post_id)['text_link_video_s
     <div class="single-service-content">
         <section class="section-1 container">
             <div class="container-image-section1">
-                <div class="bg-image-section1"></div><?php echo wp_get_attachment_image($image_section_1) ?>
+                <?php echo wp_get_attachment_image($image_section_1, 'full') ?>
             </div>
             <div class="texts-section1">
                 <h2><?php echo $title_section_1 ?></h2>
                 <p class="subtitle-section1"><?php echo $sub_title_section_1 ?></p>
-                <p class="description-section1"><?php echo $description_section_1 ?></p>
-                <div><i class="icon-play2"></i></div>
+                <?php if (!empty($description_section_1)) :  ?><p class="description-section1"><?php echo $description_section_1; ?></p><?php endif; ?>
+
+                <div class="btn-video">
+                    <p><?php echo $text_link_video_section_1 ?></p><i class="icon-play2"></i>
+                </div>
             </div>
 
         </section>
-        <section class="section-2 container">
-
+        <section class="section section-2 container">
+            <div class="container-image-section">
+                <div class="card-know">
+                    <p class="title-card-know">از کجا شروع کنم؟</p>
+                    <p class="description-card-know">چیزهای مهمی که <br>باید درباره ما<br> بدونی!</p>
+                </div>
+                <?php echo wp_get_attachment_image($image_section_2, 'full') ?>
+            </div>
+            <div class="texts-section">
+                <h2><?php echo $title_section_2 ?></h2>
+                <p class="subtitle-section"><?php echo $sub_title_section_2 ?></p>
+                <?php if (!empty($description_section_2)) :  ?><p class="description-section"><?php echo $description_section_2; ?></p><?php endif; ?>
+            </div>
         </section>
         <section class="section-3">
+            <div class="texts-section">
+                <h2><?php echo $title_section_3 ?></h2>
+                <p class="subtitle-section"><?php echo $sub_title_section_3 ?></p>
+                <?php if (!empty($description_section_3)) :  ?><p class="description-section"><?php echo $description_section_3; ?></p><?php endif; ?>
+            </div>
+            <div class="container-slider-and-bg">
+                <div class="background-slider"></div>
+                <div class="container-slider">
+                    <div class="swiper swiper-service">
+                        <div class="swiper-wrapper">
+                            <?php
+                            if ($slider_section_3 != null) : ?>
+                                <?php foreach ($slider_section_3 as $value) : ?>
+                                    <?php if (!is_null($value)) : ?>
+                                        <?php if (!empty($value["image_slider_$counter"]) && !empty($value["title_slider_$counter"])) : ?>
+                                            <div class="swiper-slide">
+                                                <div class="content-card-slider">
+                                                    <?php if (!empty($value["image_slider_$counter"])) : ?><div class="container-image-slider"><?php echo wp_get_attachment_image($value["image_slider_$counter"]) ?></div><?php endif; ?>
+                                                    <?php if (!empty($value["title_slider_$counter"])) : ?><p><?php echo $value["title_slider_$counter"] ?></p><?php endif; ?>
 
+                                                </div>
+                                                <i class="icon-play2"></i>
+                                            </div>
+                                        <?php endif ?>
+                                        <?php $counter++; ?>
+                                    <?php endif ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="section-4 container">
-
+        <section class="section container">
+            <div class="container-image-section">
+                <?php echo wp_get_attachment_image($image_section_4, 'full') ?>
+            </div>
+            <div class="texts-section">
+                <h2><?php echo $title_section_4 ?></h2>
+                <p class="subtitle-section"><?php echo $sub_title_section_4 ?></p>
+                <?php if (!empty($description_section_4)) :  ?><p class="description-section"><?php echo $description_section_4; ?></p><?php endif; ?>
+            </div>
         </section>
         <section class="call-to-action">
             <h2> همین امروز تماس بگیر</h2>

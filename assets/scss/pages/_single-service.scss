@@ -1,74 +1,258 @@
 @use "../utils/" as *;
 main.single-service-page {
-  .section-1 {
-    @include d_flex(column, start, start, nowrap, false, PxToRem(4));
-    .container-image-section1 {
-      position: relative;
-      overflow: hidden;
-      .bg-image-section1 {
-        position: absolute;
-        background: linear-gradient(180deg, #1a1885 0%, #6a52c8 100%);
-        border-top-right-radius: 50%;
-        border-top-left-radius: 50%;
+  .single-service-content {
+    @include d_flex(column, start, start, nowrap, false, PxToRem(68));
+
+    .section-1 {
+      @media (min-width: 800px) {
+        @include d_flex(
+          row-reverse,
+          space-between,
+          center,
+          nowrap,
+          false,
+          PxToRem(16)
+        );
+      }
+      @include d_flex(column, start, start, nowrap, false, PxToRem(4));
+      width: 100%;
+      .container-image-section1 {
+        @media (min-width: 800px) {
+          flex: 1;
+        }
+        position: relative;
+        @include d_flex(row, center, center, nowrap, false, 0);
         width: 100%;
-        bottom: -50%;
-      }
-      img {
-        position: absolute;
-        bottom: 0;
-        width: 70%;
-        height: auto;
-      }
-    }
-    .texts-section1 {
-      h2 {
-        @include font_style(h1);
-        color: $c_blue_2;
-        strong {
-          @include font_style(h1);
-          color: $c_red_1;
+        img {
+          width: 70%;
+          height: auto;
+        }
+        @include psudo($el: after, $content: "", $position: absolute) {
+          width: 100%;
+          height: 70%;
+          background: $gradient-purple;
+          z-index: -1;
+          border-radius: 50% 50% 0 0/100% 100% 0 0;
+          inset: unset;
+          bottom: 0;
         }
       }
-      .subtitle-section1 {
+      .texts-section1 {
+        @media (min-width: 800px) {
+          flex: 1;
+        }
+        h2 {
+          @include font_style(h1);
+          color: $c_blue_2;
+          strong {
+            @include font_style(h1);
+            color: $c_red_1;
+          }
+        }
+        .subtitle-section1 {
+          @include font_style(h2);
+          color: $c_blue_1;
+        }
+        .description-section1 {
+          @include font_style(body_2);
+          color: $c_blue_2;
+          margin-bottom: PxToRem(16);
+        }
+      }
+    }
+    .section {
+      @include d_flex(column, center, start, nowrap, false, PxToRem(12));
+      @media (min-width: 800px) {
+        @include d_flex(row, space-between, center, nowrap, false, PxToRem(72));
+      }
+      .container-image-section {
+        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        @media (min-width: 800px) {
+          flex: 1;
+        }
+      }
+      .texts-section {
+        @media (min-width: 800px) {
+          flex: 1;
+        }
+        h2 {
+          @include font_style(h2);
+          color: $c_gray;
+          margin-bottom: PxToRem(8);
+        }
+        p {
+          @include font_style(h1);
+          color: $c_blue_1;
+          margin-bottom: PxToRem(16);
+        }
+        .description-section {
+          @include font_style(body_2);
+          color: $c_blue_2;
+          text-align: justify;
+        }
+      }
+    }
+    .section-2 {
+      position: relative;
+      .container-image-section {
+        .card-know {
+          position: absolute;
+          background: $gradient-purple;
+          box-shadow: $c_shadow_2;
+          border-radius: PxToRem(8);
+          overflow: hidden;
+          @include d_flex(column, center, start, nowrap, false, PxToRem(12));
+          padding: PxToRem(20) PxToRem(16) PxToRem(20) PxToRem(20);
+          .title-card-know {
+            @include font_style("caption");
+            color: $c_white_2;
+          }
+          .description-card-know {
+            @include font_style(body_2);
+            color: $c_white_2;
+          }
+        }
+      }
+    }
+    .section-3 {
+      width: 100%;
+      @include d_flex(column, center, start, nowrap, false, PxToRem(12));
+      @media (min-width: 800px) {
+        @include d_flex(row, space-between, center, nowrap, false, PxToRem(80));
+      }
+      .texts-section {
+        @media (min-width: 800px) {
+          flex: 1;
+        }
+        h2 {
+          @include font_style(h2);
+          color: $c_gray;
+          margin-bottom: PxToRem(8);
+        }
+        p {
+          @include font_style(h1);
+          color: $c_blue_1;
+          margin-bottom: PxToRem(16);
+        }
+        .description-section {
+          @include font_style(body_2);
+          color: $c_blue_2;
+          text-align: justify;
+        }
+      }
+      .container-slider-and-bg {
+        @media (min-width: 800px) {
+          flex: 2;
+          max-width: 65%;
+        }
+        padding-block: PxToRem(28);
+
+        position: relative;
+        width: 100%;
+        height: 300px;
+        .background-slider {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 50%;
+          width: 100%;
+          background: $gradient-purple;
+          z-index: -1;
+          @media (min-width: 800px) {
+            border-top-right-radius: PxToRem(8);
+            border-bottom-right-radius: PxToRem(8);
+          }
+        }
+        .container-slider {
+          width: 100%;
+          .swiper {
+            width: 100%;
+            height: 100%;
+
+            .swiper-slide {
+              @include d_flex(column, center, center, nowrap, false, 0);
+
+              img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+              .content-card-slider {
+                @include d_flex(column, center, center, nowrap, false, 0);
+                text-align: center;
+                font-size: 18px;
+                background: $c_white_2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: PxToRem(28);
+                padding: PxToRem(8) PxToRem(16) PxToRem(32) PxToRem(16);
+                width: 90%;
+                .container-image-slider {
+                  img {
+                    object-fit: contain;
+                  }
+                }
+                p {
+                  @include font_style(h3);
+                  color: $c_blue_1;
+                }
+              }
+              i {
+                width: PxToRem(32);
+                height: PxToRem(32);
+                font-size: 25px;
+                background-color: $c_white_1;
+                border: 1px solid $c_blue_1;
+                color: $c_blue_1;
+                border-radius: 50%;
+                @include d_flex(row, center, center, nowrap, false, 0);
+                margin-top: -10%;
+                &::before {
+                  translate: 0 1px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .call-to-action {
+      position: relative;
+      overflow: hidden;
+      @include d_flex(column, start, start, nowrap, false, PxToRem(4));
+      margin-bottom: PxToRem(120);
+      margin-top: PxToRem(44);
+      padding: PxToRem(40) PxToRem(16);
+      width: 100%;
+      @media (min-width: 700px) {
+        width: 80%;
+        border-bottom-left-radius: PxToRem(8);
+        border-top-left-radius: PxToRem(8);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("../imgs/banner-service.png");
+        z-index: -1;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      h2 {
         @include font_style(h2);
-        color: $c_blue_1;
+        color: $c_white_1;
       }
-      .description-section1 {
+      > p {
         @include font_style(body_2);
-        color: $c_blue_2;
+        color: $c_white_1;
       }
-    }
-  }
-  .call-to-action {
-    position: relative;
-    overflow: hidden;
-    @include d_flex(column, start, start, nowrap, false, PxToRem(4));
-    margin-bottom: PxToRem(120);
-    margin-top: PxToRem(44);
-    padding: PxToRem(40) PxToRem(16);
-    width: 100%;
-    @media (min-width: 700px) {
-      width: 80%;
-      border-bottom-left-radius: PxToRem(8);
-      border-top-left-radius: PxToRem(8);
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("../imgs/banner-service.png");
-      z-index: -1;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-    h2 {
-      @include font_style(h2);
-      color: $c_white_1;
-    }
-    > p {
-      @include font_style(body_2);
-      color: $c_white_1;
     }
   }
 }

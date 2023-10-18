@@ -1,0 +1,18 @@
+@use "../utils/" as *;
+main.service-page {
+  @include d_flex(column, start, start, nowrap, false, PxToRem(16));
+  .title-subtitle-service {
+    .title-service {
+      @include font_style(h1);
+      color: $c_blue_2;
+    }
+    .subtitle-service {
+      @include font_style(body_2);
+      color: $c_gray;
+    }
+  }
+  .container-cards {
+    @include d_flex(row, start, stretch, wrap, false, PxToRem(16));
+    width: 100%;
+  }
+}

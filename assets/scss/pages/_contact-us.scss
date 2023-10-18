@@ -64,6 +64,7 @@ main.contact-us {
         }
         textarea {
           width: 90%;
+          resize: vertical;
         }
         &.primary-btn {
           background-color: $c_blue_1;

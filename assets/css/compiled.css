@@ -109,6 +109,11 @@ button {
   cursor: pointer;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .container {
   max-width: 1440px;
   margin-inline: auto;
@@ -340,6 +345,44 @@ textarea {
 }
 .secondary-btn a p {
   color: hsl(241, 69%, 31%);
+}
+
+.btn-video {
+  background-color: unset;
+  border: 1px solid hsl(241, 69%, 31%);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  width: fit-content;
+  padding: 0.5rem 1.5rem 0.5rem 0.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+.btn-video p {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: hsl(241, 69%, 31%);
+  font-weight: 400;
+}
+.btn-video i {
+  width: 2rem;
+  height: 2rem;
+  background-color: hsl(241, 69%, 31%);
+  color: hsl(240, 36%, 96%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
 }
 
 .dropdown-menu {
@@ -818,6 +861,46 @@ textarea {
   color: hsl(241, 30%, 64%);
 }
 
+.service-card-container {
+  flex: 1;
+  position: relative;
+  background-color: hsl(240, 100%, 100%);
+  box-shadow: 0px 2px 6px 0px #e9e9f6;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  flex-basis: 30%;
+  min-width: 18.75rem;
+}
+.service-card-container p {
+  width: 35%;
+  text-align: left;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.25rem;
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(240, 67%, 17%);
+}
+.service-card-container p strong {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(357, 83%, 42%);
+}
+
 header .container {
   display: flex;
   flex-direction: row;
@@ -910,6 +993,7 @@ header.bg_purple .logo img {
 }
 
 footer {
+  padding-top: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -1904,6 +1988,7 @@ main.contact-us .container-form-image form div input {
 }
 main.contact-us .container-form-image form div textarea {
   width: 90%;
+  resize: vertical;
 }
 main.contact-us .container-form-image form div.primary-btn {
   background-color: hsl(241, 69%, 31%);
@@ -2229,33 +2314,74 @@ main.about-us-page .call-to-action > div div.secondary-btn {
   max-width: max-content;
 }
 
-main.single-service-page .section-1 {
+main.single-service-page .single-service-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 4.25rem;
+}
+main.single-service-page .single-service-content .section-1 {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   flex-wrap: nowrap;
   gap: 0.25rem;
-}
-main.single-service-page .section-1 .container-image-section1 {
-  position: relative;
-  overflow: hidden;
-}
-main.single-service-page .section-1 .container-image-section1 .bg-image-section1 {
-  position: absolute;
-  background: linear-gradient(180deg, #1a1885 0%, #6a52c8 100%);
-  border-top-right-radius: 50%;
-  border-top-left-radius: 50%;
   width: 100%;
-  bottom: -50%;
 }
-main.single-service-page .section-1 .container-image-section1 img {
-  position: absolute;
-  bottom: 0;
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section-1 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+}
+main.single-service-page .single-service-content .section-1 .container-image-section1 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+  position: relative;
+}
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section-1 .container-image-section1 {
+    flex: 1;
+  }
+}
+main.single-service-page .single-service-content .section-1 .container-image-section1 img {
   width: 70%;
   height: auto;
 }
-main.single-service-page .section-1 .texts-section1 h2 {
+main.single-service-page .single-service-content .section-1 .container-image-section1::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: 0.25rem;
+  height: 0.25rem;
+  display: block;
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(168deg, #1a1885 8.48%, #6a52c8 119.86%);
+  z-index: -1;
+  border-radius: 50% 50% 0 0/100% 100% 0 0;
+  inset: unset;
+  bottom: 0;
+}
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section-1 .texts-section1 {
+    flex: 1;
+  }
+}
+main.single-service-page .single-service-content .section-1 .texts-section1 h2 {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
   font-size: 1.25rem;
@@ -2267,7 +2393,7 @@ main.single-service-page .section-1 .texts-section1 h2 {
   line-height: 2.75rem;
   color: hsl(240, 67%, 17%);
 }
-main.single-service-page .section-1 .texts-section1 h2 strong {
+main.single-service-page .single-service-content .section-1 .texts-section1 h2 strong {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
   font-size: 1.25rem;
@@ -2279,7 +2405,7 @@ main.single-service-page .section-1 .texts-section1 h2 strong {
   line-height: 2.75rem;
   color: hsl(357, 83%, 42%);
 }
-main.single-service-page .section-1 .texts-section1 .subtitle-section1 {
+main.single-service-page .single-service-content .section-1 .texts-section1 .subtitle-section1 {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
   font-size: 1.25rem;
@@ -2291,7 +2417,7 @@ main.single-service-page .section-1 .texts-section1 .subtitle-section1 {
   font-weight: bold;
   color: hsl(241, 69%, 31%);
 }
-main.single-service-page .section-1 .texts-section1 .description-section1 {
+main.single-service-page .single-service-content .section-1 .texts-section1 .description-section1 {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
   font-size: 1.25rem;
@@ -2302,8 +2428,286 @@ main.single-service-page .section-1 .texts-section1 .description-section1 {
   font-weight: 400;
   line-height: 2rem;
   color: hsl(240, 67%, 17%);
+  margin-bottom: 1rem;
 }
-main.single-service-page .call-to-action {
+main.single-service-page .single-service-content .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 4.5rem;
+  }
+}
+main.single-service-page .single-service-content .section .container-image-section {
+  width: 100%;
+}
+main.single-service-page .single-service-content .section .container-image-section img {
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section .container-image-section {
+    flex: 1;
+  }
+}
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section .texts-section {
+    flex: 1;
+  }
+}
+main.single-service-page .single-service-content .section .texts-section h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(241, 30%, 64%);
+  margin-bottom: 0.5rem;
+}
+main.single-service-page .single-service-content .section .texts-section p {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(241, 69%, 31%);
+  margin-bottom: 1rem;
+}
+main.single-service-page .single-service-content .section .texts-section .description-section {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 67%, 17%);
+  text-align: justify;
+}
+main.single-service-page .single-service-content .section-2 {
+  position: relative;
+}
+main.single-service-page .single-service-content .section-2 .container-image-section .card-know {
+  position: absolute;
+  background: linear-gradient(168deg, #1a1885 8.48%, #6a52c8 119.86%);
+  box-shadow: 0px 2.85239px 24.24532px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem 1.25rem 1.25rem;
+}
+main.single-service-page .single-service-content .section-2 .container-image-section .card-know .title-card-know {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: auto;
+  color: hsl(240, 100%, 100%);
+}
+main.single-service-page .single-service-content .section-2 .container-image-section .card-know .description-card-know {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 100%, 100%);
+}
+main.single-service-page .single-service-content .section-3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section-3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 5rem;
+  }
+}
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section-3 .texts-section {
+    flex: 1;
+  }
+}
+main.single-service-page .single-service-content .section-3 .texts-section h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(241, 30%, 64%);
+  margin-bottom: 0.5rem;
+}
+main.single-service-page .single-service-content .section-3 .texts-section p {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(241, 69%, 31%);
+  margin-bottom: 1rem;
+}
+main.single-service-page .single-service-content .section-3 .texts-section .description-section {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 67%, 17%);
+  text-align: justify;
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg {
+  padding-block: 1.75rem;
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section-3 .container-slider-and-bg {
+    flex: 2;
+    max-width: 65%;
+  }
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .background-slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(168deg, #1a1885 8.48%, #6a52c8 119.86%);
+  z-index: -1;
+}
+@media (min-width: 800px) {
+  main.single-service-page .single-service-content .section-3 .container-slider-and-bg .background-slider {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .container-slider {
+  width: 100%;
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .container-slider .swiper {
+  width: 100%;
+  height: 100%;
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .container-slider .swiper .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .container-slider .swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .container-slider .swiper .swiper-slide .content-card-slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  text-align: center;
+  font-size: 18px;
+  background: hsl(240, 100%, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.75rem;
+  padding: 0.5rem 1rem 2rem 1rem;
+  width: 90%;
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .container-slider .swiper .swiper-slide .content-card-slider .container-image-slider img {
+  object-fit: contain;
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .container-slider .swiper .swiper-slide .content-card-slider p {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: auto;
+  color: hsl(241, 69%, 31%);
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .container-slider .swiper .swiper-slide i {
+  width: 2rem;
+  height: 2rem;
+  font-size: 25px;
+  background-color: hsl(240, 36%, 96%);
+  border: 1px solid hsl(241, 69%, 31%);
+  color: hsl(241, 69%, 31%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  margin-top: -10%;
+}
+main.single-service-page .single-service-content .section-3 .container-slider-and-bg .container-slider .swiper .swiper-slide i::before {
+  translate: 0 1px;
+}
+main.single-service-page .single-service-content .call-to-action {
   position: relative;
   overflow: hidden;
   display: flex;
@@ -2318,13 +2722,13 @@ main.single-service-page .call-to-action {
   width: 100%;
 }
 @media (min-width: 700px) {
-  main.single-service-page .call-to-action {
+  main.single-service-page .single-service-content .call-to-action {
     width: 80%;
     border-bottom-left-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
   }
 }
-main.single-service-page .call-to-action::after {
+main.single-service-page .single-service-content .call-to-action::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -2334,7 +2738,7 @@ main.single-service-page .call-to-action::after {
   background-repeat: no-repeat;
   background-position: center;
 }
-main.single-service-page .call-to-action h2 {
+main.single-service-page .single-service-content .call-to-action h2 {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
   font-size: 1.25rem;
@@ -2346,7 +2750,7 @@ main.single-service-page .call-to-action h2 {
   font-weight: bold;
   color: hsl(240, 36%, 96%);
 }
-main.single-service-page .call-to-action > p {
+main.single-service-page .single-service-content .call-to-action > p {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
   font-size: 1.25rem;
@@ -2357,6 +2761,48 @@ main.single-service-page .call-to-action > p {
   font-weight: 400;
   line-height: 2rem;
   color: hsl(240, 36%, 96%);
+}
+
+main.service-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+main.service-page .title-subtitle-service .title-service {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 67%, 17%);
+}
+main.service-page .title-subtitle-service .subtitle-service {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 30%, 64%);
+}
+main.service-page .container-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
 }
 
 /**

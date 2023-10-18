@@ -42,3 +42,25 @@
     }
   }
 }
+.btn-video {
+  background-color: unset;
+  border: 1px solid $c_blue_1;
+  border-radius: PxToRem(24);
+  overflow: hidden;
+  width: fit-content;
+  padding: PxToRem(8) PxToRem(24) PxToRem(8) PxToRem(4);
+  @include d_flex(row, space-between, center, nowrap, false, PxToRem(12));
+  p {
+    @include font_style(body_1);
+    color: $c_blue_1;
+    font-weight: 400;
+  }
+  i {
+    width: PxToRem(32);
+    height: PxToRem(32);
+    background-color: $c_blue_1;
+    color: $c_white_1;
+    border-radius: 50%;
+    @include d_flex(row, center, center, nowrap, false, 0);
+  }
+}

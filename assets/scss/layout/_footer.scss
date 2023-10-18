@@ -1,6 +1,8 @@
 @use "../utils/index" as *;
 
 footer {
+  padding-top: PxToRem(20);
+
   &.is-purple {
     background-color: $c_blue_5;
   }

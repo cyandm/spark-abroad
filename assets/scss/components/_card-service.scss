@@ -1,0 +1,27 @@
+@use "../utils/" as *;
+
+.service-card-container {
+  flex: 1;
+  position: relative;
+  background-color: $c_white_2;
+  box-shadow: 0px 2px 6px 0px #e9e9f6;
+  border-radius: PxToRem(24);
+  padding: PxToRem(16);
+  flex-basis: 30%;
+  min-width: PxToRem(300);
+  .image-card-service {
+  }
+  p {
+    width: 35%;
+    text-align: left;
+    position: absolute;
+    top: PxToRem(24);
+    left: PxToRem(20);
+    @include font_style(h2);
+    color: $c_blue_2;
+    strong {
+      @include font_style(h2);
+      color: $c_red_1;
+    }
+  }
+}
