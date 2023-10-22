@@ -9177,13 +9177,48 @@
 
   // assets/js/pages/about-us.js
   var swiperAboutUs = new Swiper(".swiper-about-us", {
-    pagination: {
-      el: ".swiper-pagination",
+    spaceBetween: 16,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
+  });
+  var swiperAboutUsBgTop = new Swiper("#swiperAboutUsBgTop", {
+    direction: "horizontal",
+    loop: true,
+    speed: 2e3,
+    effect: "fade",
+    autoplay: {
+      //auto play
+      delay: 2e3
+    },
+    fadeEffect: {
+      // added
+      crossFade: true
+      // added(resolve the overlapping of the slides)
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
       clickable: true
     }
   });
   var popupAboutUs = document.querySelector(".popup-about-us");
   var playBtnGroup = document.querySelectorAll(".play-btn");
+  var header2 = document.querySelector("header>div");
+  var aboutUs = document.querySelector("main.about-us-page");
+  var titleImageSlider = document.querySelector(".title-image-slider");
+  var btnPrevAboutUs = document.querySelector(".btn-prev-about-us");
+  var btnNextAboutUs = document.querySelector(".btn-next-about-us");
+  if (aboutUs) {
+    const setMarginRight = () => {
+      titleImageSlider.style.marginRight = header2.offsetLeft + "px";
+      btnNextAboutUs.style.right = header2.offsetLeft + 20 + "px";
+      btnPrevAboutUs.style.right = header2.offsetLeft + 80 + "px";
+    };
+    setMarginRight();
+    window.addEventListener("resize", () => setMarginRight());
+  }
   playBtnGroup.forEach((playBtn) => {
     playBtn.addEventListener("click", () => {
       popupAboutUs.classList.add("show");
@@ -9199,4 +9234,32 @@
       prevEl: ".swiper-button-prev"
     }
   });
+
+  // assets/js/pages/blog.js
+  var selectHandler = document.querySelector(".category-blog select");
+  var optionSelect = document.querySelectorAll(".category-blog select option");
+  var selectSingleBlogHandler = document.querySelector(
+    ".category-single-blog select"
+  );
+  var optionSingleBlog = document.querySelectorAll(
+    ".category-single-blog select option"
+  );
+  if (selectHandler && optionSelect) {
+    selectHandler.addEventListener("change", (e) => {
+      optionSelect.forEach((el) => {
+        if (el.value === e.target.value) {
+          window.location = el.dataset.uri;
+        }
+      });
+    });
+  }
+  if (selectSingleBlogHandler && optionSingleBlog) {
+    selectSingleBlogHandler.addEventListener("change", (e) => {
+      optionSingleBlog.forEach((el) => {
+        if (el.value === e.target.value) {
+          window.location = el.dataset.uri;
+        }
+      });
+    });
+  }
 })();

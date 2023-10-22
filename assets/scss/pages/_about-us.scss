@@ -1,12 +1,171 @@
 @use "../utils/" as *;
 main.about-us-page {
   @include d_flex(column);
+  .background-about-us {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    translate: 0rem 0rem;
+
+    .swiper {
+      margin: 0;
+      width: 100%;
+      display: flex;
+      border-radius: 0;
+      overflow-y: visible;
+      .swiper-wrapper {
+        width: 100%;
+        border-radius: 0;
+
+        .swiper-slide {
+          width: 100%;
+          padding: 0;
+          flex-direction: row;
+          position: relative;
+          overflow: unset !important;
+          .bg_slider {
+            position: relative;
+            &::after {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              z-index: 5;
+              background: $bg_purple;
+              opacity: 0.8;
+            }
+          }
+
+          .title-image-slider {
+            border: PxToRem(8) solid $c_blue_1;
+            border-radius: PxToRem(24);
+            position: absolute;
+            right: 0;
+            bottom: -5%;
+            width: PxToRem(580);
+            height: PxToRem(580);
+            padding: PxToRem(28);
+            z-index: 10;
+            overflow: hidden;
+            margin-inline: PxToRem(16);
+            .title-slider {
+              @include font_style(t2);
+              color: $c_white_2;
+              width: 60%;
+              position: absolute;
+              right: 5%;
+              top: 15%;
+            }
+            .image-slider {
+              position: absolute;
+              bottom: -5%;
+              left: 2%;
+            }
+          }
+        }
+      }
+      .swiper-button-next {
+        @include d_flex(row, center, center, nowrap, false, 0);
+
+        position: absolute;
+        background: $c_white_2;
+        z-index: 1;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+        padding: PxToRem(12);
+        i {
+          background-color: unset;
+
+          translate: -2px 1px;
+        }
+        rotate: -90deg;
+      }
+      .swiper-button-prev {
+        @include d_flex(row, center, center, nowrap, false, 0);
+
+        position: absolute;
+        background: $c_white_2;
+        z-index: 1;
+        bottom: 0;
+        right: 100px;
+        border-radius: 50%;
+        padding: PxToRem(12);
+        i {
+          background-color: unset;
+          translate: -1px 2px;
+        }
+        rotate: 90deg;
+      }
+    }
+  }
+
+  .spacer {
+    min-height: 60vw;
+  }
+
   .popup-about-us {
     opacity: 0;
     pointer-events: none;
+    @include d_flex(column, start, center, nowrap, false, PxToRem(16));
+    height: 0;
     &.show {
+      height: auto;
+      transition: all 0.5s ease-in-out;
       opacity: 1;
       pointer-events: all;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+    }
+    .bg-color-popup {
+      position: fixed;
+      inset: 0;
+      opacity: 0.9;
+      background-color: $c_blue_2;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .btn-close {
+      margin-top: PxToRem(68);
+      background-color: $c_white_2;
+      border-radius: 50%;
+      padding: PxToRem(8);
+      @include d_flex(row, center, center, nowrap, false, 0);
+      i {
+        @include d_flex(row, center, center, nowrap, false, 0);
+        background-color: unset;
+        font-size: PxToRem(32);
+        translate: 0 1px;
+      }
+    }
+    .video-popup {
+      width: 90%;
+      video {
+        width: 100%;
+        border-radius: PxToRem(24);
+      }
+    }
+    .text-popup {
+      padding: PxToRem(16);
+      .jobseeker-name-popup {
+        @include font_style(h2);
+        color: $c_white_2;
+      }
+      .jobseeker-description-popup {
+        @include font_style(body_2);
+        color: $c_white_2;
+      }
     }
   }
   .divider {
@@ -65,17 +224,28 @@ main.about-us-page {
     margin-bottom: PxToRem(12);
   }
   .jobseeker-content {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    &::-webkit-scrollbar {
-      width: 0rem;
+    width: 100%;
+    .swiper {
+      width: 100%;
+      height: 100%;
+      @include d_flex(row, space-between, stretch, nowrap, false, PxToRem(16));
+
+      .swiper-wrapper {
+        height: 100% !important;
+
+        .swiper-slide {
+          width: unset !important;
+          height: unset !important;
+        }
+      }
     }
-    @include d_flex(row, center, stretch, wrap, false, PxToRem(16));
   }
 
   .last_words {
     @include font_style(h1);
     color: $c_blue_1;
+
+    margin-top: PxToRem(68);
     align-self: flex-start;
     margin-inline: unset;
     @media (min-width: 900px) {
@@ -97,6 +267,11 @@ main.about-us-page {
     @media (min-width: 900px) {
       flex-direction: row;
       align-items: center;
+    }
+  }
+  .section-4 {
+    .last-section-image {
+      min-width: 50%;
     }
   }
   .call-to-action {

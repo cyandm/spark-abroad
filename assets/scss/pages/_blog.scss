@@ -91,6 +91,10 @@ main.blog-page {
         @media (width>900px) {
           min-width: PxToRem(500);
         }
+        .quote-img {
+          width: PxToRem(32);
+          height: PxToRem(32);
+        }
         .knowable_title_card {
           @include font_style(h2);
           color: $c_white_2;

@@ -92,7 +92,7 @@ $current_url = get_permalink($object_id);
                     <?php if (!is_null($value)) : ?>
 
                         <div class="card-knowable">
-                            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/quotation.svg' ?>" />
+                            <img class="quote-img" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/quotation.svg' ?>" />
                             <h2 class="knowable_title_card"><?php echo $value["knowable_title_$counter"] ?></h2>
                             <p class="knowable_text_card"><?php echo $value["knowable_text_$counter"] ?></p>
                             <a href="<?php echo $value["knowable_link_$counter"] ?>">
@@ -110,7 +110,7 @@ $current_url = get_permalink($object_id);
         <select class="dropdown-menu">
             <option disabled selected>دسته بندی ها</option>
             <?php for ($i = 0; $i < count($all_categories); $i++) : ?>
-                <option><?php echo $all_categories[$i]['name'] ?></option>
+                <option data-uri="<?php echo $all_categories[$i]['link'] ?>"><?php echo $all_categories[$i]['name'] ?></option>
             <?php endfor; ?>
         </select>
     </div>

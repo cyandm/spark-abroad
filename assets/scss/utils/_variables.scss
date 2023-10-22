@@ -23,6 +23,17 @@ $c_red_1: hsla(357, 83%, 42%, 1);
 //gradient color
 $gradient-blue: linear-gradient(355deg, hsla(240, 67%, 17%, 0.4), transparent);
 $gradient-purple: linear-gradient(168deg, #1a1885 8.48%, #6a52c8 119.86%);
+$bg_purple: linear-gradient(
+  180deg,
+  rgba(28, 26, 134, 0.66) 0%,
+  rgba(64, 52, 165, 0.66) 100%
+);
+$linear-contact-image: linear-gradient(
+  100deg,
+  transparent 20%,
+  rgba(7, 7, 7, 0.7) 40%,
+  #070707 60%
+);
 
 //shadow color
 $c_shadow_1: rgba(0, 0, 0, 0.08);

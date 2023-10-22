@@ -7,15 +7,17 @@ $jobseeker_job = get_field('jobseeker_job', $post_id);
 $jobseeker_video_link = get_field('jobseeker_video_link', $post_id);
 
 ?>
-<div class="jobseeker-card">
-    <div class="image_jobseeker"><?= $post_image ?></div>
+<div class="swiper-slide">
+    <div class="jobseeker-card">
+        <div class="image_jobseeker"><?= $post_image ?></div>
 
-    <div class="play-btn"><i class="icon-play2"></i></div>
-    <div class="jobseeker-information">
-        <div class="jobseeker-name-company">
-            <p class="jobseeker-name"><?php echo $jobseeker_name ?></p>
-            <p class="jobseeker-company"><?php echo $jobseeker_company ?></p>
+        <div class="play-btn" data-id="<?php echo $post_id ?>"><i class="icon-play2"></i></div>
+        <div class="jobseeker-information">
+            <div class="jobseeker-name-company">
+                <p class="jobseeker-name"><?php echo $jobseeker_name ?></p>
+                <p class="jobseeker-company"><?php echo $jobseeker_company ?></p>
+            </div>
+            <p class="jobseeker-job"><?php echo $jobseeker_job ?></p>
         </div>
-        <p class="jobseeker-job"><?php echo $jobseeker_job ?></p>
     </div>
 </div>

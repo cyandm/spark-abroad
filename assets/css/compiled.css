@@ -774,11 +774,20 @@ textarea {
   gap: 0;
   position: relative;
   min-width: 3rem;
+  width: 100%;
+  height: 100%;
+  max-height: 450px;
 }
 .jobseeker-card .image_jobseeker {
   border-radius: 1.5rem;
   overflow: hidden;
   width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+.jobseeker-card .image_jobseeker img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .jobseeker-card .play-btn {
@@ -870,6 +879,18 @@ textarea {
   padding: 1rem;
   flex-basis: 30%;
   min-width: 18.75rem;
+  max-height: 21.25rem;
+}
+.service-card-container .image-card-service {
+  width: 100%;
+  height: 100%;
+}
+.service-card-container .image-card-service a {
+  height: 100%;
+}
+.service-card-container .image-card-service a img {
+  height: 100%;
+  object-fit: contain;
 }
 .service-card-container p {
   width: 35%;
@@ -1644,6 +1665,10 @@ main.blog-page .knowable .container-cards .card-knowable {
     min-width: 31.25rem;
   }
 }
+main.blog-page .knowable .container-cards .card-knowable .quote-img {
+  width: 2rem;
+  height: 2rem;
+}
 main.blog-page .knowable .container-cards .card-knowable .knowable_title_card {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
@@ -2071,13 +2096,213 @@ main.about-us-page {
   flex-wrap: wrap;
   gap: 0;
 }
+main.about-us-page .background-about-us {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  translate: 0rem 0rem;
+}
+main.about-us-page .background-about-us .swiper {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  border-radius: 0;
+  overflow-y: visible;
+}
+main.about-us-page .background-about-us .swiper .swiper-wrapper {
+  width: 100%;
+  border-radius: 0;
+}
+main.about-us-page .background-about-us .swiper .swiper-wrapper .swiper-slide {
+  width: 100%;
+  padding: 0;
+  flex-direction: row;
+  position: relative;
+  overflow: unset !important;
+}
+main.about-us-page .background-about-us .swiper .swiper-wrapper .swiper-slide .bg_slider {
+  position: relative;
+}
+main.about-us-page .background-about-us .swiper .swiper-wrapper .swiper-slide .bg_slider::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  background: linear-gradient(180deg, rgba(28, 26, 134, 0.66) 0%, rgba(64, 52, 165, 0.66) 100%);
+  opacity: 0.8;
+}
+main.about-us-page .background-about-us .swiper .swiper-wrapper .swiper-slide .title-image-slider {
+  border: 0.5rem solid hsl(241, 69%, 31%);
+  border-radius: 1.5rem;
+  position: absolute;
+  right: 0;
+  bottom: -5%;
+  width: 36.25rem;
+  height: 36.25rem;
+  padding: 1.75rem;
+  z-index: 10;
+  overflow: hidden;
+  margin-inline: 1rem;
+}
+main.about-us-page .background-about-us .swiper .swiper-wrapper .swiper-slide .title-image-slider .title-slider {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 6.5rem;
+  color: hsl(240, 100%, 100%);
+  width: 60%;
+  position: absolute;
+  right: 5%;
+  top: 15%;
+}
+main.about-us-page .background-about-us .swiper .swiper-wrapper .swiper-slide .title-image-slider .image-slider {
+  position: absolute;
+  bottom: -5%;
+  left: 2%;
+}
+main.about-us-page .background-about-us .swiper .swiper-button-next {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: absolute;
+  background: hsl(240, 100%, 100%);
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  padding: 0.75rem;
+  rotate: -90deg;
+}
+main.about-us-page .background-about-us .swiper .swiper-button-next i {
+  background-color: unset;
+  translate: -2px 1px;
+}
+main.about-us-page .background-about-us .swiper .swiper-button-prev {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: absolute;
+  background: hsl(240, 100%, 100%);
+  z-index: 1;
+  bottom: 0;
+  right: 100px;
+  border-radius: 50%;
+  padding: 0.75rem;
+  rotate: 90deg;
+}
+main.about-us-page .background-about-us .swiper .swiper-button-prev i {
+  background-color: unset;
+  translate: -1px 2px;
+}
+main.about-us-page .spacer {
+  min-height: 60vw;
+}
 main.about-us-page .popup-about-us {
   opacity: 0;
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  height: 0;
 }
 main.about-us-page .popup-about-us.show {
+  height: auto;
+  transition: all 0.5s ease-in-out;
   opacity: 1;
   pointer-events: all;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+main.about-us-page .popup-about-us .bg-color-popup {
+  position: fixed;
+  inset: 0;
+  opacity: 0.9;
+  background-color: hsl(240, 67%, 17%);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+main.about-us-page .popup-about-us .btn-close {
+  margin-top: 4.25rem;
+  background-color: hsl(240, 100%, 100%);
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+main.about-us-page .popup-about-us .btn-close i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  background-color: unset;
+  font-size: 2rem;
+  translate: 0 1px;
+}
+main.about-us-page .popup-about-us .video-popup {
+  width: 90%;
+}
+main.about-us-page .popup-about-us .video-popup video {
+  width: 100%;
+  border-radius: 1.5rem;
+}
+main.about-us-page .popup-about-us .text-popup {
+  padding: 1rem;
+}
+main.about-us-page .popup-about-us .text-popup .jobseeker-name-popup {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(240, 100%, 100%);
+}
+main.about-us-page .popup-about-us .text-popup .jobseeker-description-popup {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 100%, 100%);
 }
 main.about-us-page .divider {
   height: 4.25rem;
@@ -2202,17 +2427,24 @@ main.about-us-page .jobseeker-container .successful-jobseeker {
   }
 }
 main.about-us-page .jobseeker-content {
-  overflow-x: scroll;
-  overflow-y: hidden;
+  width: 100%;
+}
+main.about-us-page .jobseeker-content .swiper {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 1rem;
 }
-main.about-us-page .jobseeker-content::-webkit-scrollbar {
-  width: 0rem;
+main.about-us-page .jobseeker-content .swiper .swiper-wrapper {
+  height: 100% !important;
+}
+main.about-us-page .jobseeker-content .swiper .swiper-wrapper .swiper-slide {
+  width: unset !important;
+  height: unset !important;
 }
 main.about-us-page .last_words {
   color: hsl(240, 36%, 96%);
@@ -2225,6 +2457,7 @@ main.about-us-page .last_words {
   font-weight: 500;
   line-height: 2.75rem;
   color: hsl(241, 69%, 31%);
+  margin-top: 4.25rem;
   align-self: flex-start;
   margin-inline: unset;
 }
@@ -2257,6 +2490,9 @@ main.about-us-page .last_words {
     flex-direction: row;
     align-items: center;
   }
+}
+main.about-us-page .section-4 .last-section-image {
+  min-width: 50%;
 }
 main.about-us-page .call-to-action {
   position: relative;

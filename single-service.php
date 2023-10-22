@@ -31,6 +31,7 @@ $counter = 1;
 <?php get_header() ?>
 <main class="single-service-page">
     <div class="single-service-content">
+
         <section class="section-1 container">
             <div class="container-image-section1">
                 <?php echo wp_get_attachment_image($image_section_1, 'full') ?>
@@ -46,6 +47,7 @@ $counter = 1;
             </div>
 
         </section>
+
         <section class="section section-2 container">
             <div class="container-image-section">
                 <div class="card-know">
@@ -60,6 +62,7 @@ $counter = 1;
                 <?php if (!empty($description_section_2)) :  ?><p class="description-section"><?php echo $description_section_2; ?></p><?php endif; ?>
             </div>
         </section>
+
         <section class="section-3">
             <div class="texts-section">
                 <h2><?php echo $title_section_3 ?></h2>
@@ -96,6 +99,7 @@ $counter = 1;
                 </div>
             </div>
         </section>
+
         <section class="section container">
             <div class="container-image-section">
                 <?php echo wp_get_attachment_image($image_section_4, 'full') ?>
@@ -106,6 +110,7 @@ $counter = 1;
                 <?php if (!empty($description_section_4)) :  ?><p class="description-section"><?php echo $description_section_4; ?></p><?php endif; ?>
             </div>
         </section>
+
         <section class="call-to-action">
             <h2> همین امروز تماس بگیر</h2>
             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>

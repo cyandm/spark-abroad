@@ -2,13 +2,14 @@
 
 global $wp_query;
 
+
 $all_categories = $cyn_general->category_info(get_the_ID(), "http://spark-abroad.local/بلاگ/", 'category');
 
 $author_name = get_the_author_meta('display_name', get_post_field('post_author', get_the_ID()));
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-$category_name = $wp_query->query['category_name'];
+$category_name = $wp_query->queried_object->name;
 ?>
 <?php get_header(); ?>
 <main class="blog-page">
@@ -16,20 +17,20 @@ $category_name = $wp_query->query['category_name'];
         <select class="dropdown-menu">
             <option disabled selected>دسته بندی ها</option>
             <?php for ($i = 0; $i < count($all_categories); $i++) : ?>
-                <option><?php echo $all_categories[$i]['name'] ?></option>
+                <option data-uri="<?php echo $all_categories[$i]['link'] ?>"><?php echo $all_categories[$i]['name'] ?></option>
             <?php endfor; ?>
         </select>
     </div>
     <ul class="category-blog-desktop on-desktop-show">
         <?php for ($i = 0; $i < count($all_categories); $i++) : ?>
-            <li class="<?php if (urldecode($category_name) === $all_categories[$i]['name']) echo 'current-link' ?>"><a href="<?php echo $all_categories[$i]['link'] ?>"><?php echo $all_categories[$i]['name'] ?></a></li>
+            <li class="<?php if ($category_name === $all_categories[$i]['name']) echo 'current-link' ?>"><a href="<?php echo $all_categories[$i]['link'] ?>"><?php echo $all_categories[$i]['name'] ?></a></li>
         <?php endfor; ?>
     </ul>
     <?php
     if ($wp_query->have_posts()) : ?>
 
         <div class="container-all-blogs container">
-            <h1 class="all-blogs-title">همه مقالات</h1>
+            <h1 class="all-blogs-title"><?php echo ($category_name) ?></h1>
             <div class="container-blog-card-group">
                 <div class="posts-content">
                     <?php

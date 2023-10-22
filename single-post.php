@@ -26,7 +26,7 @@ $post_id = get_queried_object_id();
             <select class="dropdown-menu">
                 <option disabled selected>دسته بندی ها</option>
                 <?php for ($i = 0; $i < count($all_categories); $i++) : ?>
-                    <option><?php echo $all_categories[$i]['name'] ?></option>
+                    <option data-uri="<?php echo $all_categories[$i]['link'] ?>"><?php echo $all_categories[$i]['name'] ?></option>
                 <?php endfor; ?>
             </select>
         </div>

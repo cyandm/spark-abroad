@@ -17,6 +17,7 @@
 [class*=" icon-"] {
   @extend %SparkIconFonts;
 }
+
 .icon-arrow-down:before {
   content: "\e914";
 }
