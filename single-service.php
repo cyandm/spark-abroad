@@ -30,6 +30,23 @@ $counter = 1;
 ?>
 <?php get_header() ?>
 <main class="single-service-page">
+
+    <div class="popup-service">
+        <div class="bg-color-popup-service"></div>
+        <div class="information-popup-service container">
+            <div class="btn-close-popup-service"><i class="icon-close2"></i></div>
+            <div class="container-video-popup-service">
+                <video class="video-popup-service" controls autoplay muted>
+                    <source src="#" type="video/mp4">
+                </video>
+            </div>
+            <div class="text-service-popup">
+                <p class="title-service-popup"></p>
+                <p class="description-service-popup"></p>
+            </div>
+        </div>
+    </div>
+
     <div class="single-service-content">
 
         <section class="section-1 container">
@@ -41,7 +58,7 @@ $counter = 1;
                 <p class="subtitle-section1"><?php echo $sub_title_section_1 ?></p>
                 <?php if (!empty($description_section_1)) :  ?><p class="description-section1"><?php echo $description_section_1; ?></p><?php endif; ?>
 
-                <div class="btn-video">
+                <div class="btn-video  popup-btn-service" data-title="<?php echo get_the_title(get_the_ID()) ?>" data-video="<?php echo $link_section_1 ?>" data-description="<?php echo $description_section_1 ?>">
                     <p><?php echo $text_link_video_section_1 ?></p><i class="icon-play2"></i>
                 </div>
             </div>
@@ -64,15 +81,19 @@ $counter = 1;
         </section>
 
         <section class="section-3">
-            <div class="texts-section">
+            <div class="texts-section-3 texts-section container">
                 <h2><?php echo $title_section_3 ?></h2>
                 <p class="subtitle-section"><?php echo $sub_title_section_3 ?></p>
                 <?php if (!empty($description_section_3)) :  ?><p class="description-section"><?php echo $description_section_3; ?></p><?php endif; ?>
+                <div class="container-btn-prev-next">
+                    <div class="swiper-button-prev-service"><i class="icon-arrow-down"></i></div>
+                    <div class="swiper-button-next-service"><i class="icon-arrow-down"></i></div>
+                </div>
             </div>
             <div class="container-slider-and-bg">
                 <div class="background-slider"></div>
                 <div class="container-slider">
-                    <div class="swiper swiper-service">
+                    <div class="swiper" id="swiperService">
                         <div class="swiper-wrapper">
                             <?php
                             if ($slider_section_3 != null) : ?>
@@ -83,9 +104,9 @@ $counter = 1;
                                                 <div class="content-card-slider">
                                                     <?php if (!empty($value["image_slider_$counter"])) : ?><div class="container-image-slider"><?php echo wp_get_attachment_image($value["image_slider_$counter"]) ?></div><?php endif; ?>
                                                     <?php if (!empty($value["title_slider_$counter"])) : ?><p><?php echo $value["title_slider_$counter"] ?></p><?php endif; ?>
-
+                                                    <i class="icon-play2 play-btn-single-service" data-title="<?php echo $value["title_slider_$counter"]  ?>" data-video="<?php echo $value["link_slider_$counter"]  ?>" data-description="<?php echo $value["description_slider_$counter"] ?>"></i>
                                                 </div>
-                                                <i class="icon-play2"></i>
+
                                             </div>
                                         <?php endif ?>
                                         <?php $counter++; ?>
@@ -93,8 +114,6 @@ $counter = 1;
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
                     </div>
                 </div>
             </div>

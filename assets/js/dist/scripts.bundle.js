@@ -9166,13 +9166,16 @@
   var title = document.querySelector("main.contact-us>h1");
   var descriptionPage = document.querySelector("main.contact-us>p");
   if (contactUs) {
-    const setMarginRight = () => {
+    const setMarginRight3 = () => {
       form.style.marginRight = header.offsetLeft + "px";
       title.style.marginRight = header.offsetLeft + "px";
       descriptionPage.style.marginRight = header.offsetLeft + "px";
     };
-    setMarginRight();
-    window.addEventListener("resize", () => setMarginRight());
+    setMarginRight3();
+    window.addEventListener("resize", () => setMarginRight3());
+    title.addEventListener("click", (e) => {
+      console.log(e);
+    });
   }
 
   // assets/js/pages/about-us.js
@@ -9210,30 +9213,49 @@
   var titleImageSlider = document.querySelector(".title-image-slider");
   var btnPrevAboutUs = document.querySelector(".btn-prev-about-us");
   var btnNextAboutUs = document.querySelector(".btn-next-about-us");
+  var btnClosePopup = document.querySelector(".btn-close-popup");
+  var video2 = document.querySelector(".video-popup-jobseeker");
+  var jobseekerName = document.querySelector(
+    ".text-popup .jobseeker-name-popup"
+  );
+  var jobseekerDescription = document.querySelector(
+    ".text-popup .jobseeker-description-popup"
+  );
+  var spacer = document.querySelector(".spacer");
+  var backgroundSlider = document.querySelector(".background-about-us");
+  var calcSpacer = document.querySelector(".calc-spacer");
+  var setMarginRight = () => {
+    titleImageSlider.style.marginRight = header2.offsetLeft + "px";
+    btnNextAboutUs.style.right = header2.offsetLeft + 20 + "px";
+    btnPrevAboutUs.style.right = header2.offsetLeft + 80 + "px";
+  };
+  var setSpacerHeight = () => {
+    const height = backgroundSlider.clientHeight + "px";
+    calcSpacer.style.marginTop = height;
+  };
   if (aboutUs) {
-    const setMarginRight = () => {
-      titleImageSlider.style.marginRight = header2.offsetLeft + "px";
-      btnNextAboutUs.style.right = header2.offsetLeft + 20 + "px";
-      btnPrevAboutUs.style.right = header2.offsetLeft + 80 + "px";
-    };
+    setSpacerHeight();
     setMarginRight();
-    window.addEventListener("resize", () => setMarginRight());
-  }
-  playBtnGroup.forEach((playBtn) => {
-    playBtn.addEventListener("click", () => {
-      popupAboutUs.classList.add("show");
+    window.addEventListener("resize", () => {
+      setMarginRight();
+      setSpacerHeight();
     });
-  });
-
-  // assets/js/pages/service.js
-  var swiperService = new Swiper(".swiper-service", {
-    slidesPerView: 3.5,
-    spaceBetween: 1,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    }
-  });
+    playBtnGroup.forEach((playBtn) => {
+      playBtn.addEventListener("click", () => {
+        const jobseekerVideo = playBtn.dataset.video;
+        jobseekerName.innerHTML = playBtn.dataset.name;
+        jobseekerDescription.innerHTML = playBtn.dataset.description;
+        popupAboutUs.classList.add("show");
+        video2.src = jobseekerVideo;
+        aboutUs.classList.add("deactive");
+        video2.load();
+      });
+    });
+    btnClosePopup.addEventListener("click", () => {
+      popupAboutUs.classList.remove("show");
+      aboutUs.classList.remove("deactive");
+    });
+  }
 
   // assets/js/pages/blog.js
   var selectHandler = document.querySelector(".category-blog select");
@@ -9260,6 +9282,67 @@
           window.location = el.dataset.uri;
         }
       });
+    });
+  }
+
+  // assets/js/pages/single-service.js
+  var btnPopupVideoService = document.querySelector(".popup-btn-service");
+  var titlePopupService = document.querySelector(".title-service-popup");
+  var descriptionPopupService = document.querySelector(
+    ".description-service-popup"
+  );
+  var popupService = document.querySelector(".popup-service");
+  var btnClosePopupService = document.querySelector(".btn-close-popup-service");
+  var singleServicePage = document.querySelector("main.single-service-page");
+  var videoSingleService = document.querySelector(
+    ".container-video-popup-service video"
+  );
+  var playBtnGroupSingleService = document.querySelectorAll(
+    ".play-btn-single-service"
+  );
+  var header3 = document.querySelector("header>div");
+  var section3SingleService = document.querySelector(".texts-section-3");
+  var swiperService = new Swiper("#swiperService", {
+    slidesPerView: 3.5,
+    spaceBetween: 1,
+    navigation: {
+      nextEl: ".swiper-button-next-service",
+      prevEl: ".swiper-button-prev-service",
+      clickable: true
+    }
+  });
+  var setMarginRight2 = () => {
+    console.log(section3SingleService, header3.offsetLeft);
+    section3SingleService.style.setProperty(
+      "margin-right",
+      header3.offsetLeft + "px"
+    );
+  };
+  if (singleServicePage) {
+    window.addEventListener("resize", () => setMarginRight2());
+    window.addEventListener("load", () => setMarginRight2());
+    console.log(header3.offsetLeft + "px");
+    btnPopupVideoService.addEventListener("click", () => {
+      popupService.classList.add("show");
+      singleServicePage.classList.add("deactive");
+      videoSingleService.src = btnPopupVideoService.dataset.video;
+      videoSingleService.load();
+      titlePopupService.innerHTML = btnPopupVideoService.dataset.title;
+      descriptionPopupService.innerHTML = btnPopupVideoService.dataset.description;
+    });
+    playBtnGroupSingleService.forEach((playBtn) => {
+      playBtn.addEventListener("click", () => {
+        videoSingleService.src = playBtn.dataset.video;
+        titlePopupService.innerHTML = playBtn.dataset.title;
+        descriptionPopupService.innerHTML = playBtn.dataset.description;
+        popupService.classList.add("show");
+        singleServicePage.classList.add("deactive");
+        video.load();
+      });
+    });
+    btnClosePopupService.addEventListener("click", () => {
+      popupService.classList.remove("show");
+      singleServicePage.classList.remove("deactive");
     });
   }
 })();

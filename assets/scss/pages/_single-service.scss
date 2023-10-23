@@ -1,5 +1,75 @@
 @use "../utils/" as *;
 main.single-service-page {
+  .popup-service {
+    opacity: 0;
+    pointer-events: none;
+    @include d_flex(column, start, center, nowrap, false, PxToRem(16));
+    height: 0;
+    transition: all 0.5s ease-in-out;
+    &.show {
+      height: auto;
+      opacity: 1;
+      pointer-events: all;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: auto;
+      z-index: 5;
+      overflow-y: scroll;
+    }
+
+    .bg-color-popup-service {
+      position: fixed;
+      inset: 0;
+      opacity: 0.9;
+      background-color: $c_blue_2;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .information-popup-service {
+      @include d_flex(column, center, center, nowrap, false, PxToRem(16));
+      width: 100%;
+      .btn-close-popup-service {
+        margin-top: PxToRem(68);
+        background-color: $c_white_2;
+        border-radius: 50%;
+        padding: PxToRem(8);
+        width: PxToRem(44);
+        height: PxToRem(44);
+        @include d_flex(row, center, center, nowrap, false, 0);
+        i {
+          @include d_flex(row, center, center, nowrap, false, 0);
+          background-color: unset;
+          font-size: PxToRem(32);
+          translate: 0 1px;
+        }
+        @media (min-width: 900px) {
+          align-self: flex-end;
+        }
+      }
+      .container-video-popup-service {
+        width: 100%;
+        video {
+          width: 100%;
+          border-radius: PxToRem(24);
+        }
+      }
+      .text-service-popup {
+        padding: PxToRem(16);
+        width: 100%;
+        .title-service-popup {
+          @include font_style(h2);
+          color: $c_white_2;
+        }
+        .description-service-popup {
+          @include font_style(body_2);
+          color: $c_white_2;
+          text-align: justify;
+        }
+      }
+    }
+  }
   .single-service-content {
     @include d_flex(column, start, start, nowrap, false, PxToRem(68));
 
@@ -24,8 +94,13 @@ main.single-service-page {
         @include d_flex(row, center, center, nowrap, false, 0);
         width: 100%;
         img {
-          width: 70%;
-          height: auto;
+          object-fit: contain;
+          width: PxToRem(480);
+          height: PxToRem(460);
+          @media (max-width: 900px) {
+            width: PxToRem(240);
+            height: PxToRem(232);
+          }
         }
         @include psudo($el: after, $content: "", $position: absolute) {
           width: 100%;
@@ -120,9 +195,11 @@ main.single-service-page {
     }
     .section-3 {
       width: 100%;
+      align-self: flex-end;
       @include d_flex(column, center, start, nowrap, false, PxToRem(12));
       @media (min-width: 800px) {
-        @include d_flex(row, space-between, center, nowrap, false, PxToRem(80));
+        @include d_flex(row, space-between, center, nowrap, false, PxToRem(44));
+        width: 98%;
       }
       .texts-section {
         @media (min-width: 800px) {
@@ -143,6 +220,36 @@ main.single-service-page {
           color: $c_blue_2;
           text-align: justify;
         }
+        .container-btn-prev-next {
+          @include d_flex(row, start, center, nowrap, false, PxToRem(8));
+
+          .swiper-button-prev-service,
+          .swiper-button-next-service {
+            width: PxToRem(44);
+            height: PxToRem(44);
+            position: static;
+            background-color: $c_white_2;
+            box-shadow: 0 PxToRem(4) PxToRem(8) 0 $c_shadow_1;
+            border-radius: 50%;
+            @include d_flex(row, center, center, nowrap, false, PxToRem(8));
+            i {
+              @include d_flex(row, center, center, nowrap, false, PxToRem(8));
+              background-color: unset;
+              color: $c_blue_1;
+              font-weight: 600;
+            }
+          }
+          .swiper-button-prev-service {
+            i {
+              rotate: -90deg;
+            }
+          }
+          .swiper-button-next-service {
+            i {
+              rotate: 90deg;
+            }
+          }
+        }
       }
       .container-slider-and-bg {
         @media (min-width: 800px) {
@@ -156,8 +263,8 @@ main.single-service-page {
         height: 300px;
         .background-slider {
           position: absolute;
-          top: 0;
           right: 0;
+          top: 0;
           height: 50%;
           width: 100%;
           background: $gradient-purple;
@@ -169,9 +276,11 @@ main.single-service-page {
         }
         .container-slider {
           width: 100%;
+          height: 100%;
           .swiper {
             width: 100%;
             height: 100%;
+            @include d_flex(row, space-between, center, nowrap, false, 0);
 
             .swiper-slide {
               @include d_flex(column, center, center, nowrap, false, 0);
@@ -193,7 +302,27 @@ main.single-service-page {
                 border-radius: PxToRem(28);
                 padding: PxToRem(8) PxToRem(16) PxToRem(32) PxToRem(16);
                 width: 90%;
+                position: relative;
                 .container-image-slider {
+                  @include d_flex(row, center, center, nowrap, false, 0);
+                  position: relative;
+                  isolation: isolate;
+                  @include psudo(
+                    $el: after,
+                    $content: "",
+                    $display: block,
+                    $position: absolute
+                  ) {
+                    inset: unset;
+                    width: 80%;
+                    height: 80%;
+                    background-color: $c_gray_2;
+                    border-radius: 50%;
+                    z-index: -1;
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                  }
                   img {
                     object-fit: contain;
                   }
@@ -202,19 +331,21 @@ main.single-service-page {
                   @include font_style(h3);
                   color: $c_blue_1;
                 }
-              }
-              i {
-                width: PxToRem(32);
-                height: PxToRem(32);
-                font-size: 25px;
-                background-color: $c_white_1;
-                border: 1px solid $c_blue_1;
-                color: $c_blue_1;
-                border-radius: 50%;
-                @include d_flex(row, center, center, nowrap, false, 0);
-                margin-top: -10%;
-                &::before {
-                  translate: 0 1px;
+                i {
+                  position: absolute;
+                  bottom: 0;
+                  width: PxToRem(32);
+                  height: PxToRem(32);
+                  font-size: 25px;
+                  background-color: $c_white_1;
+                  border: 1px solid $c_blue_1;
+                  color: $c_blue_1;
+                  border-radius: 50%;
+                  @include d_flex(row, center, center, nowrap, false, 0);
+                  margin-bottom: PxToRem(-16);
+                  &::before {
+                    translate: 0 1px;
+                  }
                 }
               }
             }

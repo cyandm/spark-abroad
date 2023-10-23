@@ -6,3 +6,4 @@ import "./pages/contact-us";
 import "./pages/about-us";
 import "./pages/service";
 import "./pages/blog";
+import "./pages/single-service";

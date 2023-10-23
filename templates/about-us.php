@@ -51,24 +51,25 @@ $counter = 1;
         </div>
     </div>
 
-    <div class="spacer"></div>
-
     <div class="popup-about-us">
         <div class="bg-color-popup"></div>
-        <div class="btn-close"><i class="icon-close2"></i></div>
-        <div class="video-popup">
-            <video class="video-popup-jobseeker" autoplay muted>
-                <source src="http://spark-abroad.local/wp-content/uploads/2023/10/mov_bbb.mp4" type="video/mp4">
 
-            </video>
+        <div class="information-popup container">
+            <div class="btn-close-popup"><i class="icon-close2"></i></div>
+            <div class="video-popup">
+                <video class="video-popup-jobseeker" controls autoplay muted>
+                    <source src="#" type="video/mp4">
+                </video>
+            </div>
+            <div class="text-popup">
+                <p class="jobseeker-name-popup"></p>
+                <p class="jobseeker-description-popup"></p>
+            </div>
         </div>
-        <div class="text-popup">
-            <p class="jobseeker-name-popup">name</p>
-            <p class="jobseeker-description-popup">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون</p>
-        </div>
+
     </div>
     <?php if (!empty($section_1['title_section_1']) || !empty($section_1['text_section_1']) || !empty($section_1['image_section_1'])) : ?>
-        <div class="container section-aboutus-odd">
+        <div class="container section-aboutus-odd calc-spacer">
             <?php if (!is_null($section_1['image_section_1']) && !empty($section_1['image_section_1'])) : ?>
                 <?php echo  wp_get_attachment_image($section_1['image_section_1'], 'full', false); ?>
             <?php endif; ?>

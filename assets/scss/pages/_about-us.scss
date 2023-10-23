@@ -1,6 +1,7 @@
 @use "../utils/" as *;
 main.about-us-page {
   @include d_flex(column);
+  position: relative;
   .background-about-us {
     width: 100%;
     display: flex;
@@ -48,7 +49,7 @@ main.about-us-page {
             border-radius: PxToRem(24);
             position: absolute;
             right: 0;
-            bottom: -5%;
+            bottom: PxToRem(-44);
             width: PxToRem(580);
             height: PxToRem(580);
             padding: PxToRem(28);
@@ -107,10 +108,6 @@ main.about-us-page {
     }
   }
 
-  .spacer {
-    min-height: 60vw;
-  }
-
   .popup-about-us {
     opacity: 0;
     pointer-events: none;
@@ -124,9 +121,11 @@ main.about-us-page {
       position: fixed;
       inset: 0;
       width: 100%;
-      height: 100%;
+      height: auto;
       z-index: 5;
+      overflow-y: scroll;
     }
+
     .bg-color-popup {
       position: fixed;
       inset: 0;
@@ -136,35 +135,46 @@ main.about-us-page {
       height: 100%;
       z-index: -1;
     }
-    .btn-close {
-      margin-top: PxToRem(68);
-      background-color: $c_white_2;
-      border-radius: 50%;
-      padding: PxToRem(8);
-      @include d_flex(row, center, center, nowrap, false, 0);
-      i {
+    .information-popup {
+      @include d_flex(column, center, center, nowrap, false, PxToRem(16));
+      width: 100%;
+      .btn-close-popup {
+        margin-top: PxToRem(68);
+        background-color: $c_white_2;
+        border-radius: 50%;
+        padding: PxToRem(8);
+        width: PxToRem(44);
+        height: PxToRem(44);
         @include d_flex(row, center, center, nowrap, false, 0);
-        background-color: unset;
-        font-size: PxToRem(32);
-        translate: 0 1px;
+        i {
+          @include d_flex(row, center, center, nowrap, false, 0);
+          background-color: unset;
+          font-size: PxToRem(32);
+          translate: 0 1px;
+        }
+        @media (min-width: 900px) {
+          align-self: flex-end;
+        }
       }
-    }
-    .video-popup {
-      width: 90%;
-      video {
+      .video-popup {
         width: 100%;
-        border-radius: PxToRem(24);
+        video {
+          width: 100%;
+          border-radius: PxToRem(24);
+        }
       }
-    }
-    .text-popup {
-      padding: PxToRem(16);
-      .jobseeker-name-popup {
-        @include font_style(h2);
-        color: $c_white_2;
-      }
-      .jobseeker-description-popup {
-        @include font_style(body_2);
-        color: $c_white_2;
+      .text-popup {
+        padding: PxToRem(16);
+        width: 100%;
+        .jobseeker-name-popup {
+          @include font_style(h2);
+          color: $c_white_2;
+        }
+        .jobseeker-description-popup {
+          @include font_style(body_2);
+          color: $c_white_2;
+          text-align: justify;
+        }
       }
     }
   }
