@@ -13,7 +13,4 @@ if (contactUs) {
 
   setMarginRight();
   window.addEventListener("resize", () => setMarginRight());
-  title.addEventListener("click", (e) => {
-    console.log(e);
-  });
 }

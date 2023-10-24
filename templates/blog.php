@@ -86,23 +86,29 @@ $current_url = get_permalink($object_id);
     <?php
     if ($knowable != null) : ?>
         <div class="knowable">
-            <h1 class="title_knowable">شاید براتون جالب باشه</h1>
+            <div class="container">
+                <h1 class="title_knowable">شاید براتون جالب باشه</h1>
+            </div>
             <div class="container-cards">
-                <?php foreach ($knowable as $value) : ?>
-                    <?php if (!is_null($value)) : ?>
-
-                        <div class="card-knowable">
-                            <img class="quote-img" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/quotation.svg' ?>" />
-                            <h2 class="knowable_title_card"><?php echo $value["knowable_title_$counter"] ?></h2>
-                            <p class="knowable_text_card"><?php echo $value["knowable_text_$counter"] ?></p>
-                            <a href="<?php echo $value["knowable_link_$counter"] ?>">
-                                <h3 class="knowable_link_card"> ادامه مطلب</h3>
-                            </a>
-                        </div>
-
-                        <?php $counter++; ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                <div class="swiper" id="swiperBlog">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($knowable as $value) : ?>
+                            <?php if (!is_null($value)) : ?>
+                                <div class="swiper-slide">
+                                    <div class="card-knowable">
+                                        <img class="quote-img" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/quotation.svg' ?>" />
+                                        <h2 class="knowable_title_card"><?php echo $value["knowable_title_$counter"] ?></h2>
+                                        <p class="knowable_text_card"><?php echo $value["knowable_text_$counter"] ?></p>
+                                        <a href="<?php echo $value["knowable_link_$counter"] ?>">
+                                            <h3 class="knowable_link_card"> ادامه مطلب</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                                <?php $counter++; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
         </div>
     <?php endif; ?>

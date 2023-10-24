@@ -1,67 +1,254 @@
-@use "../../utils/" as *;
+@use '../../utils/' as *;
 
-#homeSliderSwiper {
-  height: calc(100vh - var(--header-height));
+.slider-wrapper {
+  position: relative;
 
-  .swiper-slide {
-    &.slide-0 {
-      background-color: $c_blue_1;
+  .slide-0 {
+    @include d_flex(row, center, center);
+    height: 100vh;
+    background-color: $c_blue_1;
+    position: relative;
 
-      .container {
-        height: 80%;
-        @include d_flex(column, $j_c: center, $gap: PxToRem(16));
+    .content {
+      height: 80%;
+      @include d_flex(column, $j_c: center, $gap: PxToRem(16));
 
-        h1 {
-          color: $c_white_1;
-          font-size: PxToRem(64);
-          font-weight: 400;
+      h1 {
+        color: $c_white_1;
+        font-size: PxToRem(64);
+        font-weight: 400;
 
-          span {
-            font-weight: bold;
-            @include psudo(after, $inset: 0) {
-              background-image: url("../imgs/h1_sticker.png");
-              background-repeat: no-repeat;
-              background-size: contain;
-            }
+        span {
+          font-weight: bold;
+          @include psudo(after, $inset: 0, $square: 100%) {
+            background-image: url('../imgs/h1_sticker.png');
+            background-repeat: no-repeat;
+            background-size: contain;
           }
         }
+      }
 
-        p {
-          font-size: PxToRem(20);
-          color: $c_gray;
+      p {
+        font-size: PxToRem(20);
+        color: $c_gray;
+      }
+
+      button {
+        rotate: 90deg;
+        scale: -1;
+        translate: 25% PxToRem(32);
+        border: 1px solid $c_white_1;
+        color: $c_white_1;
+        border-radius: 100rem;
+        padding: PxToRem(16) PxToRem(12);
+        font-size: PxToRem(20);
+        overflow: hidden;
+        transition: color 0.3s 0.3s ease-in-out;
+
+        @include psudo(before, $inset: 0, $square: 100%) {
+          background-color: $c_white_1;
+          transition: translate 0.3s ease-in-out;
+          translate: 100% 0;
+          z-index: -1;
         }
 
-        button {
-          writing-mode: vertical-lr;
-          text-orientation: mixed;
-          scale: -1;
-          border: 1px solid $c_white_1;
-          color: $c_white_1;
-          border-radius: 100rem;
-          padding: PxToRem(24) PxToRem(12);
-          font-size: PxToRem(20);
-          overflow: hidden;
-          transition: color 0.3s 0.3s ease-in-out;
-
-          @include psudo(before, $inset: 0) {
-            background-color: $c_white_1;
-            transition: translate 0.3s ease-in-out;
-            translate: 0 100%;
-            z-index: -1;
-          }
-
-          &:hover {
-            color: $c_blue_1;
-            &::before {
-              translate: 0;
-            }
+        &:hover {
+          color: $c_blue_1;
+          &::before {
+            translate: 0;
           }
         }
       }
     }
 
-    &.slide-1 {
-      background-color: $c_white_1;
+    .bg-animation {
+      translate: 5vw 17vh;
+    }
+
+    .ball {
+      position: absolute;
+      background: radial-gradient(
+        122.17% 124.87% at 22.02% -7.4%,
+        #fff 0%,
+        #fff 28.71%,
+        #fff 53.68%,
+        #dde2ff 80.38%,
+        #6c7bc9 100%
+      );
+      box-shadow: 3px -2px 18px 0px rgba(128, 47, 13, 0.25) inset,
+        5px -4px 11px 0px rgba(0, 0, 0, 0.15) inset;
+      width: PxToRem(100);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      left: 14vw;
+      bottom: 48vh;
+    }
+  }
+
+  .slider-1-3-wrapper {
+    @include d_flex($gap: PxToRem(64), $wrap: nowrap);
+
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    padding-block-start: var(--header-height);
+
+    .sidebar {
+      @include d_flex($wrap: nowrap);
+      position: relative;
+      flex: 1;
+      max-width: 35%;
+
+      .img-wrapper {
+        z-index: 3;
+        &:nth-child(1) {
+          translate: 0 20%;
+        }
+        &:nth-child(2) {
+          translate: 50%;
+        }
+      }
+
+      .ball {
+        width: PxToRem(72);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(
+          145.63% 147.53% at 19.66% 4.52%,
+          #8a88ff 0%,
+          #514edb 18.02%,
+          #312faa 33.86%,
+          #1a1885 63.34%,
+          #010037 100%
+        );
+        position: absolute;
+        left: 40%;
+        top: 10%;
+        opacity: 1 !important;
+      }
+    }
+
+    .slide {
+      @include d_flex(column, flex-start, center, $gap: PxToRem(24));
+      padding-block-start: PxToRem(96);
+      flex: 2;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      right: 20%;
+
+      .content {
+        .h1 {
+          font-size: PxToRem(64);
+          max-width: 20ch;
+          font-weight: 400;
+          line-height: 196%;
+          color: $c_blue_2;
+        }
+        span {
+          color: $c_gray;
+          font-size: PxToRem(20);
+        }
+      }
+      .img-wrapper {
+        position: absolute;
+        top: 10%;
+        right: 30%;
+        z-index: -1;
+      }
+      .btn-wrapper {
+        @include d_flex($gap: PxToRem(12));
+        margin-block-start: PxToRem(16);
+
+        a {
+          display: inline-block;
+          padding: PxToRem(12) PxToRem(32) PxToRem(12) PxToRem(24);
+          border-radius: PxToRem(1000);
+
+          &.btn-outline {
+            border: 1px solid $c_blue_2;
+          }
+
+          &.btn-primary {
+            background-color: $c_blue_1;
+            color: #fff;
+          }
+        }
+      }
+
+      &.slide-2 {
+        .h1 b {
+          @include psudo($square: 100%) {
+            inset: 0;
+            background: url('../imgs/leaf.png') no-repeat;
+            z-index: -1;
+            translate: -10px -20px;
+          }
+        }
+
+        .skyline {
+          translate: -25% 25%;
+          scale: 1.5;
+        }
+
+        .content-wrapper > *:not(.img-wrapper) {
+          translate: 0 100px;
+        }
+      }
+
+      &.slide-3 {
+        .skyline {
+          scale: 1.5;
+          translate: -25% 75%;
+        }
+        .content-wrapper > *:not(.img-wrapper) {
+          translate: -80px 100px;
+        }
+      }
+    }
+  }
+
+  .slide-4 {
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    z-index: 55000;
+
+    .content {
+      @include d_flex(column, $gap: PxToRem(24));
+
+      .h1 {
+        font-size: PxToRem(64);
+        font-weight: 400;
+        line-height: 196%;
+        color: $c_white_2;
+
+        @include psudo(before, $square: PxToRem(264)) {
+          background-image: url('../imgs/number-four.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          z-index: -1;
+          translate: 40% -40%;
+        }
+      }
+      span {
+        color: $c_gray;
+        display: block;
+        font-size: PxToRem(20);
+      }
+
+      .white-btn {
+        padding: PxToRem(12) PxToRem(32) PxToRem(12) PxToRem(24);
+        background-color: $c_white_2;
+        border-radius: PxToRem(1000);
+      }
+    }
+
+    .img-wrapper {
+      translate: 0 -5vh;
+      rotate: 20deg;
     }
   }
 }

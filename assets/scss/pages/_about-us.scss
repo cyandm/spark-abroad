@@ -9,7 +9,7 @@ main.about-us-page {
     top: 0;
     left: 0;
     right: 0;
-    z-index: -1;
+    z-index: 1;
     translate: 0rem 0rem;
 
     .swiper {
@@ -28,8 +28,14 @@ main.about-us-page {
           flex-direction: row;
           position: relative;
           overflow: unset !important;
+          opacity: 0;
+          transition: opacity 0.1s ease-in;
+          &.swiper-slide-active {
+            opacity: 1;
+          }
           .bg_slider {
             position: relative;
+
             &::after {
               content: "";
               position: absolute;
@@ -41,44 +47,59 @@ main.about-us-page {
               z-index: 5;
               background: $bg_purple;
               opacity: 0.8;
+              pointer-events: none;
             }
           }
-
-          .title-image-slider {
-            border: PxToRem(8) solid $c_blue_1;
-            border-radius: PxToRem(24);
-            position: absolute;
-            right: 0;
-            bottom: PxToRem(-44);
-            width: PxToRem(580);
-            height: PxToRem(580);
-            padding: PxToRem(28);
-            z-index: 10;
-            overflow: hidden;
-            margin-inline: PxToRem(16);
-            .title-slider {
-              @include font_style(t2);
-              color: $c_white_2;
-              width: 60%;
-              position: absolute;
-              right: 5%;
-              top: 15%;
+          .container-slider {
+            @include d_flex(row, center, center, nowrap, false, 0);
+            @media (max-width: 1020px) {
+              width: 100%;
+              right: 0;
             }
-            .image-slider {
+            .title-image-slider {
+              border: PxToRem(8) solid $c_blue_1;
+              border-radius: PxToRem(24);
               position: absolute;
-              bottom: -5%;
-              left: 2%;
+              right: PxToRem(16);
+              bottom: PxToRem(-44);
+              width: PxToRem(580);
+              height: PxToRem(580);
+              padding: PxToRem(28);
+              z-index: 10;
+              overflow: hidden;
+              margin-inline: PxToRem(16);
+              @media (max-width: 1020px) {
+                width: 90%;
+                right: 0;
+                position: relative;
+              }
+              .title-slider {
+                @include font_style(t2);
+                color: $c_white_2;
+                width: 60%;
+                position: absolute;
+                right: 5%;
+                top: 15%;
+                @media (max-width: 800px) {
+                  @include font_style(h1);
+                  color: $c_white_2;
+                }
+              }
+              .image-slider {
+                position: absolute;
+                bottom: -5%;
+                left: 2%;
+              }
             }
           }
         }
       }
-      .swiper-button-next {
+      .btn-next-about-us {
         @include d_flex(row, center, center, nowrap, false, 0);
 
         position: absolute;
         background: $c_white_2;
-        z-index: 1;
-        bottom: 0;
+        z-index: 20;
         right: 0;
         border-radius: 50%;
         padding: PxToRem(12);
@@ -89,13 +110,12 @@ main.about-us-page {
         }
         rotate: -90deg;
       }
-      .swiper-button-prev {
+      .btn-prev-about-us {
         @include d_flex(row, center, center, nowrap, false, 0);
 
         position: absolute;
         background: $c_white_2;
-        z-index: 1;
-        bottom: 0;
+        z-index: 20;
         right: 100px;
         border-radius: 50%;
         padding: PxToRem(12);
@@ -178,6 +198,16 @@ main.about-us-page {
       }
     }
   }
+  .spacer {
+    height: 0;
+    width: 0;
+    display: none;
+    @media (max-width: 1020px) {
+      display: block;
+      width: 100%;
+      height: 10vw;
+    }
+  }
   .divider {
     height: PxToRem(68);
     background-color: $c_white_1;
@@ -186,6 +216,7 @@ main.about-us-page {
   }
   .section-aboutus-odd,
   .section-aboutus-even {
+    z-index: 3;
     @include d_flex(column, start, center, nowrap, false, PxToRem(16));
     width: 100%;
     img {
@@ -246,6 +277,8 @@ main.about-us-page {
         .swiper-slide {
           width: unset !important;
           height: unset !important;
+
+          margin-right: PxToRem(16);
         }
       }
     }

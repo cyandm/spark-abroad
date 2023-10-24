@@ -60,62 +60,63 @@ main.blog-page {
   }
   .knowable {
     background-color: $c_gray_4;
-    margin-bottom: PxToRem(44);
-    padding: PxToRem(24) PxToRem(16);
+    padding-block: PxToRem(24);
     @include d_flex(column, center, start, nowrap, false, PxToRem(16));
-    .title_knowable {
-      @include font_style(h1);
-      color: $c_blue_1;
+    div.container {
+      width: 100%;
+      .title_knowable {
+        @include font_style(h1);
+        color: $c_blue_1;
+      }
     }
     .container-cards {
       display: flex;
       gap: PxToRem(16);
-      overflow-x: scroll;
-      overflow-y: hidden;
-      &::-webkit-scrollbar {
-        width: 0rem;
-      }
       width: 100%;
-      .card-knowable {
-        @include d_flex(
-          column,
-          space-between,
-          start,
-          nowrap,
-          false,
-          PxToRem(8)
-        );
-        padding: PxToRem(24) PxToRem(16);
-        border-radius: PxToRem(24);
-        min-width: PxToRem(340);
-        @media (width>900px) {
-          min-width: PxToRem(500);
-        }
-        .quote-img {
-          width: PxToRem(32);
-          height: PxToRem(32);
-        }
-        .knowable_title_card {
-          @include font_style(h2);
-          color: $c_white_2;
-        }
-        .knowable_text_card {
-          @include font_style(body_2);
-          color: $c_white_1;
-          margin-bottom: PxToRem(20);
-          text-align: justify;
-        }
-        a {
-          .knowable_link_card {
-            @include font_style(h3);
-            color: $c_yellow_1;
+      .swiper {
+        .swiper-wrapper {
+          .swiper-slide {
+            &:nth-child(odd) {
+              background-color: $c_blue_1;
+            }
+            &:nth-child(even) {
+              background-color: $c_purple_1;
+            }
+            padding: PxToRem(16) PxToRem(16);
+            border-radius: PxToRem(24);
+            .card-knowable {
+              @include d_flex(
+                column,
+                space-between,
+                start,
+                nowrap,
+                false,
+                PxToRem(8)
+              );
+              height: 100%;
+              border-radius: PxToRem(24);
+
+              .quote-img {
+                width: PxToRem(32);
+                height: PxToRem(32);
+              }
+              .knowable_title_card {
+                @include font_style(h2);
+                color: $c_white_2;
+              }
+              .knowable_text_card {
+                @include font_style(body_2);
+                color: $c_white_1;
+                text-align: justify;
+              }
+              a {
+                .knowable_link_card {
+                  @include font_style(h3);
+                  color: $c_yellow_1;
+                }
+              }
+            }
           }
-        }
-        &:nth-child(odd) {
-          background-color: $c_blue_1;
-        }
-        &:nth-child(even) {
-          background-color: $c_purple_1;
         }
       }
     }

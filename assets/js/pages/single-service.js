@@ -19,12 +19,18 @@ const section3SingleService = document.querySelector(".texts-section-3");
 
 import Swiper from "swiper";
 export const swiperService = new Swiper("#swiperService", {
-  slidesPerView: 3.5,
+  slidesPerView: 1.85,
   spaceBetween: 1,
   navigation: {
     nextEl: ".swiper-button-next-service",
     prevEl: ".swiper-button-prev-service",
     clickable: true,
+  },
+  breakpoints: {
+    // when window width is >= 640px
+    1000: {
+      slidesPerView: 3.5,
+    },
   },
 });
 const setMarginRight = () => {

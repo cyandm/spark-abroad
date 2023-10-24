@@ -22,7 +22,7 @@ $counter = 1;
 
 ?>
 
-<?php get_header()
+<?php get_header(null, ['isTransparent' => true])
 ?>
 <main class="about-us-page">
 
@@ -34,9 +34,11 @@ $counter = 1;
                         <?php if (!empty($bg_slider["bg_slider_$counter"])) : ?>
                             <div class="swiper-slide">
                                 <div class="bg_slider"><?php echo wp_get_attachment_image($bg_slider["bg_slider_$counter"], 'full') ?></div>
-                                <div class="title-image-slider">
-                                    <p class="title-slider"><?php echo $bg_slider["text_slider_$counter"] ?></p>
-                                    <div class="image-slider"><?php echo wp_get_attachment_image($bg_slider["image_slider_$counter"], 'full') ?> </div>
+                                <div class="container-slider">
+                                    <div class="title-image-slider">
+                                        <p class="title-slider"><?php echo $bg_slider["text_slider_$counter"] ?></p>
+                                        <div class="image-slider"><?php echo wp_get_attachment_image($bg_slider["image_slider_$counter"], 'full') ?> </div>
+                                    </div>
                                 </div>
                             </div>
                             <?php $counter++;  ?>
@@ -46,8 +48,8 @@ $counter = 1;
 
                 <?php endforeach; ?>
             </div>
-            <div class="swiper-button-prev btn-prev-about-us"><i class="icon-arrow-down"></i></div>
-            <div class="swiper-button-next btn-next-about-us"><i class="icon-arrow-down"></i></div>
+            <div class="btn-prev-about-us"><i class="icon-arrow-down"></i></div>
+            <div class="btn-next-about-us"><i class="icon-arrow-down"></i></div>
         </div>
     </div>
 
@@ -68,6 +70,9 @@ $counter = 1;
         </div>
 
     </div>
+
+    <div class="spacer"></div>
+
     <?php if (!empty($section_1['title_section_1']) || !empty($section_1['text_section_1']) || !empty($section_1['image_section_1'])) : ?>
         <div class="container section-aboutus-odd calc-spacer">
             <?php if (!is_null($section_1['image_section_1']) && !empty($section_1['image_section_1'])) : ?>
@@ -135,7 +140,7 @@ $counter = 1;
             <h2 class="successful-jobseeker">کارجویان موفق ما</h2>
         </div>
         <div class="jobseeker-content">
-            <div class="swiper swiper-about-us">
+            <div class="swiper" id="swiper-about-us">
                 <div class="swiper-wrapper">
                     <?php while ($jobseeker_in_about_us->have_posts()) {
                         $jobseeker_in_about_us->the_post();

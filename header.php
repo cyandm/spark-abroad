@@ -6,12 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php wp_head() ?>
 </head>
+<?php $is_tansparent = isset($args['isTransparent']) ? true : false; ?>
 
 <body <?php body_class() ?>>
 	<?php wp_body_open() ?>
-
+	<div class="bg-color-menu">
+		<div class="menu-mobile-active">
+			<?php wp_nav_menu([
+				'container_class' => 'header_menu_container',
+				'container_id' => 'headerMenu',
+				'theme_location' => 'header'
+			]) ?>
+		</div>
+	</div>
 	<div id="headerCursor"> </div>
-	<header class="bg_purple">
+	<header class="<?= is_home() ? 'bg_purple' : '' ?> <?php if ($is_tansparent) echo 'is-transparent' ?>">
 		<div class="container">
 			<div class="menu">
 
@@ -20,6 +29,9 @@
 					'container_id' => 'headerMenu',
 					'theme_location' => 'header'
 				]) ?>
+			</div>
+			<div class="menu-mobile">
+				<i class="icon-menu-hamburger"></i>
 			</div>
 			<div class="logo">
 				<?php the_custom_logo() ?>
@@ -34,5 +46,7 @@
 					</div>
 				</form>
 			</div>
-		</div>
+			<div class="search-mobile">
+				<i class="icon-search"></i>
+			</div>
 	</header>
