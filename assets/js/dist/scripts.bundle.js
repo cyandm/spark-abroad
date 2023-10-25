@@ -25,9 +25,13 @@
   var headerCursor = document.getElementById("headerCursor");
   var headerMenu = document.getElementById("headerMenu");
   var headerMenuBound = headerMenu.getBoundingClientRect();
-  var menuMobile = document.querySelector(".menu-mobile");
-  var bgColorMenuMobile = document.querySelector(".bg-color-menu");
-  var menuMobileActive = document.querySelector(".menu-mobile-active");
+  var hamburgerMenuHandler = document.querySelector(".icon-menu-mobile");
+  var menuMobile = document.querySelector(".menu-mobile-clicked");
+  var menuMobileCloseHandler = document.querySelector(".icon-close-mobile");
+  var menuMobileSearchHandler = document.querySelector(".icon-search-mobile");
+  var searchSection = document.querySelector(".search-mobile-clicked");
+  var bgColorSearchMobile = document.querySelector(".bg-color-search-mobile");
+  var mainScrollDeactive = document.querySelector("main");
   var headerCursorMoveHandler = (e) => {
     headerCursor.style.setProperty("--left", e.clientX - 14 + "px");
     headerCursor.style.setProperty("--top", e.clientY - 14 + "px");
@@ -53,9 +57,17 @@
   window.addEventListener("resize", () => {
     setHeaderHeight();
   });
-  menuMobile.addEventListener("click", () => {
-    bgColorMenuMobile.classList.toggle("active");
-    menuMobileActive.classList.toggle("active");
+  hamburgerMenuHandler.addEventListener("click", () => {
+    menuMobile.classList.add("is-open");
+  });
+  menuMobileCloseHandler.addEventListener("click", () => {
+    menuMobile.classList.remove("is-open");
+  });
+  menuMobileSearchHandler.addEventListener("click", () => {
+    searchSection.classList.add("search-is-open");
+  });
+  bgColorSearchMobile.addEventListener("click", () => {
+    searchSection.classList.remove("search-is-open");
   });
 
   // node_modules/swiper/shared/ssr-window.esm.mjs
@@ -15715,16 +15727,6 @@
   var headerPurple_RV = gsapWithCSS.timeline();
   var mainSlider_TL = gsapWithCSS.timeline();
   var slide1_TL = gsapWithCSS.timeline();
-  if (home) {
-    ScrollTrigger2.create({
-      trigger: "body",
-      start: "+1",
-      end: "8000px",
-      pin: true,
-      animation: slide0_TL,
-      scrub: 5
-    });
-  }
   headerPurple_TL.to("img.custom-logo", { filter: "brightness(1)" });
   headerPurple_TL.to("header li", { color: "hsl(240, 67%, 17%)" });
   headerPurple_RV.to("img.custom-logo", { filter: "brightness(7)" });
@@ -15906,10 +15908,10 @@
     direction: "horizontal",
     loop: true,
     speed: 1e3,
-    autoplay: {
-      //auto play
-      delay: 1e3
-    },
+    //autoplay: {
+    //auto play
+    //delay: 1000,
+    //},
     fadeEffect: {
       crossFade: true
       // added(resolve the overlapping of the slides)

@@ -1,14 +1,220 @@
+@use "../../utils/" as *;
+
 body:has(main.home) {
   header {
     position: absolute;
     width: 100%;
+    @media (max-width: 1024px) {
+      position: relative;
+    }
   }
 
   overflow: hidden;
   max-height: 100vh;
+  @media (max-width: 1024px) {
+    overflow: visible;
+    max-height: unset;
+  }
 }
 
 main.home {
   max-height: 100%;
   overflow: hidden;
+  .mobile-landing {
+    .mobile-intro {
+      @include d_flex(column, center, center, nowrap, false, 0);
+      background-color: $c_blue_1;
+      padding-block: PxToRem(40);
+      padding-inline: PxToRem(16);
+      h1 {
+        text-align: center;
+        @include font_style(h1);
+        color: $c_white_1;
+        font-weight: 500;
+        margin-bottom: PxToRem(12);
+        span {
+          font-weight: 700;
+          position: relative;
+          @include psudo($el: after, $content: "", $inset: 0, $display: block) {
+            position: absolute;
+            background-image: url("../imgs/h1_sticker.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      p {
+        text-align: center;
+        @include font_style(body);
+        color: $c_gray;
+        font-weight: 400;
+        margin-bottom: PxToRem(60);
+      }
+      .container-ball-stand-mobile {
+        @include d_flex(column, center, flex-end, nowrap, false, 0);
+        width: 70%;
+        .ball-mobile {
+          width: 20%;
+          margin-bottom: PxToRem(-12);
+        }
+        .stand-mobile {
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .explain-services-counseling {
+      margin-top: PxToRem(20);
+      @include d_flex(column, start, center, nowrap, false, PxToRem(44));
+      .container-btn-title-text-explain {
+        @include d_flex(column, start, start, nowrap, false, PxToRem(12));
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        .title-explain-service {
+          padding-top: PxToRem(200);
+          @include font_style(h1);
+          width: 100%;
+          color: $c_blue_2;
+          text-align: center;
+        }
+        .description-explain-service {
+          @include font_style(body_2);
+          color: $c_gray;
+          text-align: justify;
+          width: 100%;
+          align-self: center;
+          text-align: center;
+        }
+        .btn-explain-section {
+          background-color: $c_blue_1;
+          border-radius: PxToRem(40);
+          padding: PxToRem(8) PxToRem(24);
+          border: 1px solid transparent;
+          transition: all 0.3s ease;
+          align-self: center;
+          @media (max-width: 500px) {
+            width: 100%;
+          }
+          a {
+            @include d_flex(row, center, center, nowrap, false, PxToRem(16));
+            font-weight: 300;
+            color: $c_white_2;
+            i {
+              background-color: unset;
+            }
+          }
+          &:hover {
+            background-color: $c_white_2;
+            border: 1px solid $c_blue_1;
+            a {
+              color: $c_blue_1;
+            }
+          }
+        }
+      }
+      .explain-section-1 {
+        background-image: url("../imgs/number_one.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top center;
+      }
+      .explain-section-2 {
+        background-image: url("../imgs/number_two.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top center;
+      }
+      .explain-section-3 {
+        background-image: url("../imgs/number-three.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top center;
+      }
+      .explain-section-4 {
+        @include d_flex(column, start, start, nowrap, false, PxToRem(12));
+
+        padding-inline: PxToRem(16);
+        background-color: $c_blue_1;
+        width: 100%;
+        padding-top: PxToRem(20);
+        .title-explain-service {
+          padding-top: PxToRem(200);
+          @include font_style(h1);
+          width: 100%;
+          color: $c_white_2;
+          text-align: center;
+          background-image: url("../imgs/number-four.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: top center;
+        }
+        .description-explain-service {
+          @include font_style(body_2);
+          color: $c_gray;
+          text-align: justify;
+          width: 100%;
+          align-self: center;
+          text-align: center;
+        }
+        .btn-explain-section {
+          background-color: $c_white_2;
+          margin-bottom: 10px;
+          border-radius: PxToRem(40);
+          padding: PxToRem(8) PxToRem(24);
+          border: 1px solid transparent;
+          transition: all 0.3s ease;
+          align-self: center;
+          @media (max-width: 500px) {
+            width: 100%;
+          }
+          a {
+            @include d_flex(row, center, center, nowrap, false, PxToRem(16));
+            font-weight: 300;
+            color: $c_blue_1;
+            i {
+              background-color: unset;
+            }
+          }
+          &:hover {
+            background-color: $c_blue_1;
+            border: 1px solid $c_white_2;
+            a {
+              color: $c_white_2;
+            }
+          }
+        }
+      }
+      .plane-section-mobile {
+        padding-top: PxToRem(20);
+        background-color: $c_blue_1;
+        margin-top: PxToRem(-52);
+        overflow: hidden;
+        width: 101%;
+        img {
+          translate: 0 12px;
+        }
+      }
+    }
+  }
+  .container-services-home {
+    @include d_flex(column, start, start, nowrap, false, PxToRem(16));
+    .title-subtitle-service {
+      .title-service {
+        @include font_style(h1);
+        color: $c_blue_2;
+      }
+      .subtitle-service {
+        @include font_style(body_2);
+        color: $c_gray;
+      }
+    }
+    .container-cards {
+      @include d_flex(row, start, stretch, wrap, false, PxToRem(16));
+      width: 100%;
+    }
+  }
 }

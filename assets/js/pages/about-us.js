@@ -13,10 +13,10 @@ export const swiperAboutUsBgTop = new Swiper("#swiperAboutUsBgTop", {
   direction: "horizontal",
   loop: true,
   speed: 1000,
-  autoplay: {
-    //auto play
-    delay: 1000,
-  },
+  //autoplay: {
+  //auto play
+  //delay: 1000,
+  //},
   fadeEffect: {
     crossFade: true, // added(resolve the overlapping of the slides)
   },

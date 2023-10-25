@@ -2,10 +2,13 @@ const headerEl = document.querySelector("header");
 const headerCursor = document.getElementById("headerCursor");
 const headerMenu = document.getElementById("headerMenu");
 const headerMenuBound = headerMenu.getBoundingClientRect();
-
-const menuMobile = document.querySelector(".menu-mobile");
-const bgColorMenuMobile = document.querySelector(".bg-color-menu");
-const menuMobileActive = document.querySelector(".menu-mobile-active");
+const hamburgerMenuHandler = document.querySelector(".icon-menu-mobile");
+const menuMobile = document.querySelector(".menu-mobile-clicked");
+const menuMobileCloseHandler = document.querySelector(".icon-close-mobile");
+const menuMobileSearchHandler = document.querySelector(".icon-search-mobile");
+const searchSection = document.querySelector(".search-mobile-clicked");
+const bgColorSearchMobile = document.querySelector(".bg-color-search-mobile");
+const mainScrollDeactive = document.querySelector("main");
 
 const headerCursorMoveHandler = (e) => {
   headerCursor.style.setProperty("--left", e.clientX - 14 + "px");
@@ -38,9 +41,18 @@ window.addEventListener("resize", () => {
   setHeaderHeight();
 });
 
-export { headerEl };
-
-menuMobile.addEventListener("click", () => {
-  bgColorMenuMobile.classList.toggle("active");
-  menuMobileActive.classList.toggle("active");
+hamburgerMenuHandler.addEventListener("click", () => {
+  menuMobile.classList.add("is-open");
 });
+
+menuMobileCloseHandler.addEventListener("click", () => {
+  menuMobile.classList.remove("is-open");
+});
+menuMobileSearchHandler.addEventListener("click", () => {
+  searchSection.classList.add("search-is-open");
+});
+bgColorSearchMobile.addEventListener("click", () => {
+  searchSection.classList.remove("search-is-open");
+});
+
+export { headerEl };

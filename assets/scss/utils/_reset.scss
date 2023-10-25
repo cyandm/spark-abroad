@@ -30,7 +30,7 @@ img {
 }
 body {
   &:has(main.deactive) {
-    overflow: hidden;
+    overflow: hidden !important;
   }
 }
 body {

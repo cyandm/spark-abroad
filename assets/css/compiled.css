@@ -115,7 +115,7 @@ img {
 }
 
 body:has(main.deactive) {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 body {
@@ -134,36 +134,6 @@ html {
   .container {
     padding-inline: 1rem;
   }
-}
-
-.bg-color-menu {
-  position: fixed;
-  inset: 0;
-  background-color: hsl(240, 67%, 17%);
-  backdrop-filter: blur(37px);
-  z-index: 8;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease-in;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-}
-.bg-color-menu.active {
-  opacity: 0.9;
-  pointer-events: all;
-}
-.bg-color-menu .menu-mobile-active {
-  opacity: 0;
-  pointer-events: none;
-  background-color: hsl(240, 100%, 100%);
-  width: 90%;
-  transition: all 0.3s ease-in;
-  border-bottom-left-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-}
-.bg-color-menu .menu-mobile-active.active {
-  opacity: 1;
 }
 
 body {
@@ -1017,13 +987,18 @@ header .container .menu {
   left: var(--left);
   top: var(--top);
 }
+@media (max-width: 1220px) {
+  #headerCursor {
+    display: none;
+  }
+}
 
 header .container .menu .header_menu_container {
   color: hsl(240, 67%, 17%);
   padding-inline-end: 0.5rem;
 }
-header .container .menu-mobile i,
-header .container .search-mobile i {
+header .container .icon-menu-mobile i,
+header .container .icon-search-mobile i {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1040,7 +1015,7 @@ header .container .search-mobile i {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
 }
 @media (min-width: 1220px) {
-  header .container .menu-mobile {
+  header .container .icon-menu-mobile {
     display: none;
   }
 }
@@ -1093,7 +1068,7 @@ header .container .search .form_control i {
   background-color: unset;
   font-size: 1.5rem;
 }
-header .container .search-mobile {
+header .container .icon-search-mobile {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -1102,7 +1077,7 @@ header .container .search-mobile {
   gap: 0;
 }
 @media (min-width: 1220px) {
-  header .container .search-mobile {
+  header .container .icon-search-mobile {
     display: none;
   }
 }
@@ -1111,6 +1086,185 @@ header.bg_purple .menu {
 }
 header.bg_purple .logo img {
   filter: brightness(7);
+}
+header .menu-mobile-clicked {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  top: 0;
+  z-index: 10;
+  transition: translate 0.5s ease;
+}
+header .menu-mobile-clicked.is-open {
+  opacity: 1;
+  pointer-events: all;
+  translate: unset;
+  transition: all 0.5s ease-in-out;
+}
+header .menu-mobile-clicked.is-open .container-icons-menu {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+header .menu-mobile-clicked .bg-color-menu-mobile {
+  position: absolute;
+  inset: 0;
+  background-color: hsl(240, 67%, 17%);
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+header .menu-mobile-clicked .container-icons-menu {
+  opacity: 0;
+  translate: 0 -16px;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  background-color: hsl(240, 100%, 100%);
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  padding: 1rem 1.25rem 1.5rem 1.25rem;
+  width: 90%;
+}
+header .menu-mobile-clicked .container-icons-menu .container-icon-group-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+}
+header .menu-mobile-clicked .container-icons-menu .container-icon-group-mobile .icon-close-mobile,
+header .menu-mobile-clicked .container-icons-menu .container-icon-group-mobile .mobile-search-icon {
+  background-color: hsl(240, 100%, 100%);
+  border-radius: 0.75rem;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+header .menu-mobile-clicked .container-icons-menu .container-icon-group-mobile .mobile-search-icon .icon-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  background-color: unset;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: hsl(241, 69%, 31%);
+}
+header .menu-mobile-clicked .container-icons-menu .container-icon-group-mobile .icon-close-mobile .icon-close2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  background-color: unset;
+  font-size: 1.5rem;
+  color: hsl(241, 69%, 31%);
+  font-weight: 500;
+}
+header .menu-mobile-clicked .container-icons-menu .menu-header-menu-container {
+  width: 100%;
+}
+header .menu-mobile-clicked .container-icons-menu .menu-header-menu-container ul li {
+  color: rgb(0, 0, 0);
+  padding: 0.75rem;
+}
+header .menu-mobile-clicked .container-icons-menu .menu-header-menu-container ul li:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+header .menu-mobile-clicked .container-icons-menu .menu-header-menu-container ul li.current_page_item {
+  border-bottom: 1px solid hsl(241, 30%, 64%);
+}
+header .search-mobile-clicked {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  overflow-y: scroll;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  z-index: 10;
+  transition: all 0.3s ease-in;
+}
+header .search-mobile-clicked.search-is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+header .search-mobile-clicked .bg-color-search-mobile {
+  position: absolute;
+  inset: 0;
+  background-color: hsl(240, 67%, 17%);
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+header .search-mobile-clicked .search-bar-mobile {
+  position: absolute;
+  z-index: 10;
+  top: 1.5rem;
+  left: 50%;
+  width: 90%;
+  translate: -50% 0;
+  transition: translate 0.2s ease;
+  background-color: hsl(240, 100%, 100%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1.25rem;
+}
+header .search-mobile-clicked .search-bar-mobile input[type=search] {
+  outline: none;
+  border: none;
+  background-color: unset;
+  flex: 2;
+  font-family: "Peyda";
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: hsl(240, 67%, 17%);
+  font-weight: 400;
+}
+header .search-mobile-clicked .search-bar-mobile input[type=search]::placeholder {
+  opacity: 0.5;
+  font-weight: 300;
+}
+header .search-mobile-clicked .search-bar-mobile i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  background-color: unset;
+  font-size: 1.75rem;
+  font-weight: 500;
 }
 
 footer {
@@ -1256,6 +1410,11 @@ footer .socialmedia-and-slogan .slogan {
 
 .slider-wrapper {
   position: relative;
+}
+@media (max-width: 1024px) {
+  .slider-wrapper {
+    display: none;
+  }
 }
 .slider-wrapper .slide-0 {
   display: flex;
@@ -1527,10 +1686,328 @@ body:has(main.home) header {
   position: absolute;
   width: 100%;
 }
+@media (max-width: 1024px) {
+  body:has(main.home) header {
+    position: relative;
+  }
+}
+@media (max-width: 1024px) {
+  body:has(main.home) {
+    overflow: visible;
+    max-height: unset;
+  }
+}
 
 main.home {
   max-height: 100%;
   overflow: hidden;
+}
+main.home .mobile-landing .mobile-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  background-color: hsl(241, 69%, 31%);
+  padding-block: 2.5rem;
+  padding-inline: 1rem;
+}
+main.home .mobile-landing .mobile-intro h1 {
+  text-align: center;
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 36%, 96%);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+main.home .mobile-landing .mobile-intro h1 span {
+  font-weight: 700;
+  position: relative;
+  position: relative;
+}
+main.home .mobile-landing .mobile-intro h1 span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0.25rem;
+  height: 0.25rem;
+  display: block;
+  position: absolute;
+  background-image: url("../imgs/h1_sticker.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+main.home .mobile-landing .mobile-intro p {
+  text-align: center;
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: hsl(241, 30%, 64%);
+  font-weight: 400;
+  margin-bottom: 3.75rem;
+}
+main.home .mobile-landing .mobile-intro .container-ball-stand-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 70%;
+}
+main.home .mobile-landing .mobile-intro .container-ball-stand-mobile .ball-mobile {
+  width: 20%;
+  margin-bottom: -0.75rem;
+}
+main.home .mobile-landing .mobile-intro .container-ball-stand-mobile .stand-mobile img {
+  width: 100%;
+}
+main.home .mobile-landing .explain-services-counseling {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2.75rem;
+}
+main.home .mobile-landing .explain-services-counseling .container-btn-title-text-explain {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+main.home .mobile-landing .explain-services-counseling .container-btn-title-text-explain .title-explain-service {
+  padding-top: 12.5rem;
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  width: 100%;
+  color: hsl(240, 67%, 17%);
+  text-align: center;
+}
+main.home .mobile-landing .explain-services-counseling .container-btn-title-text-explain .description-explain-service {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 30%, 64%);
+  text-align: justify;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+}
+main.home .mobile-landing .explain-services-counseling .container-btn-title-text-explain .btn-explain-section {
+  background-color: hsl(241, 69%, 31%);
+  border-radius: 2.5rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+@media (max-width: 500px) {
+  main.home .mobile-landing .explain-services-counseling .container-btn-title-text-explain .btn-explain-section {
+    width: 100%;
+  }
+}
+main.home .mobile-landing .explain-services-counseling .container-btn-title-text-explain .btn-explain-section a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  font-weight: 300;
+  color: hsl(240, 100%, 100%);
+}
+main.home .mobile-landing .explain-services-counseling .container-btn-title-text-explain .btn-explain-section a i {
+  background-color: unset;
+}
+main.home .mobile-landing .explain-services-counseling .container-btn-title-text-explain .btn-explain-section:hover {
+  background-color: hsl(240, 100%, 100%);
+  border: 1px solid hsl(241, 69%, 31%);
+}
+main.home .mobile-landing .explain-services-counseling .container-btn-title-text-explain .btn-explain-section:hover a {
+  color: hsl(241, 69%, 31%);
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-1 {
+  background-image: url("../imgs/number_one.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-2 {
+  background-image: url("../imgs/number_two.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-3 {
+  background-image: url("../imgs/number-three.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  padding-inline: 1rem;
+  background-color: hsl(241, 69%, 31%);
+  width: 100%;
+  padding-top: 1.25rem;
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-4 .title-explain-service {
+  padding-top: 12.5rem;
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  width: 100%;
+  color: hsl(240, 100%, 100%);
+  text-align: center;
+  background-image: url("../imgs/number-four.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-4 .description-explain-service {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 30%, 64%);
+  text-align: justify;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-4 .btn-explain-section {
+  background-color: hsl(240, 100%, 100%);
+  margin-bottom: 10px;
+  border-radius: 2.5rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+@media (max-width: 500px) {
+  main.home .mobile-landing .explain-services-counseling .explain-section-4 .btn-explain-section {
+    width: 100%;
+  }
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-4 .btn-explain-section a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  font-weight: 300;
+  color: hsl(241, 69%, 31%);
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-4 .btn-explain-section a i {
+  background-color: unset;
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-4 .btn-explain-section:hover {
+  background-color: hsl(241, 69%, 31%);
+  border: 1px solid hsl(240, 100%, 100%);
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-4 .btn-explain-section:hover a {
+  color: hsl(240, 100%, 100%);
+}
+main.home .mobile-landing .explain-services-counseling .plane-section-mobile {
+  padding-top: 1.25rem;
+  background-color: hsl(241, 69%, 31%);
+  margin-top: -3.25rem;
+  overflow: hidden;
+  width: 101%;
+}
+main.home .mobile-landing .explain-services-counseling .plane-section-mobile img {
+  translate: 0 12px;
+}
+main.home .container-services-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+main.home .container-services-home .title-subtitle-service .title-service {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 67%, 17%);
+}
+main.home .container-services-home .title-subtitle-service .subtitle-service {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 30%, 64%);
+}
+main.home .container-services-home .container-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
 }
 
 main.page-notfound {
@@ -2472,7 +2949,6 @@ main.about-us-page .background-about-us .swiper .swiper-wrapper .swiper-slide .c
   main.about-us-page .background-about-us .swiper .swiper-wrapper .swiper-slide .container-slider .title-image-slider {
     width: 90%;
     right: 0;
-    position: relative;
   }
 }
 main.about-us-page .background-about-us .swiper .swiper-wrapper .swiper-slide .container-slider .title-image-slider .title-slider {

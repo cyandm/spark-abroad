@@ -10,15 +10,6 @@
 
 <body <?php body_class() ?>>
 	<?php wp_body_open() ?>
-	<div class="bg-color-menu">
-		<div class="menu-mobile-active">
-			<?php wp_nav_menu([
-				'container_class' => 'header_menu_container',
-				'container_id' => 'headerMenu',
-				'theme_location' => 'header'
-			]) ?>
-		</div>
-	</div>
 	<div id="headerCursor"> </div>
 	<header class="<?= is_home() ? 'bg_purple' : '' ?> <?php if ($is_tansparent) echo 'is-transparent' ?>">
 		<div class="container">
@@ -30,7 +21,7 @@
 					'theme_location' => 'header'
 				]) ?>
 			</div>
-			<div class="menu-mobile">
+			<div class="icon-menu-mobile">
 				<i class="icon-menu-hamburger"></i>
 			</div>
 			<div class="logo">
@@ -46,7 +37,29 @@
 					</div>
 				</form>
 			</div>
-			<div class="search-mobile">
+			<div class="icon-search-mobile">
 				<i class="icon-search"></i>
 			</div>
+
+
+		</div>
+		<div class="menu-mobile-clicked">
+			<div class="bg-color-menu-mobile"></div>
+			<div class="container-icons-menu">
+				<div class="container-icon-group-mobile">
+					<div class="icon-close-mobile"><i class="icon-close2"></i></div>
+					<div><?php the_custom_logo() ?></div>
+				</div>
+				<?php wp_nav_menu([
+					'theme_location' => 'header'
+				]) ?>
+			</div>
+		</div>
+		<div class="search-mobile-clicked">
+			<div class="bg-color-search-mobile"></div>
+			<div class="search-bar-mobile">
+				<i class="icon-search"></i>
+				<input type="search" placeholder="اینجابگرد دنبالش">
+			</div>
+		</div>
 	</header>

@@ -71,7 +71,6 @@ main.about-us-page {
               @media (max-width: 1020px) {
                 width: 90%;
                 right: 0;
-                position: relative;
               }
               .title-slider {
                 @include font_style(t2);

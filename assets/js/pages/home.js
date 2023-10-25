@@ -24,7 +24,7 @@ const slide1_TL = gsap.timeline();
 //   ease: 'bounce.out',
 //   duration: 3,
 // });
-if (home) {
+/*if (home) {
   ScrollTrigger.create({
     trigger: "body",
     start: "+1",
@@ -34,7 +34,7 @@ if (home) {
     scrub: 5,
   });
 }
-
+*/
 headerPurple_TL.to("img.custom-logo", { filter: "brightness(1)" });
 headerPurple_TL.to("header li", { color: "hsl(240, 67%, 17%)" });
 
