@@ -124,26 +124,30 @@ $jobseeker_videolink_home = $jobseeker_section_home['jobseeker_videolink_home'];
 
 		<div class="jobseeker-section-home">
 			<div class="container">
-				<p></p>
-				<div></div>
+				<p class="title-jobseeker-home"><?php echo $title_jobseeker_home ?></p>
+				<div class="description-jobseeker-home"><?php echo $description_jobseeker_home ?></div>
 			</div>
 
 			<div></div>
 
 			<div class="container">
-				<div>
-					<p></p>
-					<div></div>
+				<div class="container-title-btn-jobseeker">
+					<p class="title-jobseeker-home"><?php echo $title2_jobseeker_home ?></p>
+					<div class="btn-accent"><a href="/درباره-ما/">مشاهده کامل</a></div>
 				</div>
-				<div></div>
+
+				<div class="description-jobseeker-home"><?php echo $description2_jobseeker_home ?></div>
 			</div>
 
 
 			<div class="container">
-				<p></p>
-				<div></div>
-				<div></div>
-				<div></div>
+				<p class="title-jobseeker-home"><?php echo $title3_jobseeker_home ?></p>
+				<div class="description-jobseeker-home"><?php echo $description3_jobseeker_home ?></div>
+				<div class="video-jobseeker-popup">
+					<div><?php echo wp_get_attachment_image($video_cover_jobseeker_home, 'full') ?></div>
+					<div class="play-btn"><i class="icon-play2"></i></div>
+				</div>
+				<div class="primary-btn"><a href="/خدمات/">مشاهده خدمات <i class="icon-arrow-down"></i></a></div>
 			</div>
 		</div>
 

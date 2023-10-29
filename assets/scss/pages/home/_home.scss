@@ -1,4 +1,4 @@
-@use "../../utils/" as *;
+@use '../../utils/' as *;
 
 body:has(main.home) {
   header {
@@ -35,9 +35,9 @@ main.home {
         span {
           font-weight: 700;
           position: relative;
-          @include psudo($el: after, $content: "", $inset: 0, $display: block) {
+          @include psudo($el: after, $content: '', $inset: 0, $display: block) {
             position: absolute;
-            background-image: url("../imgs/h1_sticker.png");
+            background-image: url('../imgs/h1_sticker.png');
             background-repeat: no-repeat;
             background-size: contain;
             width: 100%;
@@ -132,19 +132,19 @@ main.home {
         }
       }
       .explain-section-1 {
-        background-image: url("../imgs/number_one.png");
+        background-image: url('../imgs/number_one.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: top center;
       }
       .explain-section-2 {
-        background-image: url("../imgs/number_two.png");
+        background-image: url('../imgs/number_two.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: top center;
       }
       .explain-section-3 {
-        background-image: url("../imgs/number-three.png");
+        background-image: url('../imgs/number-three.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: top center;
@@ -162,7 +162,7 @@ main.home {
           width: 100%;
           color: $c_white_2;
           text-align: center;
-          background-image: url("../imgs/number-four.png");
+          background-image: url('../imgs/number-four.png');
           background-repeat: no-repeat;
           background-size: contain;
           background-position: top center;
@@ -215,7 +215,7 @@ main.home {
       }
     }
     .container-services-home {
-      margin-bottom: PxToRem(44);
+      margin-bottom: PxToRem(20);
       @include d_flex(column, start, start, nowrap, false, PxToRem(16));
       .title-subtitle-service {
         .title-service {
@@ -235,7 +235,7 @@ main.home {
     .getting-to-know {
       .getting-to-know-section-1,
       .getting-to-know-section-2 {
-        margin-bottom: PxToRem(44);
+        margin-bottom: PxToRem(20);
         .title-getting-to-know {
           @include font_style(h1);
           color: $c_blue_2;
@@ -243,7 +243,7 @@ main.home {
         .subtitle-getting-to-know {
           @include font_style(body_2);
           color: $c_gray;
-          margin-bottom: PxToRem(16);
+          margin-bottom: PxToRem(8);
         }
         .image-getting-to-know {
           > img {
@@ -264,6 +264,59 @@ main.home {
             color: $c_blue_2;
             text-align: justify;
           }
+        }
+      }
+    }
+    .jobseeker-section-home {
+      .title-jobseeker-home {
+        @include font_style(h2);
+        color: $c_blue_2;
+      }
+      .description-jobseeker-home {
+        > p {
+          @include font_style(body_2);
+          color: $c_blue_2;
+          text-align: justify;
+        }
+      }
+      .container-title-btn-jobseeker {
+        @include d_flex(row, space-between, center, wrap, false, PxToRem(4));
+      }
+      .video-jobseeker-popup {
+        position: relative;
+        div {
+          > img {
+            border-radius: PxToRem(24);
+            object-fit: contain;
+            max-height: PxToRem(500);
+          }
+        }
+
+        .play-btn {
+          @include d_flex(row, center, center, nowrap, false, 0);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          translate: -50% -50%;
+          width: PxToRem(40);
+          height: PxToRem(40);
+          backdrop-filter: blur(37px);
+          border-radius: 50%;
+          padding: PxToRem(8);
+          i {
+            @include d_flex(row, center, center, nowrap, false, 0);
+            padding: PxToRem(8);
+            border-radius: 50%;
+
+            background-color: unset;
+            color: $c_white_1;
+            font-size: PxToRem(32);
+          }
+        }
+      }
+      .primary-btn {
+        @media (min-width: 600px) {
+          width: 50%;
         }
       }
     }

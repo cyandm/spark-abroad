@@ -1,4 +1,4 @@
-@use "../utils" as *;
+@use '../utils' as *;
 
 .primary-btn {
   @include d_flex(row, center, center, nowrap, false, 0.625rem);
@@ -62,5 +62,19 @@
     color: $c_white_1;
     border-radius: 50%;
     @include d_flex(row, center, center, nowrap, false, 0);
+  }
+}
+.btn-accent {
+  width: max-content;
+  padding: PxToRem(8) PxToRem(20);
+  background-color: $c_yellow_1;
+  border-radius: PxToRem(40);
+  color: $c_white_2;
+  border: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: $c_white_2;
+    border: 1px solid $c_yellow_1;
+    color: $c_yellow_1;
   }
 }
