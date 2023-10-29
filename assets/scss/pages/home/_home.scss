@@ -65,6 +65,21 @@ main.home {
           }
         }
       }
+      a {
+        .btn-anchor {
+          width: PxToRem(40);
+          height: PxToRem(68);
+          border: 1px solid $c_white_2;
+          border-radius: PxToRem(60);
+          @include d_flex(column, flex-end, center, nowrap, false, 0);
+          i {
+            background-color: unset;
+            @include d_flex(row, center, center, nowrap, false, 0);
+            font-size: PxToRem(28);
+            color: $c_white_2;
+          }
+        }
+      }
     }
     .explain-services-counseling {
       margin-top: PxToRem(20);
@@ -199,22 +214,58 @@ main.home {
         }
       }
     }
-  }
-  .container-services-home {
-    @include d_flex(column, start, start, nowrap, false, PxToRem(16));
-    .title-subtitle-service {
-      .title-service {
-        @include font_style(h1);
-        color: $c_blue_2;
+    .container-services-home {
+      margin-bottom: PxToRem(44);
+      @include d_flex(column, start, start, nowrap, false, PxToRem(16));
+      .title-subtitle-service {
+        .title-service {
+          @include font_style(h1);
+          color: $c_blue_2;
+        }
+        .subtitle-service {
+          @include font_style(body_2);
+          color: $c_gray;
+        }
       }
-      .subtitle-service {
-        @include font_style(body_2);
-        color: $c_gray;
+      .container-cards {
+        @include d_flex(row, start, stretch, wrap, false, PxToRem(16));
+        width: 100%;
       }
     }
-    .container-cards {
-      @include d_flex(row, start, stretch, wrap, false, PxToRem(16));
-      width: 100%;
+    .getting-to-know {
+      .getting-to-know-section-1,
+      .getting-to-know-section-2 {
+        margin-bottom: PxToRem(44);
+        .title-getting-to-know {
+          @include font_style(h1);
+          color: $c_blue_2;
+        }
+        .subtitle-getting-to-know {
+          @include font_style(body_2);
+          color: $c_gray;
+          margin-bottom: PxToRem(16);
+        }
+        .image-getting-to-know {
+          > img {
+            max-height: PxToRem(540);
+            object-fit: contain;
+          }
+        }
+      }
+      .getting-to-know-section-2 {
+        .title2-getting-to-know {
+          @include font_style(h2);
+          color: $c_blue_2;
+        }
+        .description-getting-to-know {
+          p {
+            margin-bottom: PxToRem(24);
+            @include font_style(body_2);
+            color: $c_blue_2;
+            text-align: justify;
+          }
+        }
+      }
     }
   }
 }

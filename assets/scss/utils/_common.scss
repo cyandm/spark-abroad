@@ -10,6 +10,9 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: $c_white_1;
   font-size: PxToRem(20);

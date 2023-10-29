@@ -136,6 +136,10 @@ html {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: hsl(240, 36%, 96%);
   font-size: 1.25rem;
@@ -891,7 +895,7 @@ textarea {
   border-radius: 1.5rem;
   padding: 1rem;
   flex-basis: 30%;
-  min-width: 18.75rem;
+  min-width: 16.25rem;
   max-height: 21.25rem;
 }
 .service-card-container .image-card-service {
@@ -1775,6 +1779,29 @@ main.home .mobile-landing .mobile-intro .container-ball-stand-mobile .ball-mobil
 main.home .mobile-landing .mobile-intro .container-ball-stand-mobile .stand-mobile img {
   width: 100%;
 }
+main.home .mobile-landing .mobile-intro a .btn-anchor {
+  width: 2.5rem;
+  height: 4.25rem;
+  border: 1px solid hsl(240, 100%, 100%);
+  border-radius: 3.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+main.home .mobile-landing .mobile-intro a .btn-anchor i {
+  background-color: unset;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.75rem;
+  color: hsl(240, 100%, 100%);
+}
 main.home .mobile-landing .explain-services-counseling {
   margin-top: 1.25rem;
   display: flex;
@@ -1968,7 +1995,8 @@ main.home .mobile-landing .explain-services-counseling .plane-section-mobile {
 main.home .mobile-landing .explain-services-counseling .plane-section-mobile img {
   translate: 0 12px;
 }
-main.home .container-services-home {
+main.home .mobile-landing .container-services-home {
+  margin-bottom: 2.75rem;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -1976,7 +2004,7 @@ main.home .container-services-home {
   flex-wrap: nowrap;
   gap: 1rem;
 }
-main.home .container-services-home .title-subtitle-service .title-service {
+main.home .mobile-landing .container-services-home .title-subtitle-service .title-service {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
   font-size: 1.25rem;
@@ -1988,7 +2016,7 @@ main.home .container-services-home .title-subtitle-service .title-service {
   line-height: 2.75rem;
   color: hsl(240, 67%, 17%);
 }
-main.home .container-services-home .title-subtitle-service .subtitle-service {
+main.home .mobile-landing .container-services-home .title-subtitle-service .subtitle-service {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
   font-size: 1.25rem;
@@ -2000,7 +2028,7 @@ main.home .container-services-home .title-subtitle-service .subtitle-service {
   line-height: 2rem;
   color: hsl(241, 30%, 64%);
 }
-main.home .container-services-home .container-cards {
+main.home .mobile-landing .container-services-home .container-cards {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -2008,6 +2036,68 @@ main.home .container-services-home .container-cards {
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
+}
+main.home .mobile-landing .getting-to-know .getting-to-know-section-1,
+main.home .mobile-landing .getting-to-know .getting-to-know-section-2 {
+  margin-bottom: 2.75rem;
+}
+main.home .mobile-landing .getting-to-know .getting-to-know-section-1 .title-getting-to-know,
+main.home .mobile-landing .getting-to-know .getting-to-know-section-2 .title-getting-to-know {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 67%, 17%);
+}
+main.home .mobile-landing .getting-to-know .getting-to-know-section-1 .subtitle-getting-to-know,
+main.home .mobile-landing .getting-to-know .getting-to-know-section-2 .subtitle-getting-to-know {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 30%, 64%);
+  margin-bottom: 1rem;
+}
+main.home .mobile-landing .getting-to-know .getting-to-know-section-1 .image-getting-to-know > img,
+main.home .mobile-landing .getting-to-know .getting-to-know-section-2 .image-getting-to-know > img {
+  max-height: 33.75rem;
+  object-fit: contain;
+}
+main.home .mobile-landing .getting-to-know .getting-to-know-section-2 .title2-getting-to-know {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(240, 67%, 17%);
+}
+main.home .mobile-landing .getting-to-know .getting-to-know-section-2 .description-getting-to-know p {
+  margin-bottom: 1.5rem;
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 67%, 17%);
+  text-align: justify;
 }
 
 main.page-notfound {
