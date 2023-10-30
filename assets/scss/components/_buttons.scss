@@ -65,6 +65,7 @@
   }
 }
 .btn-accent {
+  @include font_style(body_2);
   width: max-content;
   padding: PxToRem(8) PxToRem(20);
   background-color: $c_yellow_1;

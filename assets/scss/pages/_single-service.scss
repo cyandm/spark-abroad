@@ -1,4 +1,4 @@
-@use "../utils/" as *;
+@use '../utils/' as *;
 main.single-service-page {
   .popup-service {
     opacity: 0;
@@ -14,7 +14,7 @@ main.single-service-page {
       inset: 0;
       width: 100%;
       height: auto;
-      z-index: 5;
+      z-index: 50;
       overflow-y: scroll;
     }
 
@@ -37,6 +37,9 @@ main.single-service-page {
         padding: PxToRem(8);
         width: PxToRem(44);
         height: PxToRem(44);
+        &:hover {
+          cursor: pointer;
+        }
         @include d_flex(row, center, center, nowrap, false, 0);
         i {
           @include d_flex(row, center, center, nowrap, false, 0);
@@ -102,7 +105,7 @@ main.single-service-page {
             height: PxToRem(232);
           }
         }
-        @include psudo($el: after, $content: "", $position: absolute) {
+        @include psudo($el: after, $content: '', $position: absolute) {
           width: 100%;
           height: 70%;
           background: $gradient-purple;
@@ -183,7 +186,7 @@ main.single-service-page {
           @include d_flex(column, center, start, nowrap, false, PxToRem(12));
           padding: PxToRem(20) PxToRem(16) PxToRem(20) PxToRem(20);
           .title-card-know {
-            @include font_style("caption");
+            @include font_style('caption');
             color: $c_white_2;
           }
           .description-card-know {
@@ -309,7 +312,7 @@ main.single-service-page {
                   isolation: isolate;
                   @include psudo(
                     $el: after,
-                    $content: "",
+                    $content: '',
                     $display: block,
                     $position: absolute
                   ) {
@@ -367,10 +370,10 @@ main.single-service-page {
         border-top-left-radius: PxToRem(8);
       }
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         inset: 0;
-        background-image: url("../imgs/banner-service.png");
+        background-image: url('../imgs/banner-service.png');
         z-index: -1;
         background-size: cover;
         background-repeat: no-repeat;

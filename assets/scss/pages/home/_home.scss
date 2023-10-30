@@ -20,6 +20,79 @@ body:has(main.home) {
 main.home {
   max-height: 100%;
   overflow: hidden;
+  .popup-home {
+    opacity: 0;
+    pointer-events: none;
+    @include d_flex(column, start, center, nowrap, false, PxToRem(16));
+    height: 0;
+    &.show {
+      height: auto;
+      transition: all 0.5s ease-in-out;
+      opacity: 1;
+      pointer-events: all;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: auto;
+      z-index: 5;
+      overflow-y: scroll;
+    }
+
+    .bg-color-popup {
+      position: fixed;
+      inset: 0;
+      opacity: 0.9;
+      background-color: $c_blue_2;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .information-popup {
+      @include d_flex(column, center, center, nowrap, false, PxToRem(16));
+      width: 100%;
+      .btn-close-popup {
+        margin-top: PxToRem(68);
+        background-color: $c_white_2;
+        border-radius: 50%;
+        padding: PxToRem(8);
+        width: PxToRem(44);
+        height: PxToRem(44);
+        &:hover {
+          cursor: pointer;
+        }
+        @include d_flex(row, center, center, nowrap, false, 0);
+        i {
+          @include d_flex(row, center, center, nowrap, false, 0);
+          background-color: unset;
+          font-size: PxToRem(32);
+          translate: 0 1px;
+        }
+        @media (min-width: 900px) {
+          align-self: flex-end;
+        }
+      }
+      .video-popup {
+        width: 100%;
+        video {
+          width: 100%;
+          border-radius: PxToRem(24);
+        }
+      }
+      .text-popup {
+        padding: PxToRem(16);
+        width: 100%;
+        .jobseeker-name-popup {
+          @include font_style(h2);
+          color: $c_white_2;
+        }
+        .jobseeker-description-popup {
+          @include font_style(body_2);
+          color: $c_white_2;
+          text-align: justify;
+        }
+      }
+    }
+  }
   .mobile-landing {
     .mobile-intro {
       @include d_flex(column, center, center, nowrap, false, 0);
@@ -69,14 +142,21 @@ main.home {
         .btn-anchor {
           width: PxToRem(40);
           height: PxToRem(68);
-          border: 1px solid $c_white_2;
+          border: 1px solid $c_white_1;
           border-radius: PxToRem(60);
           @include d_flex(column, flex-end, center, nowrap, false, 0);
+          transition: all 0.3s ease-in;
           i {
             background-color: unset;
             @include d_flex(row, center, center, nowrap, false, 0);
             font-size: PxToRem(28);
-            color: $c_white_2;
+            color: $c_white_1;
+          }
+          &:hover {
+            background-color: $c_white_1;
+            i {
+              color: $c_blue_2;
+            }
           }
         }
       }
@@ -142,6 +222,19 @@ main.home {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: top center;
+        span {
+          font-weight: 700;
+          position: relative;
+          @include psudo($el: after, $content: '', $inset: 0, $display: block) {
+            position: absolute;
+            background-image: url('../imgs/leaf.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 70%;
+            height: 70%;
+            translate: PxToRem(32) PxToRem(-20);
+          }
+        }
       }
       .explain-section-3 {
         background-image: url('../imgs/number-three.png');
@@ -268,11 +361,35 @@ main.home {
       }
     }
     .jobseeker-section-home {
+      @include d_flex(column, space-between, start, wrap, false, 4px);
+      margin-bottom: PxToRem(44);
+      .container {
+        width: 100%;
+      }
+      .container-swiper-jobseeker {
+        width: 100%;
+        margin-bottom: PxToRem(44);
+
+        .swiper {
+          width: 100%;
+          height: 100%;
+          .swiper-wrapper {
+            .swiper-slide {
+              @include d_flex(row, center, center, wrap, false, 4px);
+              width: 100%;
+              height: unset !important;
+            }
+          }
+        }
+      }
       .title-jobseeker-home {
         @include font_style(h2);
         color: $c_blue_2;
+        width: 100%;
       }
       .description-jobseeker-home {
+        width: 100%;
+        margin-bottom: PxToRem(16);
         > p {
           @include font_style(body_2);
           color: $c_blue_2;
@@ -280,12 +397,20 @@ main.home {
         }
       }
       .container-title-btn-jobseeker {
-        @include d_flex(row, space-between, center, wrap, false, PxToRem(4));
+        width: 100%;
+        @include d_flex(row, space-between, center, wrap, false, 4px);
+        .title-jobseeker-home-diffrent {
+          @include font_style(h2);
+          color: $c_blue_2;
+        }
       }
       .video-jobseeker-popup {
         position: relative;
+        width: 100%;
         div {
+          width: 100%;
           > img {
+            width: 100%;
             border-radius: PxToRem(24);
             object-fit: contain;
             max-height: PxToRem(500);
@@ -303,6 +428,9 @@ main.home {
           backdrop-filter: blur(37px);
           border-radius: 50%;
           padding: PxToRem(8);
+          &:hover {
+            cursor: pointer;
+          }
           i {
             @include d_flex(row, center, center, nowrap, false, 0);
             padding: PxToRem(8);
@@ -314,9 +442,228 @@ main.home {
           }
         }
       }
-      .primary-btn {
-        @media (min-width: 600px) {
-          width: 50%;
+      .container {
+        @include d_flex(column, center, center, nowrap, false, 0);
+        .primary-btn {
+          padding: PxToRem(8) PxToRem(24);
+          width: 100%;
+          @media (min-width: 600px) {
+            width: 50%;
+          }
+          a {
+            @include d_flex(row, center, center, nowrap, false, 0);
+            i {
+              @include d_flex(row, center, center, nowrap, false, 0);
+              background-color: unset;
+            }
+          }
+        }
+      }
+    }
+    .blog-section-home {
+      margin-bottom: PxToRem(44);
+      .container-titles-btn {
+        @include d_flex(row, space-between, center, nowrap, false, 0);
+        .primary-btn {
+          padding: PxToRem(8) PxToRem(24);
+          @media (max-width: 600px) {
+            display: none;
+          }
+        }
+      }
+      .title-blog-home {
+        @include font_style(h1);
+        color: $c_blue_2;
+      }
+      .subtitle-blog-home {
+        @include font_style(body_2);
+        color: $c_gray;
+      }
+      .blog-choosed-desktop {
+        padding-top: PxToRem(16);
+        @include d_flex(
+          row,
+          space-between,
+          stretch,
+          nowrap,
+          false,
+          PxToRem(16)
+        );
+        .container-choosed-blog-right {
+          @include d_flex(column, space-between, stretch, nowrap, false, 0);
+          flex: 1;
+        }
+        .container-choosed-blog-left {
+          @include d_flex(column, space-between, stretch, nowrap, false, 0);
+          flex: 1;
+          .card-post {
+            @include d_flex(
+              row,
+              space-between,
+              stretch,
+              nowrap,
+              false,
+              PxToRem(8)
+            );
+            .image-card-post {
+              flex: 1;
+            }
+            .container-title-expert-author-date-button {
+              flex: 2;
+            }
+          }
+        }
+      }
+    }
+    .faq-section-home {
+      .faq-titles-btn {
+        @include d_flex(row, space-between, center, nowrap, false, 0);
+        .titles-and-btn-faq {
+          .title-faq-home {
+            @include font_style(h1);
+            color: $c_blue_2;
+          }
+          .subtitle-faq-home {
+            @include font_style(body_2);
+            color: $c_gray;
+          }
+        }
+        .primary-btn {
+          padding: PxToRem(8) PxToRem(24);
+          @media (max-width: 650px) {
+            display: none;
+          }
+          a {
+            @include d_flex(row, center, center, nowrap, false, 0);
+            i {
+              @include d_flex(row, center, center, nowrap, false, 0);
+              background-color: unset;
+            }
+          }
+        }
+      }
+    }
+    .contact-us-section-home {
+      @include d_flex(column, start, start, nowrap, false, 0);
+      width: 100;
+      h1 {
+        @include font_style(h1);
+        color: $c_blue_2;
+        text-align: justify;
+        width: 100;
+        @media (max-width: 1440px) {
+          padding-inline: PxToRem(16);
+        }
+      }
+      p {
+        @include font_style(body_2);
+        color: $c_gray;
+        width: 100;
+        @media (max-width: 1440px) {
+          padding-inline: PxToRem(16);
+        }
+      }
+
+      .container-form-image {
+        width: 100%;
+        position: relative;
+
+        form {
+          @include d_flex(column, start, start, nowrap, false, PxToRem(4));
+
+          label {
+            @include font_style(body_2);
+            color: $c_blue_2;
+          }
+          div {
+            @include d_flex(row, start, start, nowrap, false, PxToRem(4));
+            background-color: $c_white_2;
+            padding: PxToRem(4) PxToRem(12) PxToRem(4) 0;
+            border-radius: PxToRem(20);
+
+            border: 1px solid $gradient-blue;
+            margin-bottom: PxToRem(20);
+            position: relative;
+            width: 100%;
+            &::after {
+              content: '';
+              position: absolute;
+              inset: -1px;
+              border-radius: inherit;
+              background: $gradient-blue;
+              z-index: -2;
+            }
+            i {
+              @include d_flex(row, start, center, nowrap, false, PxToRem(4));
+              color: $c_gray;
+              background-color: unset;
+            }
+            input,
+            textarea {
+              outline: none;
+              border: none;
+              background-color: unset;
+            }
+            input {
+              width: 80%;
+            }
+            textarea {
+              width: 90%;
+              resize: vertical;
+            }
+            &.primary-btn {
+              background-color: $c_blue_1;
+              padding: PxToRem(8) PxToRem(24);
+              @include d_flex(row, center, center, nowrap, false, PxToRem(4));
+              i {
+                @include d_flex(row, center, center, nowrap, false, 0);
+                background-color: unset;
+                color: $c_white_2;
+                font-size: PxToRem(20);
+                transition: all 0.8s ease-in-out;
+              }
+              &:hover {
+                background-color: $c_white_2;
+                i {
+                  color: $c_blue_1;
+                }
+              }
+            }
+          }
+        }
+        .image-contact-us {
+          width: 100%;
+          margin-bottom: -0.8rem;
+          @media (width>700px) {
+            text-align: left;
+          }
+          img {
+            width: 100%;
+            @media (width>700px) {
+              width: 40%;
+            }
+          }
+        }
+        @media (min-width: 700px) {
+          @include d_flex(row, start, start, nowrap, false, PxToRem(4));
+
+          form {
+            flex: 1;
+            margin-bottom: PxToRem(200);
+          }
+          .image-contact-us {
+            img {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+            }
+            flex: 2;
+          }
+        }
+        @media (max-width: 1000px) {
+          form {
+            flex-basis: 40%;
+          }
         }
       }
     }

@@ -1,16 +1,27 @@
-import Swiper from "swiper";
-import { Navigation, EffectFade } from "swiper/modules";
+import Swiper from 'swiper';
+import { Navigation, EffectFade } from 'swiper/modules';
 
-export const swiperAboutUs = new Swiper("#swiper-about-us", {
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+export const swiperAboutUs = new Swiper('#swiper-about-us', {
+  slidesPerView: 1.25,
+  breakpoints: {
+    400: {
+      slidesPerView: 1.5,
+    },
+    700: {
+      slidesPerView: 2,
+    },
+    900: {
+      slidesPerView: 3.5,
+    },
+    1100: {
+      slidesPerView: 4,
+    },
   },
 });
 
-export const swiperAboutUsBgTop = new Swiper("#swiperAboutUsBgTop", {
+export const swiperAboutUsBgTop = new Swiper('#swiperAboutUsBgTop', {
   modules: [Navigation, EffectFade],
-  direction: "horizontal",
+  direction: 'horizontal',
   loop: true,
   speed: 1000,
   //autoplay: {
@@ -21,76 +32,76 @@ export const swiperAboutUsBgTop = new Swiper("#swiperAboutUsBgTop", {
     crossFade: true, // added(resolve the overlapping of the slides)
   },
 
-  effect: "fade",
+  effect: 'fade',
   navigation: {
-    nextEl: ".btn-next-about-us",
-    prevEl: ".btn-prev-about-us",
+    nextEl: '.btn-next-about-us',
+    prevEl: '.btn-prev-about-us',
   },
 });
 
-const popupAboutUs = document.querySelector(".popup-about-us");
-const playBtnGroup = document.querySelectorAll(".play-btn");
+const popupAboutUs = document.querySelector('.popup-about-us');
+const playBtnGroup = document.querySelectorAll('.play-btn');
 
-const header = document.querySelector("header>div");
-const aboutUs = document.querySelector("main.about-us-page");
-const titleImageSlider = document.querySelectorAll(".title-image-slider");
-const btnPrevAboutUs = document.querySelector(".btn-prev-about-us");
-const btnNextAboutUs = document.querySelector(".btn-next-about-us");
+const header = document.querySelector('header>div');
+const aboutUs = document.querySelector('main.about-us-page');
+const titleImageSlider = document.querySelectorAll('.title-image-slider');
+const btnPrevAboutUs = document.querySelector('.btn-prev-about-us');
+const btnNextAboutUs = document.querySelector('.btn-next-about-us');
 
-const btnClosePopup = document.querySelector(".btn-close-popup");
+const btnClosePopup = document.querySelector('.btn-close-popup');
 
-const video = document.querySelector(".video-popup-jobseeker");
+const video = document.querySelector('.video-popup-jobseeker');
 const jobseekerName = document.querySelector(
-  ".text-popup .jobseeker-name-popup"
+  '.text-popup .jobseeker-name-popup'
 );
 const jobseekerDescription = document.querySelector(
-  ".text-popup .jobseeker-description-popup"
+  '.text-popup .jobseeker-description-popup'
 );
-const backgroundSlider = document.querySelector(".background-about-us");
-const calcSpacer = document.querySelector(".calc-spacer");
+const backgroundSlider = document.querySelector('.background-about-us');
+const calcSpacer = document.querySelector('.calc-spacer');
 const setMarginRight = () => {
   titleImageSlider.forEach((el) => {
-    el.style.marginRight = header.offsetLeft + "px";
+    el.style.marginRight = header.offsetLeft + 'px';
   });
-  btnNextAboutUs.style.right = header.offsetLeft + 50 + "px";
-  btnPrevAboutUs.style.right = header.offsetLeft + 110 + "px";
+  btnNextAboutUs.style.right = header.offsetLeft + 50 + 'px';
+  btnPrevAboutUs.style.right = header.offsetLeft + 110 + 'px';
 };
-const swiperBtnPrevAboutUs = document.querySelector(".btn-prev-about-us");
-const swiperBtnNextAboutUs = document.querySelector(".btn-next-about-us");
-const informationSlider = document.querySelector(".title-image-slider");
+const swiperBtnPrevAboutUs = document.querySelector('.btn-prev-about-us');
+const swiperBtnNextAboutUs = document.querySelector('.btn-next-about-us');
+const informationSlider = document.querySelector('.title-image-slider');
 
 const setSpacerHeight = () => {
-  const height = backgroundSlider.clientHeight + "px";
+  const height = backgroundSlider.clientHeight + 'px';
   calcSpacer.style.marginTop = height;
 };
 const setNavigationPlace = () => {
-  swiperBtnNextAboutUs.style.top = informationSlider.offsetTop + 20 + "px";
-  swiperBtnPrevAboutUs.style.top = informationSlider.offsetTop + 20 + "px";
+  swiperBtnNextAboutUs.style.top = informationSlider.offsetTop + 20 + 'px';
+  swiperBtnPrevAboutUs.style.top = informationSlider.offsetTop + 20 + 'px';
 };
 
 if (aboutUs) {
   setNavigationPlace();
   setSpacerHeight();
   setMarginRight();
-  window.addEventListener("resize", () => {
+  window.addEventListener('resize', () => {
     setMarginRight();
     setSpacerHeight();
     setNavigationPlace();
   });
   playBtnGroup.forEach((playBtn) => {
-    playBtn.addEventListener("click", () => {
+    playBtn.addEventListener('click', () => {
       const jobseekerVideo = playBtn.dataset.video;
       jobseekerName.innerHTML = playBtn.dataset.name;
       jobseekerDescription.innerHTML = playBtn.dataset.description;
-      popupAboutUs.classList.add("show");
+      popupAboutUs.classList.add('show');
       video.src = jobseekerVideo;
-      aboutUs.classList.add("deactive");
+      aboutUs.classList.add('deactive');
       video.load();
     });
   });
 
-  btnClosePopup.addEventListener("click", () => {
-    popupAboutUs.classList.remove("show");
-    aboutUs.classList.remove("deactive");
+  btnClosePopup.addEventListener('click', () => {
+    popupAboutUs.classList.remove('show');
+    aboutUs.classList.remove('deactive');
   });
 }

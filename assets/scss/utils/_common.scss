@@ -1,11 +1,11 @@
-@use "./variables" as *;
-@use "./functions" as *;
+@use './variables' as *;
+@use './functions' as *;
 
 .container {
   max-width: 1440px;
   margin-inline: auto;
 
-  @media (width < 1440px) {
+  @media (max-width: 1440px) {
     padding-inline: PxToRem(16);
   }
 }
@@ -44,7 +44,7 @@ select {
 .border {
   position: relative;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     inset: -1px;
     border-radius: inherit;
@@ -64,9 +64,9 @@ input {
 }
 
 input {
-  font-family: "Peyda";
+  font-family: 'Peyda';
 }
 
 textarea {
-  font-family: "Peyda";
+  font-family: 'Peyda';
 }

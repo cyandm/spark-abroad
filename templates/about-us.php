@@ -10,8 +10,7 @@ $telephone = get_option('cyn_phone_number_one');
 
 $jobseeker_in_about_us = new WP_Query(
     [
-        'post_type' => 'jobseeker',
-        'posts_per_page' => 8
+        'post_type' => 'jobseeker'
     ]
 );
 
@@ -136,7 +135,7 @@ $counter = 1;
 
     <?php if ($jobseeker_in_about_us->have_posts()) : ?>
         <div class="divider on-desktop-show"></div>
-        <div class="jobseeker-container">
+        <div class="jobseeker-container" id="jobseeker-section-aboutus">
             <h2 class="successful-jobseeker">کارجویان موفق ما</h2>
         </div>
         <div class="jobseeker-content">

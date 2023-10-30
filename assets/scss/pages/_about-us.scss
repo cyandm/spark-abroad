@@ -1,4 +1,4 @@
-@use "../utils/" as *;
+@use '../utils/' as *;
 main.about-us-page {
   @include d_flex(column);
   position: relative;
@@ -37,7 +37,7 @@ main.about-us-page {
             position: relative;
 
             &::after {
-              content: "";
+              content: '';
               position: absolute;
               width: 100%;
               height: 100%;
@@ -164,6 +164,9 @@ main.about-us-page {
         padding: PxToRem(8);
         width: PxToRem(44);
         height: PxToRem(44);
+        &:hover {
+          cursor: pointer;
+        }
         @include d_flex(row, center, center, nowrap, false, 0);
         i {
           @include d_flex(row, center, center, nowrap, false, 0);
@@ -274,10 +277,7 @@ main.about-us-page {
         height: 100% !important;
 
         .swiper-slide {
-          width: unset !important;
           height: unset !important;
-
-          margin-right: PxToRem(16);
         }
       }
     }
@@ -324,10 +324,10 @@ main.about-us-page {
     padding: PxToRem(40) PxToRem(0);
     width: 100%;
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
-      background-image: url("../imgs/banner.png");
+      background-image: url('../imgs/banner.png');
       z-index: -1;
       background-size: cover;
       background-repeat: no-repeat;

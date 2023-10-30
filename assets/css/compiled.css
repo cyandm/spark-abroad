@@ -130,7 +130,7 @@ html {
   max-width: 1440px;
   margin-inline: auto;
 }
-@media (width < 1440px) {
+@media (max-width: 1440px) {
   .container {
     padding-inline: 1rem;
   }
@@ -402,6 +402,15 @@ textarea {
 }
 
 .btn-accent {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
   width: max-content;
   padding: 0.5rem 1.25rem;
   background-color: hsl(41, 100%, 49%);
@@ -796,112 +805,6 @@ textarea {
   line-height: 1.5rem;
 }
 
-.jobseeker-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0;
-  position: relative;
-  min-width: 3rem;
-  width: 100%;
-  height: 100%;
-  max-height: 450px;
-  max-width: 21.25rem;
-}
-.jobseeker-card .image_jobseeker {
-  border-radius: 1.5rem;
-  overflow: hidden;
-  width: 100%;
-  object-fit: cover;
-  height: 100%;
-}
-.jobseeker-card .image_jobseeker img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.jobseeker-card .play-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  width: 3.25rem;
-  height: 3.25rem;
-  backdrop-filter: blur(37px);
-  border-radius: 50%;
-  padding: 0.5rem;
-}
-.jobseeker-card .play-btn i {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0;
-  padding: 0.5rem;
-  border-radius: 50%;
-  background-color: unset;
-  color: hsl(240, 36%, 96%);
-  font-size: 2rem;
-}
-.jobseeker-card .jobseeker-information {
-  position: absolute;
-  bottom: 10%;
-  background-color: hsl(240, 36%, 96%);
-  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.08);
-  border-radius: 1.25rem;
-  width: 90%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  flex-wrap: nowrap;
-  gap: 0;
-}
-.jobseeker-card .jobseeker-information .jobseeker-name-company {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0;
-}
-.jobseeker-card .jobseeker-information .jobseeker-name-company .jobseeker-name,
-.jobseeker-card .jobseeker-information .jobseeker-name-company .jobseeker-company {
-  color: hsl(240, 36%, 96%);
-  font-family: "Peyda";
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 2rem;
-  color: hsl(241, 69%, 31%);
-}
-.jobseeker-card .jobseeker-information .jobseeker-job {
-  color: hsl(240, 36%, 96%);
-  font-family: "Peyda";
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: auto;
-  color: hsl(241, 30%, 64%);
-}
-
 .service-card-container {
   flex: 1;
   position: relative;
@@ -952,6 +855,116 @@ textarea {
   line-height: 2.25rem;
   font-weight: bold;
   color: hsl(357, 83%, 42%);
+}
+
+.jobseeker-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: relative;
+  min-width: 3rem;
+  width: 100%;
+  height: 100%;
+  max-height: 450px;
+  max-width: 21.25rem;
+  padding-inline: 1rem;
+}
+.jobseeker-card .image_jobseeker {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+.jobseeker-card .image_jobseeker img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.jobseeker-card .play-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 3.25rem;
+  height: 3.25rem;
+  backdrop-filter: blur(37px);
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+.jobseeker-card .play-btn:hover {
+  cursor: pointer;
+}
+.jobseeker-card .play-btn i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: unset;
+  color: hsl(240, 36%, 96%);
+  font-size: 2rem;
+}
+.jobseeker-card .jobseeker-information {
+  position: absolute;
+  bottom: 10%;
+  background-color: hsl(240, 36%, 96%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 1.25rem;
+  width: 80%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.jobseeker-card .jobseeker-information .jobseeker-name-company {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.jobseeker-card .jobseeker-information .jobseeker-name-company .jobseeker-name,
+.jobseeker-card .jobseeker-information .jobseeker-name-company .jobseeker-company {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 69%, 31%);
+}
+.jobseeker-card .jobseeker-information .jobseeker-job {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: auto;
+  color: hsl(241, 30%, 64%);
 }
 
 header {
@@ -1721,6 +1734,116 @@ main.home {
   max-height: 100%;
   overflow: hidden;
 }
+main.home .popup-home {
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  height: 0;
+}
+main.home .popup-home.show {
+  height: auto;
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+  pointer-events: all;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  z-index: 5;
+  overflow-y: scroll;
+}
+main.home .popup-home .bg-color-popup {
+  position: fixed;
+  inset: 0;
+  opacity: 0.9;
+  background-color: hsl(240, 67%, 17%);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+main.home .popup-home .information-popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+}
+main.home .popup-home .information-popup .btn-close-popup {
+  margin-top: 4.25rem;
+  background-color: hsl(240, 100%, 100%);
+  border-radius: 50%;
+  padding: 0.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+main.home .popup-home .information-popup .btn-close-popup:hover {
+  cursor: pointer;
+}
+main.home .popup-home .information-popup .btn-close-popup i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  background-color: unset;
+  font-size: 2rem;
+  translate: 0 1px;
+}
+@media (min-width: 900px) {
+  main.home .popup-home .information-popup .btn-close-popup {
+    align-self: flex-end;
+  }
+}
+main.home .popup-home .information-popup .video-popup {
+  width: 100%;
+}
+main.home .popup-home .information-popup .video-popup video {
+  width: 100%;
+  border-radius: 1.5rem;
+}
+main.home .popup-home .information-popup .text-popup {
+  padding: 1rem;
+  width: 100%;
+}
+main.home .popup-home .information-popup .text-popup .jobseeker-name-popup {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(240, 100%, 100%);
+}
+main.home .popup-home .information-popup .text-popup .jobseeker-description-popup {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 100%, 100%);
+  text-align: justify;
+}
 main.home .mobile-landing .mobile-intro {
   display: flex;
   flex-direction: column;
@@ -1797,7 +1920,7 @@ main.home .mobile-landing .mobile-intro .container-ball-stand-mobile .stand-mobi
 main.home .mobile-landing .mobile-intro a .btn-anchor {
   width: 2.5rem;
   height: 4.25rem;
-  border: 1px solid hsl(240, 100%, 100%);
+  border: 1px solid hsl(240, 36%, 96%);
   border-radius: 3.75rem;
   display: flex;
   flex-direction: column;
@@ -1805,6 +1928,7 @@ main.home .mobile-landing .mobile-intro a .btn-anchor {
   align-items: center;
   flex-wrap: nowrap;
   gap: 0;
+  transition: all 0.3s ease-in;
 }
 main.home .mobile-landing .mobile-intro a .btn-anchor i {
   background-color: unset;
@@ -1815,7 +1939,13 @@ main.home .mobile-landing .mobile-intro a .btn-anchor i {
   flex-wrap: nowrap;
   gap: 0;
   font-size: 1.75rem;
-  color: hsl(240, 100%, 100%);
+  color: hsl(240, 36%, 96%);
+}
+main.home .mobile-landing .mobile-intro a .btn-anchor:hover {
+  background-color: hsl(240, 36%, 96%);
+}
+main.home .mobile-landing .mobile-intro a .btn-anchor:hover i {
+  color: hsl(240, 67%, 17%);
 }
 main.home .mobile-landing .explain-services-counseling {
   margin-top: 1.25rem;
@@ -1912,6 +2042,26 @@ main.home .mobile-landing .explain-services-counseling .explain-section-2 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top center;
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-2 span {
+  font-weight: 700;
+  position: relative;
+  position: relative;
+}
+main.home .mobile-landing .explain-services-counseling .explain-section-2 span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0.25rem;
+  height: 0.25rem;
+  display: block;
+  position: absolute;
+  background-image: url("../imgs/leaf.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 70%;
+  height: 70%;
+  translate: 2rem -1.25rem;
 }
 main.home .mobile-landing .explain-services-counseling .explain-section-3 {
   background-image: url("../imgs/number-three.png");
@@ -2114,6 +2264,36 @@ main.home .mobile-landing .getting-to-know .getting-to-know-section-2 .descripti
   color: hsl(240, 67%, 17%);
   text-align: justify;
 }
+main.home .mobile-landing .jobseeker-section-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 2.75rem;
+}
+main.home .mobile-landing .jobseeker-section-home .container {
+  width: 100%;
+}
+main.home .mobile-landing .jobseeker-section-home .container-swiper-jobseeker {
+  width: 100%;
+  margin-bottom: 2.75rem;
+}
+main.home .mobile-landing .jobseeker-section-home .container-swiper-jobseeker .swiper {
+  width: 100%;
+  height: 100%;
+}
+main.home .mobile-landing .jobseeker-section-home .container-swiper-jobseeker .swiper .swiper-wrapper .swiper-slide {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 100%;
+  height: unset !important;
+}
 main.home .mobile-landing .jobseeker-section-home .title-jobseeker-home {
   color: hsl(240, 36%, 96%);
   font-family: "Peyda";
@@ -2125,6 +2305,11 @@ main.home .mobile-landing .jobseeker-section-home .title-jobseeker-home {
   line-height: 2.25rem;
   font-weight: bold;
   color: hsl(240, 67%, 17%);
+  width: 100%;
+}
+main.home .mobile-landing .jobseeker-section-home .description-jobseeker-home {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 main.home .mobile-landing .jobseeker-section-home .description-jobseeker-home > p {
   color: hsl(240, 36%, 96%);
@@ -2140,17 +2325,35 @@ main.home .mobile-landing .jobseeker-section-home .description-jobseeker-home > 
   text-align: justify;
 }
 main.home .mobile-landing .jobseeker-section-home .container-title-btn-jobseeker {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.25rem;
+  gap: 4px;
+}
+main.home .mobile-landing .jobseeker-section-home .container-title-btn-jobseeker .title-jobseeker-home-diffrent {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  color: hsl(240, 67%, 17%);
 }
 main.home .mobile-landing .jobseeker-section-home .video-jobseeker-popup {
   position: relative;
+  width: 100%;
+}
+main.home .mobile-landing .jobseeker-section-home .video-jobseeker-popup div {
+  width: 100%;
 }
 main.home .mobile-landing .jobseeker-section-home .video-jobseeker-popup div > img {
+  width: 100%;
   border-radius: 1.5rem;
   object-fit: contain;
   max-height: 31.25rem;
@@ -2172,6 +2375,9 @@ main.home .mobile-landing .jobseeker-section-home .video-jobseeker-popup .play-b
   border-radius: 50%;
   padding: 0.5rem;
 }
+main.home .mobile-landing .jobseeker-section-home .video-jobseeker-popup .play-btn:hover {
+  cursor: pointer;
+}
 main.home .mobile-landing .jobseeker-section-home .video-jobseeker-popup .play-btn i {
   display: flex;
   flex-direction: row;
@@ -2185,9 +2391,367 @@ main.home .mobile-landing .jobseeker-section-home .video-jobseeker-popup .play-b
   color: hsl(240, 36%, 96%);
   font-size: 2rem;
 }
+main.home .mobile-landing .jobseeker-section-home .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+main.home .mobile-landing .jobseeker-section-home .container .primary-btn {
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+}
 @media (min-width: 600px) {
-  main.home .mobile-landing .jobseeker-section-home .primary-btn {
+  main.home .mobile-landing .jobseeker-section-home .container .primary-btn {
     width: 50%;
+  }
+}
+main.home .mobile-landing .jobseeker-section-home .container .primary-btn a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+main.home .mobile-landing .jobseeker-section-home .container .primary-btn a i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  background-color: unset;
+}
+main.home .mobile-landing .blog-section-home {
+  margin-bottom: 2.75rem;
+}
+main.home .mobile-landing .blog-section-home .container-titles-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+main.home .mobile-landing .blog-section-home .container-titles-btn .primary-btn {
+  padding: 0.5rem 1.5rem;
+}
+@media (max-width: 600px) {
+  main.home .mobile-landing .blog-section-home .container-titles-btn .primary-btn {
+    display: none;
+  }
+}
+main.home .mobile-landing .blog-section-home .title-blog-home {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 67%, 17%);
+}
+main.home .mobile-landing .blog-section-home .subtitle-blog-home {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 30%, 64%);
+}
+main.home .mobile-landing .blog-section-home .blog-choosed-desktop {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+main.home .mobile-landing .blog-section-home .blog-choosed-desktop .container-choosed-blog-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0;
+  flex: 1;
+}
+main.home .mobile-landing .blog-section-home .blog-choosed-desktop .container-choosed-blog-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0;
+  flex: 1;
+}
+main.home .mobile-landing .blog-section-home .blog-choosed-desktop .container-choosed-blog-left .card-post {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+main.home .mobile-landing .blog-section-home .blog-choosed-desktop .container-choosed-blog-left .card-post .image-card-post {
+  flex: 1;
+}
+main.home .mobile-landing .blog-section-home .blog-choosed-desktop .container-choosed-blog-left .card-post .container-title-expert-author-date-button {
+  flex: 2;
+}
+main.home .mobile-landing .faq-section-home .faq-titles-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+main.home .mobile-landing .faq-section-home .faq-titles-btn .titles-and-btn-faq .title-faq-home {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 67%, 17%);
+}
+main.home .mobile-landing .faq-section-home .faq-titles-btn .titles-and-btn-faq .subtitle-faq-home {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 30%, 64%);
+}
+main.home .mobile-landing .faq-section-home .faq-titles-btn .primary-btn {
+  padding: 0.5rem 1.5rem;
+}
+@media (max-width: 650px) {
+  main.home .mobile-landing .faq-section-home .faq-titles-btn .primary-btn {
+    display: none;
+  }
+}
+main.home .mobile-landing .faq-section-home .faq-titles-btn .primary-btn a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+main.home .mobile-landing .faq-section-home .faq-titles-btn .primary-btn a i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  background-color: unset;
+}
+main.home .mobile-landing .contact-us-section-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100;
+}
+main.home .mobile-landing .contact-us-section-home h1 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  color: hsl(240, 67%, 17%);
+  text-align: justify;
+  width: 100;
+}
+@media (max-width: 1440px) {
+  main.home .mobile-landing .contact-us-section-home h1 {
+    padding-inline: 1rem;
+  }
+}
+main.home .mobile-landing .contact-us-section-home p {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 30%, 64%);
+  width: 100;
+}
+@media (max-width: 1440px) {
+  main.home .mobile-landing .contact-us-section-home p {
+    padding-inline: 1rem;
+  }
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image {
+  width: 100%;
+  position: relative;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form label {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(240, 67%, 17%);
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  background-color: hsl(240, 100%, 100%);
+  padding: 0.25rem 0.75rem 0.25rem 0;
+  border-radius: 1.25rem;
+  border: 1px solid linear-gradient(355deg, hsla(240, 67%, 17%, 0.4), transparent);
+  margin-bottom: 1.25rem;
+  position: relative;
+  width: 100%;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(355deg, hsla(240, 67%, 17%, 0.4), transparent);
+  z-index: -2;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div i {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  color: hsl(241, 30%, 64%);
+  background-color: unset;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div input,
+main.home .mobile-landing .contact-us-section-home .container-form-image form div textarea {
+  outline: none;
+  border: none;
+  background-color: unset;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div input {
+  width: 80%;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div textarea {
+  width: 90%;
+  resize: vertical;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div.primary-btn {
+  background-color: hsl(241, 69%, 31%);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div.primary-btn i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  background-color: unset;
+  color: hsl(240, 100%, 100%);
+  font-size: 1.25rem;
+  transition: all 0.8s ease-in-out;
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div.primary-btn:hover {
+  background-color: hsl(240, 100%, 100%);
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image form div.primary-btn:hover i {
+  color: hsl(241, 69%, 31%);
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image .image-contact-us {
+  width: 100%;
+  margin-bottom: -0.8rem;
+}
+@media (width > 700px) {
+  main.home .mobile-landing .contact-us-section-home .container-form-image .image-contact-us {
+    text-align: left;
+  }
+}
+main.home .mobile-landing .contact-us-section-home .container-form-image .image-contact-us img {
+  width: 100%;
+}
+@media (width > 700px) {
+  main.home .mobile-landing .contact-us-section-home .container-form-image .image-contact-us img {
+    width: 40%;
+  }
+}
+@media (min-width: 700px) {
+  main.home .mobile-landing .contact-us-section-home .container-form-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+  main.home .mobile-landing .contact-us-section-home .container-form-image form {
+    flex: 1;
+    margin-bottom: 12.5rem;
+  }
+  main.home .mobile-landing .contact-us-section-home .container-form-image .image-contact-us {
+    flex: 2;
+  }
+  main.home .mobile-landing .contact-us-section-home .container-form-image .image-contact-us img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+@media (max-width: 1000px) {
+  main.home .mobile-landing .contact-us-section-home .container-form-image form {
+    flex-basis: 40%;
   }
 }
 
@@ -3260,6 +3824,9 @@ main.about-us-page .popup-about-us .information-popup .btn-close-popup {
   flex-wrap: nowrap;
   gap: 0;
 }
+main.about-us-page .popup-about-us .information-popup .btn-close-popup:hover {
+  cursor: pointer;
+}
 main.about-us-page .popup-about-us .information-popup .btn-close-popup i {
   display: flex;
   flex-direction: row;
@@ -3464,9 +4031,7 @@ main.about-us-page .jobseeker-content .swiper .swiper-wrapper {
   height: 100% !important;
 }
 main.about-us-page .jobseeker-content .swiper .swiper-wrapper .swiper-slide {
-  width: unset !important;
   height: unset !important;
-  margin-right: 1rem;
 }
 main.about-us-page .last_words {
   color: hsl(240, 36%, 96%);
@@ -3592,7 +4157,7 @@ main.single-service-page .popup-service.show {
   inset: 0;
   width: 100%;
   height: auto;
-  z-index: 5;
+  z-index: 50;
   overflow-y: scroll;
 }
 main.single-service-page .popup-service .bg-color-popup-service {
@@ -3626,6 +4191,9 @@ main.single-service-page .popup-service .information-popup-service .btn-close-po
   align-items: center;
   flex-wrap: nowrap;
   gap: 0;
+}
+main.single-service-page .popup-service .information-popup-service .btn-close-popup-service:hover {
+  cursor: pointer;
 }
 main.single-service-page .popup-service .information-popup-service .btn-close-popup-service i {
   display: flex;
