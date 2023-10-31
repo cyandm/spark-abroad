@@ -1,0 +1,39 @@
+@use '../utils' as *;
+
+.play-voice {
+  margin-block: PxToRem(16);
+  @include d_flex(row, start, center, nowrap, false, 0);
+  background-color: $c_gray_2;
+  width: max-content;
+  padding: PxToRem(12);
+  border-radius: PxToRem(16);
+
+  @media (width <= 768px) {
+    height: 3.25rem;
+  }
+  #time {
+    color: $c_gray;
+  }
+  .waveform {
+    @include d_flex(row-reverse, start, center, nowrap, false, PxToRem(8));
+    i {
+      background-color: $c_blue_1;
+      color: $c_white_2;
+      @include d_flex(row, center, center, nowrap, false, 0);
+      border-radius: PxToRem(32);
+      padding: PxToRem(4);
+      width: PxToRem(32);
+      height: PxToRem(32);
+      font-size: PxToRem(24);
+      transition: all 0.3s ease-in-out;
+      &::before {
+        translate: 0 1px;
+      }
+      &:hover {
+        color: $c_blue_1;
+        background-color: $c_white_1;
+        font-weight: 500;
+      }
+    }
+  }
+}

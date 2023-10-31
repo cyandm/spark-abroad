@@ -516,7 +516,9 @@ main.home {
       }
     }
     .faq-section-home {
+      margin-bottom: PxToRem(44);
       .faq-titles-btn {
+        margin-bottom: PxToRem(16);
         @include d_flex(row, space-between, center, nowrap, false, 0);
         .titles-and-btn-faq {
           .title-faq-home {
@@ -538,6 +540,64 @@ main.home {
             i {
               @include d_flex(row, center, center, nowrap, false, 0);
               background-color: unset;
+            }
+          }
+        }
+      }
+      .faq-category-content {
+        .category-faq-mobile {
+          @media (min-width: 650px) {
+            display: none;
+          }
+          padding-top: PxToRem(16);
+          display: flex;
+          flex-direction: column;
+          margin-block: PxToRem(16);
+          padding: PxToRem(4) PxToRem(12);
+          background-color: $c_white_2;
+          border-radius: PxToRem(20);
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: $gradient-blue;
+            z-index: -2;
+          }
+        }
+        .category-desktop-faq-group {
+          @include d_flex(
+            row,
+            space-between,
+            start,
+            nowrap,
+            false,
+            PxToRem(12)
+          );
+          width: 100%;
+          .category-faq-desktop {
+            min-width: 20%;
+            @include d_flex(column, center, center, nowrap, false, PxToRem(12));
+            @media (max-width: 650px) {
+              display: none;
+            }
+            li {
+              background-color: $c_white_2;
+              width: 100%;
+              text-align: center;
+              border-radius: PxToRem(24);
+              padding: PxToRem(8) PxToRem(16);
+            }
+          }
+          .container-faq-group {
+            display: none;
+            background-color: $c_white_2;
+            box-shadow: 0 0 PxToRem(8) 0 $c_shadow_1;
+            border-radius: PxToRem(24);
+            padding: PxToRem(24);
+            &.show {
+              display: block;
             }
           }
         }

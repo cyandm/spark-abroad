@@ -20,6 +20,24 @@ $jobseeker_in_home = new WP_Query(
 	]
 );
 
+$cats = get_categories([
+	'taxonomy' => 'faq-cat',
+	'orderby' => 'id',
+	'current_category' => 1,
+	'hide_empty' => false,
+
+]);
+
+$cats_name_group = [];
+$cats_id_group = [];
+foreach ($cats as $cat) {
+	array_push($cats_name_group, $cat->name);
+	array_push($cats_id_group, $cat->term_id);
+}
+
+
+$all_categories_faq = $cyn_general->category_info(get_the_ID(), "", 'faq-cat');
+
 $blogs_choosed = get_field('blogs_choosed');
 $author_name = get_the_author_meta('display_name', get_post_field('post_author', get_the_ID()));
 $counter = 1;
@@ -39,6 +57,7 @@ $getting_to_know_subtitle_sec2 = $getting_to_know_section2['getting_to_know_subt
 $getting_to_know_title2_sec2 = $getting_to_know_section2['getting_to_know_title2'];
 $getting_to_know_description_sec2 = $getting_to_know_section2['getting_to_know_description'];
 $getting_to_know_image_sec2 = $getting_to_know_section2['getting_to_know_image'];
+$getting_to_know_voice_sec2 = $getting_to_know_section2['getting_to_know_voice'];
 
 /*-----------jobseeker section acf*/
 $jobseeker_section_home =  get_field('jobseeker_section_home');
@@ -161,7 +180,14 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 				<div class="container">
 					<p class="title-getting-to-know"><?php echo $getting_to_know_title_sec2 ?></p>
 					<p class="subtitle-getting-to-know"><?php echo $getting_to_know_subtitle_sec2 ?></p>
-					<div class="voice-getting-to-know"></div>
+					<div class="voice-getting-to-know">
+						<div class="play-voice">
+							<p id="time"></p>
+							<div id="" class="waveform" data-audio="<?php echo $getting_to_know_voice_sec2 ?>">
+								<i class="icon-play"></i>
+							</div>
+						</div>
+					</div>
 					<p class="title2-getting-to-know"><?php echo $getting_to_know_title2_sec2 ?></p>
 					<div class="description-getting-to-know"><?php echo $getting_to_know_description_sec2 ?></div>
 				</div>
@@ -280,15 +306,80 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 			</div>
 		<?php endif; ?>
 
-		<div class="faq-section-home container">
-			<div class="faq-titles-btn">
-				<div class="titles-and-btn-faq">
-					<p class="title-faq-home"><?php echo $title_faq_home ?></p>
-					<p class="subtitle-faq-home"><?php echo $subtitle_faq_home ?></p>
+		<?php if ($faq->have_posts()) : ?>
+			<div class="faq-section-home container">
+				<div class="faq-titles-btn">
+					<div class="titles-and-btn-faq">
+						<p class="title-faq-home"><?php echo $title_faq_home ?></p>
+						<p class="subtitle-faq-home"><?php echo $subtitle_faq_home ?></p>
+					</div>
+					<div class="primary-btn"><a href="<?= site_url() . '/تماس-با-ما/' ?>">تماس با ما <i class="icon-call"></i></a></div>
 				</div>
-				<div class="primary-btn"><a href="<?= site_url() . '/تماس-با-ما/' ?>">تماس با ما <i class="icon-call"></i></a></div>
+				<div class="faq-category-content">
+					<div class="category-faq-mobile">
+						<select class="dropdown-menu">
+							<?php for ($i = 0; $i < count($all_categories_faq); $i++) : ?>
+								<option><?php echo $all_categories_faq[$i]['name'] ?></option>
+							<?php endfor; ?>
+						</select>
+					</div>
+					<div class="category-desktop-faq-group">
+						<ul class="category-faq-desktop">
+							<?php for ($i = 0; $i < count($all_categories_faq); $i++) : ?>
+								<li data-tab="<?php echo $i - 1 ?>" class="cat-item-desktop"><?php echo $all_categories_faq[$i]['name'] ?></li>
+							<?php endfor; ?>
+						</ul>
+
+						<div class="container-faq-group show" data-tab="-1" data-tabname="همه">
+							<?php if ($faq) : ?>
+								<?php
+								while ($faq->have_posts()) {
+									$faq->the_post();
+									get_template_part('/templates/card/card', 'faq');
+								}
+								?>
+							<?php endif; ?>
+							<?php wp_reset_postdata() ?>
+						</div>
+						<?php foreach ($cats_id_group as $index => $cat_id) : ?>
+							<div class="container-faq-group" data-tab="<?= $index ?>" data-tabname="<?= $cats_name_group[$index] ?>">
+								<div>
+									<div class="container-faq-home">
+										<?php
+										$faq_query = new WP_Query([
+											'post_type' => 'faq',
+											'tax_query' => [
+												[
+													'taxonomy' => 'faq-cat',
+													'field' => 'term_id',
+													'terms' => $cat_id
+												]
+											]
+										]);
+										if ($faq_query->have_posts()) :
+											while ($faq_query->have_posts()) {
+												$faq_query->the_post();
+												get_template_part('templates/card/card', 'faq');
+											}
+										else : ?>
+											<div class="not-found-category-faq-in-home">
+											</div>
+										<?php endif;
+										wp_reset_postdata();
+										?>
+									</div>
+								</div>
+							</div>
+						<?php endforeach; ?>
+					</div>
+
+
+
+
+
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 
 		<div class="contact-us-section-home">
 			<h1>اگه جواب سوالتو پیدا نکردی یا میخوای بیشتر بدونی </h1>

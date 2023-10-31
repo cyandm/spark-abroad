@@ -1,0 +1,55 @@
+@use '../utils' as *;
+.content-items-faq {
+  @include d_flex(column, center, start, nowrap, false, PxToRem(16));
+  padding-block: PxToRem(16);
+  &:not(:last-child) {
+    border-bottom: 1px solid $c_blue_3;
+  }
+  &:last-child {
+    padding-bottom: unset;
+  }
+
+  .faq-heading-btn {
+    @include d_flex(row, space-between, start, nowrap, false, PxToRem(8));
+    width: 100%;
+    .faq-heading {
+      @include font_style(h3);
+      color: $c_blue_1;
+      li {
+        list-style-type: square;
+      }
+    }
+    i.icon-close2 {
+      color: $c_blue_1;
+      background-color: unset;
+      @include d_flex(row, center, center, nowrap, false, 0);
+      font-weight: 500;
+      font-size: PxToRem(24);
+      rotate: 45deg;
+      translate: PxToRem(-4);
+      transition: all 0.2s ease-in;
+    }
+  }
+  .faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    .inner-faq-answer {
+      @include font_style(body_2);
+      color: $c_gary_3;
+      text-align: justify;
+      overflow: hidden;
+    }
+  }
+  &.active {
+    .faq-answer {
+      grid-template-rows: 1fr;
+    }
+    .faq-heading-btn {
+      i.icon-close2 {
+        rotate: 0deg;
+      }
+    }
+  }
+}

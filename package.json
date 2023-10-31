@@ -16,6 +16,7 @@
   "dependencies": {
     "gsap": "^3.12.2",
     "package": "^1.0.1",
-    "swiper": "^10.3.1"
+    "swiper": "^10.3.1",
+    "wavesurfer.js": "^7.4.2"
   }
 }
