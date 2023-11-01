@@ -1,6 +1,9 @@
-@use "../utils/index" as *;
+@use '../utils/index' as *;
 
 header {
+  &.bg_purple {
+    background-color: $c_blue_1;
+  }
   &.is-transparent {
     position: absolute;
     width: 100%;
@@ -252,12 +255,12 @@ header {
       padding: PxToRem(8) PxToRem(12);
       border-radius: PxToRem(20);
 
-      input[type="search"] {
+      input[type='search'] {
         outline: none;
         border: none;
         background-color: unset;
         flex: 2;
-        font-family: "Peyda";
+        font-family: 'Peyda';
 
         @include font_style(body);
         color: $c_blue_2;

@@ -32,13 +32,26 @@
     background-color: $c_white_2;
     border-radius: PxToRem(40);
     color: $c_blue_1;
+    transition: all 0.4s ease-in;
     i {
       @include font_style(body);
+      transition: all 0.4s ease-in;
       color: $c_blue_1;
       background-color: unset;
     }
     p {
+      transition: all 0.4s ease-in;
       color: $c_blue_1;
+    }
+    &:hover {
+      background-color: $c_blue_1;
+      i {
+        color: $c_white_2;
+        font-weight: 300;
+      }
+      p {
+        color: $c_white_2;
+      }
     }
   }
 }

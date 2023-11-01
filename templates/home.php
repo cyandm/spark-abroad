@@ -326,24 +326,23 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 					<div class="category-desktop-faq-group">
 						<ul class="category-faq-desktop">
 							<?php for ($i = 0; $i < count($all_categories_faq); $i++) : ?>
-								<li data-tab="<?php echo $i - 1 ?>" class="cat-item-desktop"><?php echo $all_categories_faq[$i]['name'] ?></li>
+								<li data-tab="<?php echo $i - 1 ?>" class="cat-item-desktop <?php if ($i === 0) echo 'current-cat' ?>"><?php echo $all_categories_faq[$i]['name'] ?></li>
 							<?php endfor; ?>
 						</ul>
-
-						<div class="container-faq-group show" data-tab="-1" data-tabname="همه">
-							<?php if ($faq) : ?>
-								<?php
-								while ($faq->have_posts()) {
-									$faq->the_post();
-									get_template_part('/templates/card/card', 'faq');
-								}
-								?>
-							<?php endif; ?>
-							<?php wp_reset_postdata() ?>
-						</div>
-						<?php foreach ($cats_id_group as $index => $cat_id) : ?>
-							<div class="container-faq-group" data-tab="<?= $index ?>" data-tabname="<?= $cats_name_group[$index] ?>">
-								<div>
+						<div class="container-set-height">
+							<div class="container-faq-group show " data-tab="-1" data-tabname="همه">
+								<?php if ($faq) : ?>
+									<?php
+									while ($faq->have_posts()) {
+										$faq->the_post();
+										get_template_part('/templates/card/card', 'faq');
+									}
+									?>
+								<?php endif; ?>
+								<?php wp_reset_postdata() ?>
+							</div>
+							<?php foreach ($cats_id_group as $index => $cat_id) : ?>
+								<div class="container-faq-group" data-tab="<?= $index ?>" data-tabname="<?= $cats_name_group[$index] ?>">
 									<div class="container-faq-home">
 										<?php
 										$faq_query = new WP_Query([
@@ -363,14 +362,16 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 											}
 										else : ?>
 											<div class="not-found-category-faq-in-home">
+												<h2>در این دسته بندی سوالی وجود ندارد</h2>
+												<img src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/search-not-found.svg' ?>" alt="not-found">
 											</div>
 										<?php endif;
 										wp_reset_postdata();
 										?>
 									</div>
 								</div>
-							</div>
-						<?php endforeach; ?>
+							<?php endforeach; ?>
+						</div>
 					</div>
 
 

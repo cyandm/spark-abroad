@@ -55,6 +55,12 @@ $category_name = $wp_query->queried_object->name;
 
             </div>
         </div>
+    <?php else : ?>
+        <div class="not-found-category-blog container">
+            <h2>در این دسته بندی بلاگی موجود نیست</h2>
+            <p>بلاگی یافت نشد</p>
+            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/search-not-found.svg' ?>" alt="not-found">
+        </div>
     <?php endif; ?>
 </main>
 

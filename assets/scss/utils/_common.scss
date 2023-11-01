@@ -70,3 +70,9 @@ input {
 textarea {
   font-family: 'Peyda';
 }
+
+body {
+  &:has(.overflow-hidden) {
+    overflow: hidden !important;
+  }
+}

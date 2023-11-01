@@ -8,11 +8,37 @@ const optionSelectFaqHome = document.querySelectorAll(
 const divContainerFaq = document.querySelectorAll(
   '.faq-category-content .container-faq-group'
 );
+
+const setHeightFaqHome = () => {
+  if (homeIsExist) {
+    const tabFaq = document.querySelector(
+      '.faq-category-content .container-faq-group.show'
+    );
+    const containerFaqTabs = document.querySelector('.container-set-height');
+
+    containerFaqTabs.style.setProperty(
+      '--height',
+      tabFaq.offsetHeight + 10 + 'px'
+    );
+  }
+};
+
+const resizeObserver = new ResizeObserver(() => {
+  setHeightFaqHome();
+});
+
 if (homeIsExist) {
+  let faqTabElementGroup = document.querySelectorAll(
+    '.faq-category-content .container-faq-group'
+  );
+
+  faqTabElementGroup.forEach((faqTabElement) => {
+    resizeObserver.observe(faqTabElement);
+  });
+
   faqButtonHandler.forEach((faqButton) => {
     faqButton.addEventListener('click', () => {
       faqButton.parentElement.parentElement.classList.toggle('active');
-      console.log(faqButton.parentElement.parentElement);
     });
   });
 
@@ -27,6 +53,7 @@ if (homeIsExist) {
             if (option.value === div.dataset.tabname) div.classList.add('show');
           });
         }
+        setHeightFaqHome();
       });
     });
   }
@@ -40,7 +67,7 @@ if (homeIsExist) {
         if (catButton.dataset.tab === div.dataset.tab)
           div.classList.add('show');
       });
-      setHeightProductHome();
+      setHeightFaqHome();
     });
   });
 }

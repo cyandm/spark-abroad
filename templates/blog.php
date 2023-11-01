@@ -87,7 +87,7 @@ $current_url = get_permalink($object_id);
     if ($knowable != null) : ?>
         <div class="knowable">
             <div class="container">
-                <h1 class="title_knowable">شاید براتون جالب باشه</h1>
+                <h1 class="title_knowable" id="getMarginRightTitle">شاید براتون جالب باشه</h1>
             </div>
             <div class="container-cards">
                 <div class="swiper" id="swiperBlog">

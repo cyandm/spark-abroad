@@ -6,12 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php wp_head() ?>
 </head>
-<?php $is_tansparent = isset($args['isTransparent']) ? true : false; ?>
+<?php $is_transparent = isset($args['isTransparent']) ? true : false; ?>
 
 <body <?php body_class() ?>>
 	<?php wp_body_open() ?>
 	<div id="headerCursor"> </div>
-	<header class="<?= is_home() ? 'bg_purple' : '' ?> <?php if ($is_tansparent) echo 'is-transparent' ?>">
+	<header class="<?= is_front_page() ? 'bg_purple' : '' ?> <?= $is_transparent ? 'is-transparent' : '' ?>">
 		<div class="container">
 			<div class="menu">
 

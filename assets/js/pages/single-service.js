@@ -1,3 +1,5 @@
+import { overflowHidden as overflowHandlerSingleService } from '../modules/general';
+
 const btnPopupVideoService = document.querySelector('.popup-btn-service');
 const titlePopupService = document.querySelector('.title-service-popup');
 const descriptionPopupService = document.querySelector(
@@ -46,6 +48,7 @@ if (singleServicePage) {
   console.log(header.offsetLeft + 'px');
   btnPopupVideoService.addEventListener('click', () => {
     popupService.classList.add('show');
+    overflowHandlerSingleService();
     singleServicePage.classList.add('deactive');
     videoSingleService.src = btnPopupVideoService.dataset.video;
     videoSingleService.load();
@@ -60,6 +63,7 @@ if (singleServicePage) {
       titlePopupService.innerHTML = playBtn.dataset.title;
       descriptionPopupService.innerHTML = playBtn.dataset.description;
       popupService.classList.add('show');
+      overflowHandlerSingleService();
       singleServicePage.classList.add('deactive');
       video.load();
     });
@@ -67,6 +71,7 @@ if (singleServicePage) {
 
   btnClosePopupService.addEventListener('click', () => {
     popupService.classList.remove('show');
+    overflowHandlerSingleService();
     singleServicePage.classList.remove('deactive');
   });
 }

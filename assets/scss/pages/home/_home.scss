@@ -532,7 +532,7 @@ main.home {
         }
         .primary-btn {
           padding: PxToRem(8) PxToRem(24);
-          @media (max-width: 650px) {
+          @media (max-width: 778px) {
             display: none;
           }
           a {
@@ -546,7 +546,7 @@ main.home {
       }
       .faq-category-content {
         .category-faq-mobile {
-          @media (min-width: 650px) {
+          @media (min-width: 777px) {
             display: none;
           }
           padding-top: PxToRem(16);
@@ -579,25 +579,76 @@ main.home {
           .category-faq-desktop {
             min-width: 20%;
             @include d_flex(column, center, center, nowrap, false, PxToRem(12));
-            @media (max-width: 650px) {
+            @media (max-width: 778px) {
               display: none;
             }
             li {
+              transition: border 0.5s ease-in-out;
               background-color: $c_white_2;
               width: 100%;
               text-align: center;
               border-radius: PxToRem(24);
               padding: PxToRem(8) PxToRem(16);
+              border: 1px solid transparent;
+              &.current-cat {
+                background-color: $c_red_1;
+                color: $c_white_2;
+              }
+              &:hover {
+                border: 1px solid $c_red_1;
+                cursor: pointer;
+              }
+            }
+          }
+          .container-set-height {
+            --height: 24px;
+            min-height: var(--height);
+            position: relative;
+            width: 75%;
+            @media (max-width: 778px) {
+              width: 100%;
             }
           }
           .container-faq-group {
-            display: none;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            translate: 0 4rem;
+            transition: all 0.3s ease-in-out;
+
             background-color: $c_white_2;
             box-shadow: 0 0 PxToRem(8) 0 $c_shadow_1;
             border-radius: PxToRem(24);
             padding: PxToRem(24);
             &.show {
-              display: block;
+              opacity: 1;
+              translate: 0;
+              pointer-events: all;
+            }
+            .not-found-category-faq-in-home {
+              @include d_flex(
+                column,
+                center,
+                center,
+                nowrap,
+                false,
+                PxToRem(12)
+              );
+              width: 100%;
+              h2 {
+                @include font_style(h2);
+                font-weight: 400;
+                color: $c_blue_2;
+                @media (max-width: 400px) {
+                  font-size: PxToRem(16);
+                }
+              }
+              img {
+                width: 70%;
+              }
             }
           }
         }

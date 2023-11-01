@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import { Navigation, EffectFade } from 'swiper/modules';
+import { overflowHidden as overflowHandlerAboutUs } from '../modules/general';
 
 export const swiperAboutUs = new Swiper('#swiper-about-us', {
   slidesPerView: 1.25,
@@ -94,6 +95,7 @@ if (aboutUs) {
       jobseekerName.innerHTML = playBtn.dataset.name;
       jobseekerDescription.innerHTML = playBtn.dataset.description;
       popupAboutUs.classList.add('show');
+      overflowHandlerAboutUs();
       video.src = jobseekerVideo;
       aboutUs.classList.add('deactive');
       video.load();
@@ -102,6 +104,7 @@ if (aboutUs) {
 
   btnClosePopup.addEventListener('click', () => {
     popupAboutUs.classList.remove('show');
+    overflowHandlerAboutUs();
     aboutUs.classList.remove('deactive');
   });
 }

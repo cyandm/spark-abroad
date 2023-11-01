@@ -1,4 +1,4 @@
-@use "../utils/" as *;
+@use '../utils/' as *;
 main.blog-page {
   margin-bottom: PxToRem(120);
   margin-top: PxToRem(24);
@@ -14,7 +14,7 @@ main.blog-page {
     position: relative;
     margin-inline: PxToRem(16);
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       inset: -1px;
       border-radius: inherit;
@@ -190,6 +190,37 @@ main.blog-page {
           rotate: -90deg;
           @include d_flex(row, center, center, nowrap, false, 0);
         }
+      }
+    }
+  }
+  .not-found-category-blog {
+    @include d_flex(column, center, center, nowrap, false, 0);
+
+    width: 100%;
+
+    h2 {
+      @include font_style(h1);
+      font-weight: 400;
+      color: $c_blue_2;
+      align-self: flex-start;
+    }
+    img {
+      width: 50%;
+    }
+    p {
+      @include font_style(body_2);
+      color: $c_gray;
+      align-self: flex-start;
+      margin-bottom: PxToRem(20);
+    }
+    @media (max-width: 600px) {
+      img {
+        width: 100%;
+      }
+      h2 {
+        @include font_style(h2);
+        font-weight: 400;
+        color: $c_blue_2;
       }
     }
   }

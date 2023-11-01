@@ -28,8 +28,8 @@ img {
   width: 100%;
   height: auto;
 }
-body {
-  &:has(main.deactive) {
+html {
+  &.overflow-hidden {
     overflow: hidden !important;
   }
 }

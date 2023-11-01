@@ -114,7 +114,7 @@ img {
   height: auto;
 }
 
-body:has(main.deactive) {
+html.overflow-hidden {
   overflow: hidden !important;
 }
 
@@ -191,6 +191,10 @@ input {
 
 textarea {
   font-family: "Peyda";
+}
+
+body:has(.overflow-hidden) {
+  overflow: hidden !important;
 }
 
 [class^=icon-],
@@ -348,6 +352,7 @@ textarea {
   background-color: hsl(240, 100%, 100%);
   border-radius: 2.5rem;
   color: hsl(241, 69%, 31%);
+  transition: all 0.4s ease-in;
 }
 .secondary-btn a i {
   color: hsl(240, 36%, 96%);
@@ -356,11 +361,23 @@ textarea {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  transition: all 0.4s ease-in;
   color: hsl(241, 69%, 31%);
   background-color: unset;
 }
 .secondary-btn a p {
+  transition: all 0.4s ease-in;
   color: hsl(241, 69%, 31%);
+}
+.secondary-btn a:hover {
+  background-color: hsl(241, 69%, 31%);
+}
+.secondary-btn a:hover i {
+  color: hsl(240, 100%, 100%);
+  font-weight: 300;
+}
+.secondary-btn a:hover p {
+  color: hsl(240, 100%, 100%);
 }
 
 .btn-video {
@@ -828,6 +845,7 @@ textarea {
   object-fit: contain;
 }
 .service-card-container p {
+  pointer-events: none;
   width: 35%;
   text-align: left;
   position: absolute;
@@ -1104,6 +1122,9 @@ textarea {
 
 header {
   z-index: 1000000;
+}
+header.bg_purple {
+  background-color: hsl(241, 69%, 31%);
 }
 header.is-transparent {
   position: absolute;
@@ -2683,7 +2704,7 @@ main.home .mobile-landing .faq-section-home .faq-titles-btn .titles-and-btn-faq 
 main.home .mobile-landing .faq-section-home .faq-titles-btn .primary-btn {
   padding: 0.5rem 1.5rem;
 }
-@media (max-width: 650px) {
+@media (max-width: 778px) {
   main.home .mobile-landing .faq-section-home .faq-titles-btn .primary-btn {
     display: none;
   }
@@ -2715,7 +2736,7 @@ main.home .mobile-landing .faq-section-home .faq-category-content .category-faq-
   border-radius: 1.25rem;
   position: relative;
 }
-@media (min-width: 650px) {
+@media (min-width: 777px) {
   main.home .mobile-landing .faq-section-home .faq-category-content .category-faq-mobile {
     display: none;
   }
@@ -2746,27 +2767,87 @@ main.home .mobile-landing .faq-section-home .faq-category-content .category-desk
   flex-wrap: nowrap;
   gap: 0.75rem;
 }
-@media (max-width: 650px) {
+@media (max-width: 778px) {
   main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .category-faq-desktop {
     display: none;
   }
 }
 main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .category-faq-desktop li {
+  transition: border 0.5s ease-in-out;
   background-color: hsl(240, 100%, 100%);
   width: 100%;
   text-align: center;
   border-radius: 1.5rem;
   padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+}
+main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .category-faq-desktop li.current-cat {
+  background-color: hsl(357, 83%, 42%);
+  color: hsl(240, 100%, 100%);
+}
+main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .category-faq-desktop li:hover {
+  border: 1px solid hsl(357, 83%, 42%);
+  cursor: pointer;
+}
+main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .container-set-height {
+  --height: 24px;
+  min-height: var(--height);
+  position: relative;
+  width: 75%;
+}
+@media (max-width: 778px) {
+  main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .container-set-height {
+    width: 100%;
+  }
 }
 main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .container-faq-group {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  translate: 0 4rem;
+  transition: all 0.3s ease-in-out;
   background-color: hsl(240, 100%, 100%);
   box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.08);
   border-radius: 1.5rem;
   padding: 1.5rem;
 }
 main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .container-faq-group.show {
-  display: block;
+  opacity: 1;
+  translate: 0;
+  pointer-events: all;
+}
+main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .container-faq-group .not-found-category-faq-in-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  width: 100%;
+}
+main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .container-faq-group .not-found-category-faq-in-home h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  font-weight: 400;
+  color: hsl(240, 67%, 17%);
+}
+@media (max-width: 400px) {
+  main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .container-faq-group .not-found-category-faq-in-home h2 {
+    font-size: 1rem;
+  }
+}
+main.home .mobile-landing .faq-section-home .faq-category-content .category-desktop-faq-group .container-faq-group .not-found-category-faq-in-home img {
+  width: 70%;
 }
 main.home .mobile-landing .contact-us-section-home {
   display: flex;
@@ -3535,6 +3616,64 @@ main.blog-page .container-all-blogs .container-blog-card-group .pagination-for-b
   align-items: center;
   flex-wrap: nowrap;
   gap: 0;
+}
+main.blog-page .not-found-category-blog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+}
+main.blog-page .not-found-category-blog h2 {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.75rem;
+  font-weight: 400;
+  color: hsl(240, 67%, 17%);
+  align-self: flex-start;
+}
+main.blog-page .not-found-category-blog img {
+  width: 50%;
+}
+main.blog-page .not-found-category-blog p {
+  color: hsl(240, 36%, 96%);
+  font-family: "Peyda";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(241, 30%, 64%);
+  align-self: flex-start;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 600px) {
+  main.blog-page .not-found-category-blog img {
+    width: 100%;
+  }
+  main.blog-page .not-found-category-blog h2 {
+    color: hsl(240, 36%, 96%);
+    font-family: "Peyda";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 1.25rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+    font-weight: 400;
+    color: hsl(240, 67%, 17%);
+  }
 }
 
 @media (width > 900px) {
