@@ -17279,11 +17279,13 @@
         videoPopupHome.src = jobseekerVideoHome;
         home.classList.add("deactive");
         videoPopupHome.load();
+        overflowHidden();
       });
     });
     btnClosePopupHome.addEventListener("click", () => {
       popupHome.classList.remove("show");
       home.classList.remove("deactive");
+      overflowHidden();
     });
   }
   headerPurple_TL.to("img.custom-logo", { filter: "brightness(1)" });

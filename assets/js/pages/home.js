@@ -1,3 +1,5 @@
+import { overflowHidden as overflowHandlerHome } from '../modules/general';
+
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { Tween } from 'gsap/gsap-core';
@@ -58,12 +60,14 @@ if (home) {
       videoPopupHome.src = jobseekerVideoHome;
       home.classList.add('deactive');
       videoPopupHome.load();
+      overflowHandlerHome();
     });
   });
 
   btnClosePopupHome.addEventListener('click', () => {
     popupHome.classList.remove('show');
     home.classList.remove('deactive');
+    overflowHandlerHome();
   });
 }
 // ballSlide0_TL.from(ballSlide0, {

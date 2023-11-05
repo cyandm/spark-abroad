@@ -59,7 +59,7 @@ if (!class_exists('cyn_register')) {
             $service_labels = [
                 'name' => 'خدمات',
                 'singular_name' => 'خدمت',
-                'menu_name' => 'خدمت',
+                'menu_name' => 'خدمات',
                 'name_admin_bar' => 'خدمت',
                 'add_new' => 'افزودن خدمت',
                 'add_new_item' => 'افزودن خدمت جدید',

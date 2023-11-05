@@ -2066,6 +2066,11 @@ main.home .mobile-landing .mobile-intro .container-ball-stand-mobile {
   gap: 0;
   width: 70%;
 }
+@media (max-width: 500px) {
+  main.home .mobile-landing .mobile-intro .container-ball-stand-mobile {
+    width: 90%;
+  }
+}
 main.home .mobile-landing .mobile-intro .container-ball-stand-mobile .ball-mobile {
   width: 20%;
   margin-bottom: -0.75rem;
@@ -2585,6 +2590,7 @@ main.home .mobile-landing .blog-section-home {
   margin-bottom: 2.75rem;
 }
 main.home .mobile-landing .blog-section-home .container-titles-btn {
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -4251,8 +4257,8 @@ main.about-us-page .section-aboutus-even {
 }
 main.about-us-page .section-aboutus-odd img,
 main.about-us-page .section-aboutus-even img {
-  max-width: 100%;
-  height: auto;
+  max-height: 37.5rem;
+  object-fit: contain;
 }
 main.about-us-page .section-aboutus-odd .container-title-text,
 main.about-us-page .section-aboutus-even .container-title-text {
@@ -4631,10 +4637,16 @@ main.single-service-page .single-service-content .section-1 .container-image-sec
     flex: 1;
   }
 }
+@media (max-width: 800px) {
+  main.single-service-page .single-service-content .section-1 .container-image-section1 {
+    align-self: center;
+    width: 56%;
+  }
+}
 main.single-service-page .single-service-content .section-1 .container-image-section1 img {
   object-fit: contain;
-  width: 30rem;
-  height: 28.75rem;
+  width: 35rem;
+  height: 25rem;
 }
 @media (max-width: 900px) {
   main.single-service-page .single-service-content .section-1 .container-image-section1 img {

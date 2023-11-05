@@ -222,8 +222,8 @@ main.about-us-page {
     @include d_flex(column, start, center, nowrap, false, PxToRem(16));
     width: 100%;
     img {
-      max-width: 100%;
-      height: auto;
+      max-height: PxToRem(600);
+      object-fit: contain;
     }
     .container-title-text {
       margin-bottom: PxToRem(44);

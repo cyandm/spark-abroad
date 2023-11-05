@@ -89,17 +89,22 @@ main.single-service-page {
       }
       @include d_flex(column, start, start, nowrap, false, PxToRem(4));
       width: 100%;
+
       .container-image-section1 {
         @media (min-width: 800px) {
           flex: 1;
+        }
+        @media (max-width: 800px) {
+          align-self: center;
+          width: 56%;
         }
         position: relative;
         @include d_flex(row, center, center, nowrap, false, 0);
         width: 100%;
         img {
           object-fit: contain;
-          width: PxToRem(480);
-          height: PxToRem(460);
+          width: 35rem;
+          height: 25rem;
           @media (max-width: 900px) {
             width: PxToRem(240);
             height: PxToRem(232);
