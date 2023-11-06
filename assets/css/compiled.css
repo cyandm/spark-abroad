@@ -109,6 +109,7 @@ button {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 img {
   width: 100%;
   height: auto;
@@ -122,6 +123,8 @@ body {
   overflow-x: hidden !important;
 }
 
+=======
+>>>>>>> ea56d01 (last changes)
 html {
   overflow-x: hidden;
 }
@@ -155,13 +158,6 @@ body ::placeholder {
   outline: none;
   background: none;
   border: none;
-}
-
-i {
-  background-color: rgba(26, 25, 134, 0.1);
-  display: inline-block;
-  height: 1.5rem;
-  width: 1.5rem;
 }
 
 select {
@@ -822,6 +818,7 @@ body:has(.overflow-hidden) {
   line-height: 1.5rem;
 }
 
+<<<<<<< HEAD
 .service-card-container {
   flex: 1;
   position: relative;
@@ -1132,6 +1129,11 @@ header.is-transparent {
   background: unset !important;
   z-index: 20;
 }
+=======
+header {
+  z-index: 1000000;
+}
+>>>>>>> ea56d01 (last changes)
 header .container {
   display: flex;
   flex-direction: row;
@@ -1253,6 +1255,7 @@ header .container .search .form_control input::placeholder, header .container .s
   color: hsl(241, 30%, 64%);
 }
 header .container .search .form_control i {
+<<<<<<< HEAD
   background-color: unset;
   font-size: 1.5rem;
 }
@@ -1268,6 +1271,9 @@ header .container .icon-search-mobile {
   header .container .icon-search-mobile {
     display: none;
   }
+=======
+  font-size: 1.5rem;
+>>>>>>> ea56d01 (last changes)
 }
 header.bg_purple .menu {
   color: hsl(240, 36%, 96%);
@@ -1599,11 +1605,14 @@ footer .socialmedia-and-slogan .slogan {
 .slider-wrapper {
   position: relative;
 }
+<<<<<<< HEAD
 @media (max-width: 1024px) {
   .slider-wrapper {
     display: none;
   }
 }
+=======
+>>>>>>> ea56d01 (last changes)
 .slider-wrapper .slide-0 {
   display: flex;
   flex-direction: row;
@@ -1662,6 +1671,7 @@ footer .socialmedia-and-slogan .slogan {
   position: relative;
 }
 .slider-wrapper .slide-0 .content button::before {
+<<<<<<< HEAD
   content: "";
   position: absolute;
   inset: 0;
@@ -2032,12 +2042,15 @@ main.home .mobile-landing .mobile-intro h1 span {
   position: relative;
 }
 main.home .mobile-landing .mobile-intro h1 span::after {
+=======
+>>>>>>> ea56d01 (last changes)
   content: "";
   position: absolute;
   inset: 0;
-  width: 0.25rem;
-  height: 0.25rem;
+  width: 100%;
+  height: 100%;
   display: block;
+<<<<<<< HEAD
   position: absolute;
   background-image: url("../imgs/h1_sticker.png");
   background-repeat: no-repeat;
@@ -2203,6 +2216,204 @@ main.home .mobile-landing .explain-services-counseling .explain-section-2 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top center;
+=======
+  background-color: hsl(240, 36%, 96%);
+  transition: translate 0.3s ease-in-out;
+  translate: 100% 0;
+  z-index: -1;
+}
+.slider-wrapper .slide-0 .content button:hover {
+  color: hsl(241, 69%, 31%);
+}
+.slider-wrapper .slide-0 .content button:hover::before {
+  translate: 0;
+}
+.slider-wrapper .slide-0 .bg-animation {
+  translate: 5vw 17vh;
+}
+.slider-wrapper .slide-0 .ball {
+  position: absolute;
+  background: radial-gradient(122.17% 124.87% at 22.02% -7.4%, #fff 0%, #fff 28.71%, #fff 53.68%, #dde2ff 80.38%, #6c7bc9 100%);
+  box-shadow: 3px -2px 18px 0px rgba(128, 47, 13, 0.25) inset, 5px -4px 11px 0px rgba(0, 0, 0, 0.15) inset;
+  width: 6.25rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 14vw;
+  bottom: 48vh;
+}
+.slider-wrapper .slider-1-3-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 4rem;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  padding-block-start: var(--header-height);
+}
+.slider-wrapper .slider-1-3-wrapper .sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: relative;
+  flex: 1;
+  max-width: 35%;
+}
+.slider-wrapper .slider-1-3-wrapper .sidebar .img-wrapper {
+  z-index: 3;
+}
+.slider-wrapper .slider-1-3-wrapper .sidebar .img-wrapper:nth-child(1) {
+  translate: 0 20%;
+}
+.slider-wrapper .slider-1-3-wrapper .sidebar .img-wrapper:nth-child(2) {
+  translate: 50%;
+}
+.slider-wrapper .slider-1-3-wrapper .sidebar .ball {
+  width: 4.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(145.63% 147.53% at 19.66% 4.52%, #8a88ff 0%, #514edb 18.02%, #312faa 33.86%, #1a1885 63.34%, #010037 100%);
+  position: absolute;
+  left: 40%;
+  top: 10%;
+  opacity: 1 !important;
+}
+.slider-wrapper .slider-1-3-wrapper .slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-block-start: 6rem;
+  flex: 2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 20%;
+}
+.slider-wrapper .slider-1-3-wrapper .slide .content .h1 {
+  font-size: 4rem;
+  max-width: 20ch;
+  font-weight: 400;
+  line-height: 196%;
+  color: hsl(240, 67%, 17%);
+}
+.slider-wrapper .slider-1-3-wrapper .slide .content span {
+  color: hsl(241, 30%, 64%);
+  font-size: 1.25rem;
+}
+.slider-wrapper .slider-1-3-wrapper .slide .img-wrapper {
+  position: absolute;
+  top: 10%;
+  right: 30%;
+  z-index: -1;
+}
+.slider-wrapper .slider-1-3-wrapper .slide .btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block-start: 1rem;
+}
+.slider-wrapper .slider-1-3-wrapper .slide .btn-wrapper a {
+  display: inline-block;
+  padding: 0.75rem 2rem 0.75rem 1.5rem;
+  border-radius: 62.5rem;
+}
+.slider-wrapper .slider-1-3-wrapper .slide .btn-wrapper a.btn-outline {
+  border: 1px solid hsl(240, 67%, 17%);
+}
+.slider-wrapper .slider-1-3-wrapper .slide .btn-wrapper a.btn-primary {
+  background-color: hsl(241, 69%, 31%);
+  color: #fff;
+}
+.slider-wrapper .slider-1-3-wrapper .slide.slide-2 .h1 b {
+  position: relative;
+}
+.slider-wrapper .slider-1-3-wrapper .slide.slide-2 .h1 b::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: 100%;
+  height: 100%;
+  display: block;
+  inset: 0;
+  background: url("../imgs/leaf.png") no-repeat;
+  z-index: -1;
+  translate: -10px -20px;
+}
+.slider-wrapper .slider-1-3-wrapper .slide.slide-2 .skyline {
+  translate: -25% 25%;
+  scale: 1.5;
+}
+.slider-wrapper .slider-1-3-wrapper .slide.slide-2 .content-wrapper > *:not(.img-wrapper) {
+  translate: 0 100px;
+}
+.slider-wrapper .slider-1-3-wrapper .slide.slide-3 .skyline {
+  scale: 1.5;
+  translate: -25% 75%;
+}
+.slider-wrapper .slider-1-3-wrapper .slide.slide-3 .content-wrapper > *:not(.img-wrapper) {
+  translate: -80px 100px;
+}
+.slider-wrapper .slide-4 {
+  position: absolute;
+  left: 20%;
+  top: 40%;
+  z-index: 55000;
+}
+.slider-wrapper .slide-4 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.slider-wrapper .slide-4 .content .h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 196%;
+  color: hsl(240, 100%, 100%);
+  position: relative;
+}
+.slider-wrapper .slide-4 .content .h1::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: 16.5rem;
+  height: 16.5rem;
+  display: block;
+  background-image: url("../imgs/number-four.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  translate: 40% -40%;
+}
+.slider-wrapper .slide-4 .content span {
+  color: hsl(241, 30%, 64%);
+  display: block;
+  font-size: 1.25rem;
+}
+.slider-wrapper .slide-4 .content .white-btn {
+  padding: 0.75rem 2rem 0.75rem 1.5rem;
+  background-color: hsl(240, 100%, 100%);
+  border-radius: 62.5rem;
+}
+.slider-wrapper .slide-4 .img-wrapper {
+  translate: 0 -5vh;
+  rotate: 20deg;
+>>>>>>> ea56d01 (last changes)
 }
 main.home .mobile-landing .explain-services-counseling .explain-section-2 span {
   font-weight: 700;
@@ -2316,6 +2527,7 @@ main.home .mobile-landing .explain-services-counseling .plane-section-mobile {
   background-color: hsl(241, 69%, 31%);
   margin-top: -3.25rem;
   overflow: hidden;
+<<<<<<< HEAD
   width: 101%;
 }
 main.home .mobile-landing .explain-services-counseling .plane-section-mobile img {
@@ -3042,6 +3254,18 @@ main.home .mobile-landing .contact-us-section-home .container-form-image .image-
   main.home .mobile-landing .contact-us-section-home .container-form-image form {
     flex-basis: 40%;
   }
+=======
+  max-height: 100vh;
+}
+body:has(main.home) header {
+  position: absolute;
+  width: 100%;
+}
+
+main.home {
+  max-height: 100%;
+  overflow: hidden;
+>>>>>>> ea56d01 (last changes)
 }
 
 main.page-notfound {

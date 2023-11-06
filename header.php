@@ -6,20 +6,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php wp_head() ?>
 </head>
-<?php $is_transparent = isset($args['isTransparent']) ? true : false; ?>
+<?php $is_transparent = isset( $args['isTransparent'] ) ? true : false; ?>
 
 <body <?php body_class() ?>>
 	<?php wp_body_open() ?>
 	<div id="headerCursor"> </div>
-	<header class="<?= is_front_page() ? 'bg_purple' : '' ?> <?= $is_transparent ? 'is-transparent' : '' ?>">
+	<header class=<?= is_home() ? 'bg_purple' : '' ?>>
 		<div class="container">
 			<div class="menu">
 
-				<?php wp_nav_menu([
+				<?php wp_nav_menu( [ 
 					'container_class' => 'header_menu_container',
 					'container_id' => 'headerMenu',
 					'theme_location' => 'header'
-				]) ?>
+				] ) ?>
 			</div>
 			<div class="icon-menu-mobile">
 				<i class="icon-menu-hamburger"></i>
@@ -33,7 +33,8 @@
 						<button type="submit">
 							<i class="icon-search"></i>
 						</button>
-						<input type="search" name="s" placeholder="اینجا بگرد دنبالش" id="search" value="<?php the_search_query() ?>" />
+						<input type="search" name="s" placeholder="اینجا بگرد دنبالش" id="search"
+							value="<?php the_search_query() ?>" />
 					</div>
 				</form>
 			</div>
@@ -48,11 +49,13 @@
 			<div class="container-icons-menu">
 				<div class="container-icon-group-mobile">
 					<div class="icon-close-mobile"><i class="icon-close2"></i></div>
-					<div><?php the_custom_logo() ?></div>
+					<div>
+						<?php the_custom_logo() ?>
+					</div>
 				</div>
-				<?php wp_nav_menu([
+				<?php wp_nav_menu( [ 
 					'theme_location' => 'header'
-				]) ?>
+				] ) ?>
 			</div>
 		</div>
 		<div class="search-mobile-clicked">

@@ -1,14 +1,15 @@
-<?php
-$twitter = get_option('cyn_socialmedia_twitter');
-$youtube = get_option('cyn_socialmedia_youtube');
-$linkedin = get_option('cyn_socialmedia_linkedin');
-$instagram = get_option('cyn_socialmedia_instagram');
+<!-- <?php
+$twitter = get_option( 'cyn_socialmedia_twitter' );
+$youtube = get_option( 'cyn_socialmedia_youtube' );
+$linkedin = get_option( 'cyn_socialmedia_linkedin' );
+$instagram = get_option( 'cyn_socialmedia_instagram' );
 
-$slogan = get_option('cyn_slogan_footer');
+$slogan = get_option( 'cyn_slogan_footer' );
 
-$is_purple_class = isset($args['isPurple']) ? true : false;
+$is_purple_class = isset( $args['isPurple'] ) ? true : false;
 ?>
-<footer class="<?php if ($is_purple_class) echo 'is-purple' ?>">
+<footer class="<?php if ( $is_purple_class )
+	echo 'is-purple' ?>">
 	<div class="container">
 		<div class="container-logo-menu-footer">
 			<div class="logo-and-name">
@@ -16,7 +17,7 @@ $is_purple_class = isset($args['isPurple']) ? true : false;
 				<h2>Spark Abroad</h2>
 			</div>
 			<div class="footer-menu">
-				<?php wp_nav_menu(['theme_location' => 'footer']) ?>
+				<?php wp_nav_menu( [ 'theme_location' => 'footer' ] ) ?>
 			</div>
 		</div>
 		<div class="socialmedia-and-slogan">
@@ -31,7 +32,7 @@ $is_purple_class = isset($args['isPurple']) ? true : false;
 			</div>
 		</div>
 	</div>
-</footer>
+</footer> -->
 
 <div class="wp-scripts">
 	<?php wp_footer() ?>

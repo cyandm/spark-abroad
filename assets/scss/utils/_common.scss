@@ -32,12 +32,6 @@ body {
   border: none;
 }
 
-i {
-  background-color: rgba($c_blue_1, 0.1);
-  display: inline-block;
-  height: PxToRem(24);
-  width: PxToRem(24);
-}
 select {
   font-family: Peyda;
 }
@@ -69,10 +63,4 @@ input {
 
 textarea {
   font-family: 'Peyda';
-}
-
-body {
-  &:has(.overflow-hidden) {
-    overflow: hidden !important;
-  }
 }

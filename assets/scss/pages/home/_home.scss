@@ -4,11 +4,14 @@ body:has(main.home) {
   header {
     position: absolute;
     width: 100%;
-    @media (max-width: 1024px) {
-      position: relative;
-    }
   }
 
+  overflow: hidden;
+  max-height: 100vh;
+}
+
+main.home {
+  max-height: 100%;
   overflow: hidden;
   max-height: 100vh;
   @media (max-width: 1024px) {

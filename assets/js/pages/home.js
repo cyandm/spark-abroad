@@ -1,47 +1,14 @@
-import { overflowHidden as overflowHandlerHome } from '../modules/general';
-
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { Tween } from 'gsap/gsap-core';
-import Swiper from 'swiper';
 
-export const swiperService = new Swiper('.swiper-jobseeker-home', {
-  slidesPerView: 1.25,
-  breakpoints: {
-    400: {
-      slidesPerView: 1.5,
-    },
-    700: {
-      slidesPerView: 2,
-    },
-    900: {
-      slidesPerView: 3.5,
-    },
-    1100: {
-      slidesPerView: 4,
-    },
-  },
-});
 gsap.registerPlugin(ScrollTrigger);
-
-const popupHome = document.querySelector('.popup-home');
-const playBtnGroupHome = document.querySelectorAll('.play-btn');
-const btnClosePopupHome = document.querySelector('.btn-close-popup');
-
-const videoPopupHome = document.querySelector('.video-popup-jobseeker');
-const jobseekerNamePopupHome = document.querySelector(
-  '.text-popup .jobseeker-name-popup'
-);
-const jobseekerDescriptionPopupHome = document.querySelector(
-  '.text-popup .jobseeker-description-popup'
-);
 
 const ballSlide0 = document.querySelector('.slide-0 .ball');
 const mainSliderWrapper = document.querySelector('.slider-1-3-wrapper');
 const imgWrapper = document.querySelectorAll('.sidebar .img-wrapper');
 const slide1_Buttons = document.querySelectorAll('.slide-1 .btn-wrapper a');
 const mainBall = document.querySelector('.slider-1-3-wrapper .ball');
-const home = document.querySelector('main.home');
 
 const slide0_TL = gsap.timeline({});
 const ballSlide0_TL = gsap.timeline();
@@ -50,43 +17,22 @@ const headerPurple_RV = gsap.timeline();
 const mainSlider_TL = gsap.timeline();
 const slide1_TL = gsap.timeline();
 
-if (home) {
-  playBtnGroupHome.forEach((playBtn) => {
-    playBtn.addEventListener('click', () => {
-      const jobseekerVideoHome = playBtn.dataset.video;
-      jobseekerNamePopupHome.innerHTML = playBtn.dataset.name;
-      jobseekerDescriptionPopupHome.innerHTML = playBtn.dataset.description;
-      popupHome.classList.add('show');
-      videoPopupHome.src = jobseekerVideoHome;
-      home.classList.add('deactive');
-      videoPopupHome.load();
-      overflowHandlerHome();
-    });
-  });
-
-  btnClosePopupHome.addEventListener('click', () => {
-    popupHome.classList.remove('show');
-    home.classList.remove('deactive');
-    overflowHandlerHome();
-  });
-}
 // ballSlide0_TL.from(ballSlide0, {
 //   yPercent: -500,
 //   scale: 3,
 //   ease: 'bounce.out',
 //   duration: 3,
 // });
-/*if (home) {
-  ScrollTrigger.create({
-    trigger: "body",
-    start: "+1",
-    end: "8000px",
-    pin: true,
-    animation: slide0_TL,
-    scrub: 5,
-  });
-}
-*/
+
+ScrollTrigger.create({
+  trigger: 'body',
+  start: '+1',
+  end: '8000px',
+  pin: true,
+  animation: slide0_TL,
+  scrub: 5,
+});
+
 headerPurple_TL.to('img.custom-logo', { filter: 'brightness(1)' });
 headerPurple_TL.to('header li', { color: 'hsl(240, 67%, 17%)' });
 
