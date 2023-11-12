@@ -9,8 +9,6 @@ body:has(main.home) {
     }
   }
 
-  overflow: hidden;
-  max-height: 100vh;
   @media (max-width: 1024px) {
     overflow: visible;
     max-height: unset;
@@ -163,6 +161,9 @@ main.home {
           }
         }
       }
+      @media (min-width: 1024px) {
+        display: none;
+      }
     }
     .explain-services-counseling {
       margin-top: PxToRem(20);
@@ -308,6 +309,9 @@ main.home {
         img {
           translate: 0 12px;
         }
+      }
+      @media (min-width: 1024px) {
+        display: none;
       }
     }
     .container-services-home {

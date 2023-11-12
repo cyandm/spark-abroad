@@ -1,4 +1,5 @@
 import { overflowHidden as overflowHandlerSingleService } from '../modules/general';
+import Swiper from 'swiper';
 
 const btnPopupVideoService = document.querySelector('.popup-btn-service');
 const titlePopupService = document.querySelector('.title-service-popup');
@@ -19,7 +20,6 @@ const playBtnGroupSingleService = document.querySelectorAll(
 const header = document.querySelector('header>div');
 const section3SingleService = document.querySelector('.texts-section-3');
 
-import Swiper from 'swiper';
 export const swiperService = new Swiper('#swiperService', {
   slidesPerView: 1.85,
   spaceBetween: 1,

@@ -190,13 +190,21 @@ main.single-service-page {
           overflow: hidden;
           @include d_flex(column, center, start, nowrap, false, PxToRem(12));
           padding: PxToRem(20) PxToRem(16) PxToRem(20) PxToRem(20);
+          @media (max-width: 800px) {
+            width: 50%;
+            height: 50%;
+          }
           .title-card-know {
             @include font_style('caption');
             color: $c_white_2;
+
+            font-size: 4vw;
           }
           .description-card-know {
             @include font_style(body_2);
             color: $c_white_2;
+            font-size: 6vw;
+            line-height: 1;
           }
         }
       }
