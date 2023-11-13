@@ -24,18 +24,6 @@ button {
   pointer-events: all;
   cursor: pointer;
 }
-img {
-  width: 100%;
-  height: auto;
-}
-html {
-  &.overflow-hidden {
-    overflow: hidden !important;
-  }
-}
-body {
-  overflow-x: hidden !important;
-}
 
 html {
   overflow-x: hidden;

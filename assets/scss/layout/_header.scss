@@ -1,16 +1,8 @@
 @use '../utils/index' as *;
 
 header {
-  &.bg_purple {
-    background-color: $c_blue_1;
-  }
-  &.is-transparent {
-    position: absolute;
-    width: 100%;
-    background: unset !important;
-    z-index: 20;
-  }
   z-index: 1000000;
+
   .container {
     @include d_flex($equal_children: true, $a_i: center);
     padding-block: PxToRem(40);
@@ -102,7 +94,6 @@ header {
         }
 
         i {
-          background-color: unset;
           font-size: PxToRem(24);
         }
       }
