@@ -51,13 +51,15 @@ $getting_to_know_section1 =  get_field('getting_to_know')['getting_to_know_secti
 $getting_to_know_section2 = get_field('getting_to_know')['getting_to_know_section2'];
 $getting_to_know_title_sec1 = $getting_to_know_section1['getting_to_know_title'];
 $getting_to_know_subtitle_sec1 = $getting_to_know_section1['getting_to_know_subtitle'];
+$getting_to_know_voice_sec1 = $getting_to_know_section1['getting_to_know_voice'];
+$getting_to_know_title2_sec1 = $getting_to_know_section1['getting_to_know_title2'];
+$getting_to_know_description_sec1 = $getting_to_know_section1['getting_to_know_description'];
 $getting_to_know_image_sec1 = $getting_to_know_section1['getting_to_know_image'];
+
 $getting_to_know_title_sec2 = $getting_to_know_section2['getting_to_know_title'];
 $getting_to_know_subtitle_sec2 = $getting_to_know_section2['getting_to_know_subtitle'];
-$getting_to_know_title2_sec2 = $getting_to_know_section2['getting_to_know_title2'];
 $getting_to_know_description_sec2 = $getting_to_know_section2['getting_to_know_description'];
 $getting_to_know_image_sec2 = $getting_to_know_section2['getting_to_know_image'];
-$getting_to_know_voice_sec2 = $getting_to_know_section2['getting_to_know_voice'];
 
 /*-----------jobseeker section acf*/
 $jobseeker_section_home =  get_field('jobseeker_section_home');
@@ -87,7 +89,6 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 <?php get_header(); ?>
 
 <main class="home">
-	<?php get_template_part('/templates/pages/home/slider/index'); ?>
 
 	<div class="popup-home">
 		<div class="bg-color-popup"></div>
@@ -169,35 +170,50 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 		</div>
 
 		<div class="getting-to-know">
-			<div class="getting-to-know-section-1">
-				<div class="container">
-					<p class="title-getting-to-know"><?php echo $getting_to_know_title_sec1 ?></p>
-					<p class="subtitle-getting-to-know"><?php echo $getting_to_know_subtitle_sec1 ?></p>
-				</div>
-				<div class="image-getting-to-know"><?php echo wp_get_attachment_image($getting_to_know_image_sec1, 'full') ?></div>
-			</div>
 			<div class="getting-to-know-section-2">
-				<div class="container">
-					<p class="title-getting-to-know"><?php echo $getting_to_know_title_sec2 ?></p>
-					<p class="subtitle-getting-to-know"><?php echo $getting_to_know_subtitle_sec2 ?></p>
-					<div class="voice-getting-to-know">
-						<div class="play-voice">
-							<p id="time"></p>
-							<div id="" class="waveform" data-audio="<?php echo $getting_to_know_voice_sec2 ?>">
-								<i class="icon-play"></i>
+				<div class="container inner-section1">
+					<div>
+						<p class="title-getting-to-know"><?php echo $getting_to_know_title_sec1 ?></p>
+						<p class="subtitle-getting-to-know"><?php echo $getting_to_know_subtitle_sec1 ?></p>
+						<div class="voice-getting-to-know">
+							<div class="play-voice">
+								<p id="time"></p>
+								<div id="" class="waveform" data-audio="<?php echo $getting_to_know_voice_sec1 ?>">
+									<i class="icon-play"></i>
+								</div>
 							</div>
 						</div>
+						<p class="title2-getting-to-know"><?php echo $getting_to_know_title2_sec1 ?></p>
+						<div class="description-getting-to-know"><?php echo $getting_to_know_description_sec1 ?></div>
+
 					</div>
-					<p class="title2-getting-to-know"><?php echo $getting_to_know_title2_sec2 ?></p>
-					<div class="description-getting-to-know"><?php echo $getting_to_know_description_sec2 ?></div>
+					<div class="image-getting-to-know"><?php echo wp_get_attachment_image($getting_to_know_image_sec1, 'full') ?></div>
+
 				</div>
-				<div class="image-getting-to-know"><?php echo wp_get_attachment_image($getting_to_know_image_sec2, 'full') ?></div>
+
+				<div class="container inner-section2">
+					<img class="mobile-not-show cloud-top" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/cloud.svg' ?>" alt="cloud">
+					<img class="mobile-not-show cloud-bottom" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/cloud.svg' ?>" alt="cloud">
+
+					<div>
+						<p class="title-getting-to-know"><?php echo $getting_to_know_title_sec2 ?></p>
+						<p class="subtitle-getting-to-know"><?php echo $getting_to_know_subtitle_sec2 ?></p>
+						<div class="description-getting-to-know"><?php echo $getting_to_know_description_sec2 ?></div>
+
+					</div>
+					<div class="image-getting-to-know"><?php echo wp_get_attachment_image($getting_to_know_image_sec2, 'full') ?></div>
+
+				</div>
+
 			</div>
 		</div>
 
-
 		<div class="jobseeker-section-home">
+
 			<div class="container">
+				<img class="mobile-not-show cloud-top-center" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/cloud.svg' ?>" alt="cloud">
+				<img class="mobile-not-show cloud-top-left" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/cloud.svg' ?>" alt="cloud">
+
 				<p class="title-jobseeker-home"><?php echo $title_jobseeker_home ?></p>
 				<div class="description-jobseeker-home"><?php echo $description_jobseeker_home ?></div>
 			</div>
@@ -218,22 +234,19 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 			<?php endif; ?>
 
 			<div class="container">
-				<div class="container-title-btn-jobseeker">
-					<p class="title-jobseeker-home-diffrent"><?php echo $title2_jobseeker_home ?></p>
-					<div class="btn-accent"><a href="/درباره-ما#jobseeker-section-aboutus">مشاهده کامل</a></div>
+				<div class="title-subtitle-wrapper">
+					<img class="mobile-not-show cloud-center-center" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/cloud.svg' ?>" alt="cloud">
+					<div class="container-titles">
+						<p class="title-jobseeker-home"><?php echo $title3_jobseeker_home ?></p>
+						<div class="description-jobseeker-home"><?php echo $description3_jobseeker_home ?></div>
+					</div>
+					<div class="primary-btn"><a href="/خدمات/">مشاهده خدمات <i class="icon-arrow-down"></i></a></div>
 				</div>
-
-				<div class="description-jobseeker-home"><?php echo $description2_jobseeker_home ?></div>
-			</div>
-
-			<div class="container">
-				<p class="title-jobseeker-home"><?php echo $title3_jobseeker_home ?></p>
-				<div class="description-jobseeker-home"><?php echo $description3_jobseeker_home ?></div>
 				<div class="video-jobseeker-popup">
 					<div><?php echo wp_get_attachment_image($video_cover_jobseeker_home, 'full') ?></div>
 					<div class="play-btn" data-video="<?php echo $jobseeker_videolink_home ?>" data-name="<?php echo $title3_jobseeker_home ?>" data-description="<?php echo $description3_jobseeker_home ?>"><i class="icon-play2"></i></div>
 				</div>
-				<div class="primary-btn"><a href="/خدمات/">مشاهده خدمات <i class="icon-arrow-down"></i></a></div>
+				<div class="primary-btn mobile-btn"><a href="/خدمات/">مشاهده خدمات <i class="icon-arrow-down"></i></a></div>
 			</div>
 		</div>
 
@@ -241,6 +254,9 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 		if ($blogs_choosed != null) : ?>
 			<div class="container blog-section-home">
 				<div class="container-titles-btn">
+					<img class="mobile-not-show cloud-top-right" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/cloud.svg' ?>" alt="cloud">
+					<img class="mobile-not-show cloud-top-left" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/cloud.svg' ?>" alt="cloud">
+
 					<div class="title-and-subtitle">
 						<p class="title-blog-home"><?php echo $title_blog_home ?></p>
 						<p class="subtitle-blog-home"><?php echo $subtitle_blog_home ?></p>
@@ -254,7 +270,9 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 							get_template_part('/templates/card/card', 'blog', ['post_id' => $blog_id]);
 						}
 						?>
+						<div class="primary-btn"><a href="<?= site_url() . '/بلاگ/' ?>">مشاهده همه</a></div>
 					</div>
+
 				<?php endif; ?>
 
 				<?php
@@ -308,7 +326,11 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 
 		<?php if ($faq->have_posts()) : ?>
 			<div class="faq-section-home container">
+				<img class="mobile-not-show cloud-center-right" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/cloud.svg' ?>" alt="cloud">
+
 				<div class="faq-titles-btn">
+					<img class="mobile-not-show cloud-center-center" src="<?php echo get_stylesheet_directory_uri() . '/assets/imgs/cloud.svg' ?>" alt="cloud">
+
 					<div class="titles-and-btn-faq">
 						<p class="title-faq-home"><?php echo $title_faq_home ?></p>
 						<p class="subtitle-faq-home"><?php echo $subtitle_faq_home ?></p>
@@ -382,11 +404,11 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 			</div>
 		<?php endif; ?>
 
-		<div class="contact-us-section-home">
+		<div class="contact-us-section-home container">
 			<h1>اگه جواب سوالتو پیدا نکردی یا میخوای بیشتر بدونی </h1>
 			<p>تماس با ما</p>
 			<div class="container-form-image">
-				<form class="container contact-us-form">
+				<form class="contact-us-form">
 					<label>نام و نام خانوادگی</label>
 					<div class="container-border">
 						<i class="icon-user"></i>
@@ -405,14 +427,11 @@ $subtitle_faq_home = $faq_section_home['subtitle_faq_home'];
 					<div class="primary-btn"><i class="icon-send2"></i><a href="#">ارسال</a></div>
 				</form>
 				<div class="image-contact-us">
-					<img src="<?php echo get_stylesheet_directory_uri() . "/assets/imgs/img-contact-us.svg" ?>" alt="image contact us" />
+					<img src="<?php echo get_stylesheet_directory_uri() . "/assets/imgs/contact-us-image.png" ?>" alt="image contact us" />
 				</div>
 			</div>
 		</div>
-
 	</div>
-
-
 </main>
 
 <?php get_footer(null, ['isPurple' => true]); ?>

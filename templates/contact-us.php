@@ -4,11 +4,11 @@
 ?>
 
 <?php get_header() ?>
-<main class="contact-us">
+<main class="contact-us container">
     <h1>اگه جواب سوالتو پیدا نکردی یا میخوای بیشتر بدونی </h1>
     <p>تماس با ما</p>
     <div class="container-form-image">
-        <form class="container contact-us-form">
+        <form class="contact-us-form">
             <label>نام و نام خانوادگی</label>
             <div class="container-border">
                 <i class="icon-user"></i>
@@ -27,9 +27,9 @@
             <div class="primary-btn"><i class="icon-send2"></i><a href="#">ارسال</a></div>
         </form>
         <div class="image-contact-us">
-            <img src="<?php echo get_stylesheet_directory_uri() . "/assets/imgs/img-contact-us.svg" ?>" alt="image contact us" />
+            <img src="<?php echo get_stylesheet_directory_uri() . "/assets/imgs/contact-us-image.png" ?>" alt="image contact us" />
         </div>
     </div>
 </main>
 
-<?php get_footer(null, ['isPurple' => true]) ?>
+<?php get_footer() ?>

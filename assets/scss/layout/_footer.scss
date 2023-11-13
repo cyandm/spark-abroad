@@ -1,11 +1,7 @@
-@use "../utils/index" as *;
+@use '../utils/index' as *;
 
 footer {
   padding-top: PxToRem(20);
-
-  &.is-purple {
-    background-color: $c_blue_5;
-  }
   @include d_flex($dir: column, $gap: PxToRem(24));
   div.container {
     width: 100%;
@@ -25,7 +21,7 @@ footer {
         align-self: center;
       }
       h2 {
-        @include font_style("h2");
+        @include font_style('h2');
         color: $c_gray;
         align-self: center;
         margin-bottom: PxToRem(16);
@@ -42,7 +38,7 @@ footer {
       ul {
         @include d_flex(column, start, start, nowrap, false, PxToRem(24));
         li {
-          @include font_style("h3");
+          @include font_style('h3');
           color: $c_gray;
           &:hover {
             color: $c_blue_1;

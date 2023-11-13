@@ -6,9 +6,8 @@ $instagram = get_option('cyn_socialmedia_instagram');
 
 $slogan = get_option('cyn_slogan_footer');
 
-$is_purple_class = isset($args['isPurple']) ? true : false;
 ?>
-<footer class="<?php if ($is_purple_class) echo 'is-purple' ?>">
+<footer>
 	<div class="container">
 		<div class="container-logo-menu-footer">
 			<div class="logo-and-name">

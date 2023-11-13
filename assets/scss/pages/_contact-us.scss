@@ -1,4 +1,4 @@
-@use "../utils/" as *;
+@use '../utils/' as *;
 main.contact-us {
   @include d_flex(column, start, start, nowrap, false, 0);
   width: 100;
@@ -23,10 +23,18 @@ main.contact-us {
   .container-form-image {
     width: 100%;
     position: relative;
+    @include d_flex(
+      column-reverse,
+      space-between,
+      center,
+      nowrap,
+      true,
+      PxToRem(4)
+    );
 
     form {
       @include d_flex(column, start, start, nowrap, false, PxToRem(4));
-
+      width: 100%;
       label {
         @include font_style(body_2);
         color: $c_blue_2;
@@ -41,7 +49,7 @@ main.contact-us {
         position: relative;
         width: 100%;
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           inset: -1px;
           border-radius: inherit;
@@ -87,38 +95,15 @@ main.contact-us {
       }
     }
     .image-contact-us {
-      width: 100%;
-      margin-bottom: -0.8rem;
-      @media (width>700px) {
-        text-align: left;
-      }
-      img {
-        width: 100%;
-        @media (width>700px) {
-          width: 40%;
-        }
-      }
-    }
-    @media (min-width: 700px) {
-      @include d_flex(row, start, start, nowrap, false, PxToRem(4));
+      @include d_flex(row, flex-end, center, nowrap, true, PxToRem(4));
 
-      form {
-        flex: 1;
-        margin-bottom: PxToRem(200);
-      }
-      .image-contact-us {
-        img {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-        }
-        flex: 2;
+      > img {
+        object-fit: contain;
+        max-height: PxToRem(540);
       }
     }
-    @media (max-width: 1000px) {
-      form {
-        flex-basis: 40%;
-      }
+    @media (min-width: 800px) {
+      @include d_flex(row, space-between, center, nowrap, true, PxToRem(4));
     }
   }
 }

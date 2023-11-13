@@ -1,22 +1,5 @@
 @use '../../utils/' as *;
 
-body:has(main.home) {
-  header {
-    position: absolute;
-    width: 100%;
-    @media (max-width: 1024px) {
-      position: relative;
-    }
-  }
-
-  overflow: hidden;
-  max-height: 100vh;
-  @media (max-width: 1024px) {
-    overflow: visible;
-    max-height: unset;
-  }
-}
-
 main.home {
   max-height: 100%;
   overflow: hidden;
@@ -126,6 +109,8 @@ main.home {
         margin-bottom: PxToRem(60);
       }
       .container-ball-stand-mobile {
+        max-width: PxToRem(600);
+
         @include d_flex(column, center, flex-end, nowrap, false, 0);
         width: 70%;
         @media (max-width: 500px) {
@@ -306,7 +291,7 @@ main.home {
         overflow: hidden;
         width: 101%;
         img {
-          translate: 0 12px;
+          translate: 0 13px;
         }
       }
     }
@@ -342,13 +327,57 @@ main.home {
           margin-bottom: PxToRem(8);
         }
         .image-getting-to-know {
+          width: 100%;
           > img {
-            max-height: PxToRem(540);
+            max-height: PxToRem(560);
             object-fit: contain;
           }
         }
       }
       .getting-to-know-section-2 {
+        @include d_flex(column, center, center, nowrap, false, PxToRem(28));
+        .inner-section1 {
+          @include d_flex(
+            row,
+            space-between,
+            center,
+            nowrap,
+            true,
+            PxToRem(24)
+          );
+          @media (max-width: 800px) {
+            flex-direction: column;
+          }
+        }
+        .inner-section2 {
+          position: relative;
+          padding-block: PxToRem(68);
+          @include d_flex(
+            row-reverse,
+            space-between,
+            center,
+            nowrap,
+            true,
+            PxToRem(24)
+          );
+          .cloud-top {
+            position: absolute;
+            top: PxToRem(-20);
+            width: PxToRem(200);
+            right: 20%;
+            z-index: -1;
+          }
+          .cloud-bottom {
+            position: absolute;
+            bottom: PxToRem(40);
+            width: PxToRem(244);
+            right: 30%;
+            z-index: -1;
+          }
+          @media (max-width: 800px) {
+            flex-direction: column;
+          }
+        }
         .title2-getting-to-know {
           @include font_style(h2);
           color: $c_blue_2;
@@ -366,8 +395,25 @@ main.home {
     .jobseeker-section-home {
       @include d_flex(column, space-between, start, wrap, false, 4px);
       margin-bottom: PxToRem(44);
+
       .container {
+        position: relative;
+
         width: 100%;
+        .cloud-top-center {
+          position: absolute;
+          width: PxToRem(144);
+          translate: 50% 0;
+          z-index: -1;
+          top: PxToRem(32);
+        }
+        .cloud-top-left {
+          width: PxToRem(196);
+          position: absolute;
+          left: PxToRem(60);
+          top: 0;
+          width: PxToRem(144);
+        }
       }
       .container-swiper-jobseeker {
         width: 100%;
@@ -386,7 +432,7 @@ main.home {
         }
       }
       .title-jobseeker-home {
-        @include font_style(h2);
+        @include font_style(h1);
         color: $c_blue_2;
         width: 100%;
       }
@@ -395,7 +441,7 @@ main.home {
         margin-bottom: PxToRem(16);
         > p {
           @include font_style(body_2);
-          color: $c_blue_2;
+          color: $c_gray;
           text-align: justify;
         }
       }
@@ -416,7 +462,6 @@ main.home {
             width: 100%;
             border-radius: PxToRem(24);
             object-fit: contain;
-            max-height: PxToRem(500);
           }
         }
 
@@ -447,17 +492,52 @@ main.home {
       }
       .container {
         @include d_flex(column, center, center, nowrap, false, 0);
-        .primary-btn {
-          padding: PxToRem(8) PxToRem(24);
+
+        .title-subtitle-wrapper {
+          @include d_flex(row, space-between, center, nowrap, false, 0);
           width: 100%;
-          @media (min-width: 600px) {
-            width: 50%;
+          position: relative;
+          .cloud-center-center {
+            position: absolute;
+            width: PxToRem(252);
+            z-index: -1;
+            left: 20%;
           }
-          a {
-            @include d_flex(row, center, center, nowrap, false, 0);
-            i {
+
+          .container-titles {
+            @include d_flex(column, start, start, nowrap, false, 0);
+          }
+          .primary-btn {
+            padding: PxToRem(8) PxToRem(24);
+            @include d_flex(row, center, center, nowrap, false, PxToRem(8));
+
+            a {
               @include d_flex(row, center, center, nowrap, false, 0);
-              background-color: unset;
+              i {
+                @include d_flex(row, center, center, nowrap, false, 0);
+                background-color: unset;
+                rotate: 140deg;
+                font-size: PxToRem(20);
+              }
+            }
+            @media (max-width: 600px) {
+              display: none;
+            }
+          }
+        }
+        .primary-btn {
+          &.mobile-btn {
+            width: 100%;
+            padding: PxToRem(8) PxToRem(24);
+            a {
+              @include d_flex(row, center, center, nowrap, false, 0);
+              i {
+                @include d_flex(row, center, center, nowrap, false, 0);
+                background-color: unset;
+              }
+            }
+            @media (min-width: 601px) {
+              display: none;
             }
           }
         }
@@ -466,8 +546,21 @@ main.home {
     .blog-section-home {
       margin-bottom: PxToRem(44);
       .container-titles-btn {
+        position: relative;
         margin-bottom: PxToRem(16);
         @include d_flex(row, space-between, center, nowrap, false, 0);
+        .cloud-top-right {
+          position: absolute;
+          width: PxToRem(180);
+          right: 30%;
+          z-index: -1;
+        }
+        .cloud-top-left {
+          position: absolute;
+          width: PxToRem(220);
+          z-index: -1;
+          left: 15%;
+        }
         .primary-btn {
           padding: PxToRem(8) PxToRem(24);
           @media (max-width: 600px) {
@@ -475,6 +568,14 @@ main.home {
           }
         }
       }
+      .blog-choosed {
+        .primary-btn {
+          @media (min-width: 601px) {
+            display: none;
+          }
+        }
+      }
+
       .title-blog-home {
         @include font_style(h1);
         color: $c_blue_2;
@@ -521,9 +622,24 @@ main.home {
     }
     .faq-section-home {
       margin-bottom: PxToRem(44);
+      position: relative;
+      .cloud-center-right {
+        position: absolute;
+        width: PxToRem(164);
+        z-index: -1;
+        right: PxToRem(-12);
+        bottom: 15%;
+      }
       .faq-titles-btn {
+        position: relative;
         margin-bottom: PxToRem(16);
         @include d_flex(row, space-between, center, nowrap, false, 0);
+        .cloud-center-center {
+          position: absolute;
+          width: PxToRem(232);
+          z-index: -1;
+          left: 40%;
+        }
         .titles-and-btn-faq {
           .title-faq-home {
             @include font_style(h1);
@@ -659,6 +775,7 @@ main.home {
       }
     }
     .contact-us-section-home {
+      margin-bottom: PxToRem(52);
       @include d_flex(column, start, start, nowrap, false, 0);
       width: 100;
       h1 {
@@ -666,26 +783,31 @@ main.home {
         color: $c_blue_2;
         text-align: justify;
         width: 100;
-        @media (max-width: 1440px) {
-          padding-inline: PxToRem(16);
-        }
       }
       p {
         @include font_style(body_2);
         color: $c_gray;
         width: 100;
-        @media (max-width: 1440px) {
-          padding-inline: PxToRem(16);
+        @media (max-width: 800px) {
+          margin-bottom: PxToRem(48);
         }
       }
 
       .container-form-image {
         width: 100%;
         position: relative;
+        @include d_flex(
+          column-reverse,
+          space-between,
+          center,
+          nowrap,
+          true,
+          PxToRem(4)
+        );
 
         form {
           @include d_flex(column, start, start, nowrap, false, PxToRem(4));
-
+          width: 100%;
           label {
             @include font_style(body_2);
             color: $c_blue_2;
@@ -693,9 +815,8 @@ main.home {
           div {
             @include d_flex(row, start, start, nowrap, false, PxToRem(4));
             background-color: $c_white_2;
-            padding: PxToRem(4) PxToRem(12) PxToRem(4) 0;
             border-radius: PxToRem(20);
-
+            padding: PxToRem(4) PxToRem(12) PxToRem(4) 0;
             border: 1px solid $gradient-blue;
             margin-bottom: PxToRem(20);
             position: relative;
@@ -711,7 +832,7 @@ main.home {
             i {
               @include d_flex(row, start, center, nowrap, false, PxToRem(4));
               color: $c_gray;
-              background-color: unset;
+              background-color: $c_white_2;
             }
             input,
             textarea {
@@ -728,7 +849,7 @@ main.home {
             }
             &.primary-btn {
               background-color: $c_blue_1;
-              padding: PxToRem(8) PxToRem(24);
+              padding: PxToRem(12) PxToRem(24) PxToRem(12) PxToRem(36);
               @include d_flex(row, center, center, nowrap, false, PxToRem(4));
               i {
                 @include d_flex(row, center, center, nowrap, false, 0);
@@ -747,40 +868,23 @@ main.home {
           }
         }
         .image-contact-us {
-          width: 100%;
-          margin-bottom: -0.8rem;
-          @media (width>700px) {
-            text-align: left;
-          }
-          img {
-            width: 100%;
-            @media (width>700px) {
-              width: 40%;
-            }
-          }
-        }
-        @media (min-width: 700px) {
-          @include d_flex(row, start, start, nowrap, false, PxToRem(4));
+          @include d_flex(row, flex-end, center, nowrap, true, PxToRem(4));
 
-          form {
-            flex: 1;
-            margin-bottom: PxToRem(200);
-          }
-          .image-contact-us {
-            img {
-              position: absolute;
-              bottom: 0;
-              left: 0;
-            }
-            flex: 2;
+          > img {
+            object-fit: contain;
+            max-height: PxToRem(540);
           }
         }
-        @media (max-width: 1000px) {
-          form {
-            flex-basis: 40%;
-          }
+        @media (min-width: 800px) {
+          @include d_flex(row, space-between, center, nowrap, true, PxToRem(4));
         }
       }
     }
+  }
+}
+
+.mobile-not-show {
+  @media (max-width: 800px) {
+    display: none;
   }
 }
